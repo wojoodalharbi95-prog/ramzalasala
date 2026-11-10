@@ -265,6 +265,7 @@ html.gv-on,html.gv-on body{overflow:hidden}
 .det:last-child{margin-bottom:0}
 .det .im{position:relative}
 .det .fr img{aspect-ratio:2/3;object-fit:cover}
+.det.s.rev .inset{inset-inline-end:auto;inset-inline-start:-2%}
 .no{display:flex;align-items:baseline;gap:10px;direction:ltr;font-family:var(--serif);font-weight:300;color:var(--acc)}
 .no b{font-weight:300;font-size:clamp(56px,6vw,92px);line-height:1}
 .no small{font-size:16px;font-style:italic;color:var(--mut);letter-spacing:.06em}
@@ -274,11 +275,11 @@ html.gv-on,html.gv-on body{overflow:hidden}
 .det p{color:var(--tx2);line-height:2}
 .det p.t-en{font-family:var(--serif);font-style:italic;font-size:var(--f-en);line-height:1.55}
 /* S — split */
-.det.s .im{grid-column:1/span 6}
-.det.s .tx{grid-column:8/span 4}
-.det.s.rev .im{grid-column:7/span 6;grid-row:1}
-.det.s.rev .tx{grid-column:2/span 4;grid-row:1}
-.det .inset{position:absolute;width:38%;bottom:-8%;inset-inline-end:-10%;border:clamp(6px,.7vw,10px) solid var(--bg);box-shadow:0 30px 60px rgba(60,42,22,.22)}
+.det.s .im{grid-column:1/span 7}
+.det.s .tx{grid-column:9/span 4}
+.det.s.rev .im{grid-column:6/span 7;grid-row:1}
+.det.s.rev .tx{grid-column:1/span 4;grid-row:1}
+.det .inset{position:absolute;width:34%;bottom:-9%;inset-inline-end:-2%;border:clamp(6px,.7vw,10px) solid var(--bg);box-shadow:0 30px 60px rgba(60,42,22,.22)}
 /* C — centred feature */
 .det.c .im{grid-column:4/span 6}
 .det.c .tx{grid-column:3/span 8;display:grid;grid-template-columns:auto 1fr;column-gap:clamp(30px,4vw,64px);align-items:start;margin-top:clamp(36px,6vh,64px)}
@@ -386,18 +387,12 @@ html[data-lang="en"] .film-copy .versions{direction:ltr}
   .ch-head{grid-template-columns:auto 1fr;gap:6px 14px}
   .ch-head .sub-r{grid-column:1/-1;justify-content:space-between}
   .grid12{column-gap:12px}
-  .c-arr .a{grid-column:1/span 6;margin:0}
-  .c-arr .b{grid-column:7/span 6;margin-top:56px}
-  .c-liv .a{grid-column:1/-1}
-  .c-liv .stack{grid-column:1/-1;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-  .c-liv .stack figure:nth-child(2){margin-top:48px}
-  .c-pri .a{grid-column:1/span 6}
-  .c-pri .b{grid-column:7/span 6;margin-top:56px}
-  .c-cls{grid-template-columns:1fr 1fr;row-gap:12px}
-  .c-cls figure:nth-child(even){margin-top:48px}
-  .c-cls figure:nth-child(3){margin-top:0}
-  .c-cls figure:nth-child(4){margin-top:48px}
-  .grid12 figcaption{flex-direction:column;gap:2px}
+  /* mobile: every photo full width, same size and position as the lead */
+  .c-arr .a,.c-arr .b,.c-pri .a,.c-pri .b,.c-liv .a,.c-liv .stack{grid-column:1/-1;margin:0}
+  .c-arr .b,.c-pri .b,.c-liv .stack{margin-top:34px}
+  .c-liv .stack{grid-template-columns:1fr;gap:34px}
+  .c-cls{grid-template-columns:1fr;row-gap:22px}
+  .c-cls figure,.c-cls figure:nth-child(n){margin-top:0}
   .c-roof .tx,.c-roof figure{grid-column:1/-1}
   .c-roof .tx{order:2;margin-top:40px;padding:0}
   .thumbs{--n:3;gap:8px}
@@ -577,24 +572,24 @@ html[data-lang="en"] .film-copy .versions{direction:ltr}
     <div class="im rv"><figure class="ph main rv" data-open="2048"><div class="fr"><img src="img/2048-m.jpg" srcset="img/2048-m.jpg 800w, img/2048.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="الحديقة الداخلية" loading="lazy" decoding="async"></div></figure><figure class="ph inset rv" data-open="2051"><div class="fr"><img src="img/2051-m.jpg" srcset="img/2051-m.jpg 800w, img/2051.jpg 1467w" sizes="(max-width:760px) 40vw, 18vw" width="1467" height="2200" alt="السواتر المنقوشة" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>01</b><small>/ 07</small></span><h3 class="trk">The Inner Garden</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">الحديقة الداخلية</span><p class="t-ar">واحة خضراء في قلب البيت: مرجيحة للاسترخاء، وأحواض زهور ملوّنة، وسواتر بنقوش هندسية تحفظ الخصوصية.</p><p class="t-en">A green oasis at the heart of the home: a swing to unwind, colourful flower beds, and patterned screens that keep its privacy.</p></div></div>
   </article>
-  <article class="det c">
-    <div class="im rv"><figure class="ph rv" data-open="2210"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="الزجاج والضوء" loading="lazy" decoding="async"></div></figure></div>
+  <article class="det s rev">
+    <div class="im rv"><figure class="ph main rv" data-open="2210"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="الزجاج والضوء" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>02</b><small>/ 07</small></span><h3 class="trk">Glass &amp; Light</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">الزجاج والضوء</span><p class="t-ar">درج بدرابزين زجاجي، وإطلالة مفتوحة على الدور الأرضي تملأ البيت بالمساحة والضوء.</p><p class="t-en">A glass-railed staircase, and an open view down to the ground floor that fills the home with space and light.</p></div></div>
   </article>
-  <article class="det d">
-    <div class="im rv"><figure class="ph rv" data-open="2135"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1467w" sizes="(max-width:760px) 50vw, 32vw" width="1467" height="2200" alt="غرف النوم" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-open="2120"><div class="fr"><img src="img/2120-m.jpg" srcset="img/2120-m.jpg 800w, img/2120.jpg 1467w" sizes="(max-width:760px) 50vw, 32vw" width="1467" height="2200" alt="خزائن بواجهات زجاجية" loading="lazy" decoding="async"></div></figure></div>
+  <article class="det s">
+    <div class="im rv"><figure class="ph main rv" data-open="2135"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="غرف النوم" loading="lazy" decoding="async"></div></figure><figure class="ph inset rv" data-open="2120"><div class="fr"><img src="img/2120-m.jpg" srcset="img/2120-m.jpg 800w, img/2120.jpg 1467w" sizes="(max-width:760px) 40vw, 18vw" width="1467" height="2200" alt="خزائن بواجهات زجاجية" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>03</b><small>/ 07</small></span><h3 class="trk">Quiet Bedrooms</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">غرف النوم</span><p class="t-ar">خمس غرف نوم واسعة، كل غرفة مصممة للهدوء والراحة، بخزائن أنيقة بواجهات زجاجية.</p><p class="t-en">Five spacious bedrooms, each designed to be calm and restful, with elegant glass-fronted wardrobes.</p></div></div>
   </article>
   <article class="det s rev">
     <div class="im rv"><figure class="ph main rv" data-open="2126"><div class="fr"><img src="img/2126-m.jpg" srcset="img/2126-m.jpg 800w, img/2126.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="الحمّامات" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>04</b><small>/ 07</small></span><h3 class="trk">Backlit Mirrors</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">الحمّامات</span><p class="t-ar">ثمانية حمّامات بتشطيبات فاخرة: مرايا بإضاءة خلفية، ودشّات زجاجية، ومغاسل رخامية.</p><p class="t-en">Eight bathrooms with luxury finishes: backlit mirrors, glass showers and marble vanities.</p></div></div>
   </article>
-  <article class="det d rev">
-    <div class="im rv"><figure class="ph rv" data-open="2294"><div class="fr"><img src="img/2294-m.jpg" srcset="img/2294-m.jpg 800w, img/2294.jpg 1467w" sizes="(max-width:760px) 50vw, 32vw" width="1467" height="2200" alt="المطبخ" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-open="2303"><div class="fr"><img src="img/2303-m.jpg" srcset="img/2303-m.jpg 800w, img/2303.jpg 1467w" sizes="(max-width:760px) 50vw, 32vw" width="1467" height="2200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure></div>
+  <article class="det s">
+    <div class="im rv"><figure class="ph main rv" data-open="2294"><div class="fr"><img src="img/2294-m.jpg" srcset="img/2294-m.jpg 800w, img/2294.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="المطبخ" loading="lazy" decoding="async"></div></figure><figure class="ph inset rv" data-open="2303"><div class="fr"><img src="img/2303-m.jpg" srcset="img/2303-m.jpg 800w, img/2303.jpg 1467w" sizes="(max-width:760px) 40vw, 18vw" width="1467" height="2200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>05</b><small>/ 07</small></span><h3 class="trk">The Kitchen</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">المطبخ</span><p class="t-ar">يجمع الأناقة والعملية: خزائن بلون أخضر هادئ، ولمسات خشبية دافئة، وتفاصيل بألوان ناعمة تكمّل المكان.</p><p class="t-en">Elegance meets practicality: calm green cabinetry, warm wood accents, and soft-toned details that complete the space.</p></div></div>
   </article>
-  <article class="det c">
-    <div class="im rv"><figure class="ph rv" data-open="2318"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="المصعد الخاص" loading="lazy" decoding="async"></div></figure></div>
+  <article class="det s rev">
+    <div class="im rv"><figure class="ph main rv" data-open="2318"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1467w" sizes="(max-width:760px) 100vw, 46vw" width="1467" height="2200" alt="المصعد الخاص" loading="lazy" decoding="async"></div></figure></div>
     <div class="tx rv"><div class="hd"><span class="no"><b>06</b><small>/ 07</small></span><h3 class="trk">Private Elevator</h3><span class="hl"></span></div><div class="bd"><span class="ar-t t-ar">المصعد الخاص</span><p class="t-ar">مصعد خاص يربط جميع الأدوار بسهولة، من الدور الأرضي حتى السطح.</p><p class="t-en">A private elevator connects every floor with ease, from the ground floor to the roof.</p></div></div>
   </article>
   <article class="det s">
