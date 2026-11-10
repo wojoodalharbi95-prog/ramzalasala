@@ -190,6 +190,16 @@ figure figcaption .c{direction:ltr;unicode-bidi:isolate}
 .pause .q{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(34px,4.2vw,64px);line-height:1.08;direction:ltr;text-align:start}
 .pause .q2{margin-top:22px;font-size:clamp(16px,1.3vw,19px);color:#5d5a55}
 
+
+.pair .a{grid-column:1/span 6}
+.pair .b{grid-column:7/span 6;margin-top:14vh}
+.sub{margin-bottom:clamp(40px,6vh,70px)}
+.sub .close-head{margin-bottom:0}
+.sub-r{display:flex;align-items:baseline;gap:18px}
+.ar-s{font-size:15px;color:var(--stone)}
+.mosaic{columns:3;column-gap:clamp(14px,2vw,28px);padding:0 var(--pad);max-width:1480px;margin:0 auto clamp(80px,14vh,190px)}
+.mosaic figure{break-inside:avoid;margin-bottom:clamp(14px,2vw,28px)}
+
 /* ============ IV. DETAILS ============ */
 .details{background:var(--ink2);padding:clamp(110px,17vh,200px) 0 clamp(40px,8vh,90px)}
 .det{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(14px,2vw,30px);align-items:center;padding:0 var(--pad);max-width:1400px;margin:0 auto clamp(100px,16vh,200px)}
@@ -305,6 +315,11 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   .trio .b{width:70%;justify-self:end;margin-top:48px}
   .trio .c3{width:86%;margin-top:48px}
   .duo2 .b{grid-row:auto;width:64%;margin-top:48px}
+  .pair .a,.pair .b{grid-column:1/-1;margin:0}
+  .pair .a{width:86%}
+  .pair .b{width:72%;justify-self:end;margin-top:48px}
+  .mosaic{columns:2}
+  .sub-r .trk{display:none}
   .duo2 .a{margin-top:0}
   .closeups figure{grid-column:span 6;margin-top:0}
   .closeups figure:nth-of-type(even){margin-top:48px}
@@ -347,8 +362,8 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
 <!-- I. THE OPENING -->
 <section class="opening" id="opening" data-chap="I — The Opening">
   <picture>
-    <source media="(max-aspect-ratio: 4/5)" srcset="img/2015-m.jpg 1200w, img/2015.jpg 2400w" sizes="100vw">
-    <img src="img/2444.jpg" srcset="img/2444-m.jpg 1200w, img/2444.jpg 2400w" sizes="100vw" alt="واجهات فلل دورك ليلًا في جوهرة طيبة" fetchpriority="high" decoding="async">
+    <source media="(max-aspect-ratio: 4/5)" srcset="img/2015-m.jpg 1200w, img/2015.jpg 2200w" sizes="100vw">
+    <img src="img/2444.jpg" srcset="img/2444-m.jpg 1200w, img/2444.jpg 2200w" sizes="100vw" alt="واجهات فلل دورك ليلًا في جوهرة طيبة" fetchpriority="high" decoding="async">
   </picture>
   <div class="intro">
     <h1 class="h1" lang="en"><span>JOHARAT</span> <span>TAIBAH</span></h1>
@@ -406,78 +421,36 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
     <p class="t-ar">من الواجهات تحت ضوء الليل، إلى التفاصيل الصغيرة التي تصنع الإحساس بالمكان.</p>
     <p class="t-en">From the façades under the night light to the small details that give the place its feeling.</p>
   </div>
-
+<div class="ed sub"><div class="close-head rv"><span class="serif">The Arrival</span><span class="sub-r"><span class="ar-s">الوصول</span><span class="trk">I · Exterior</span></span></div></div>
   <div class="bleed">
     <figure class="ph rv" data-lb data-full="img/2447.jpg" data-cap="The Ensemble · الواجهات ليلًا">
-      <div class="fr"><img src="img/2447-m.jpg" srcset="img/2447-m.jpg 1200w, img/2447.jpg 2400w" sizes="100vw" width="2400" height="1600" alt="صف فلل دورك ليلًا" loading="lazy" decoding="async"></div>
+      <div class="fr"><img src="img/2447-m.jpg" srcset="img/2447-m.jpg 1200w, img/2447.jpg 2200w" sizes="100vw" width="2400" height="1600" alt="صف فلل دورك ليلًا" loading="lazy" decoding="async"></div>
       <figcaption><span class="c">The Ensemble</span><span class="ar">الواجهات ليلًا</span></figcaption>
     </figure>
   </div>
-
-  <div class="ed duo">
-    <figure class="ph rv a" data-lb data-full="img/2027.jpg" data-cap="The Arrival · المدخل">
-      <div class="fr"><img src="img/2027-m.jpg" srcset="img/2027-m.jpg 800w, img/2027.jpg 1600w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الفناء الأمامي والمدخل ليلًا" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">I · The Arrival</span><span class="ar">المدخل</span></figcaption>
-    </figure>
-    <figure class="ph rv b" data-lb data-full="img/2435.jpg" data-cap="The Street · الواجهة">
-      <div class="fr"><img src="img/2435-m.jpg" srcset="img/2435-m.jpg 800w, img/2435.jpg 1600w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="واجهة الفلل على الشارع" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">II · The Street</span><span class="ar">الواجهة</span></figcaption>
-    </figure>
-  </div>
-
-  <div class="ed solo">
-    <figure class="ph rv" data-lb data-full="img/2072.jpg" data-cap="The Guest Lounge · مجلس الضيوف">
-      <div class="fr"><img src="img/2072-m.jpg" srcset="img/2072-m.jpg 800w, img/2072.jpg 1600w" sizes="(max-width:760px) 100vw, 62vh" width="1600" height="2400" alt="مجلس الضيوف" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">III · The Guest Lounge</span><span class="ar">مجلس الضيوف</span></figcaption>
-    </figure>
-  </div>
-
-  <div class="ed trio">
-    <figure class="ph rv a" data-lb data-full="img/2417.jpg" data-cap="The Dining Room · غرفة الطعام">
-      <div class="fr"><img src="img/2417-m.jpg" srcset="img/2417-m.jpg 800w, img/2417.jpg 1600w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="غرفة الطعام" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">IV · Dining</span><span class="ar">غرفة الطعام</span></figcaption>
-    </figure>
-    <figure class="ph rv b" data-lb data-full="img/2063.jpg" data-cap="The Living Room · الصالة">
-      <div class="fr"><img src="img/2063-m.jpg" srcset="img/2063-m.jpg 800w, img/2063.jpg 1600w" sizes="(max-width:760px) 70vw, 32vw" width="1600" height="2400" alt="الصالة وجدار التلفاز الخشبي" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">V · Living</span><span class="ar">الصالة</span></figcaption>
-    </figure>
-    <figure class="ph rv c3" data-lb data-full="img/2195.jpg" data-cap="The Upper Lounge · الجلسة العلوية">
-      <div class="fr"><img src="img/2195-m.jpg" srcset="img/2195-m.jpg 800w, img/2195.jpg 1600w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="الجلسة العلوية والأرفف المضاءة" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">VI · Upper Lounge</span><span class="ar">الجلسة العلوية</span></figcaption>
-    </figure>
-  </div>
-
-  <div class="ed closeups">
-    <div class="close-head rv"><span class="serif">In Close-up</span><span class="trk">Details</span></div>
-    <figure class="ph rv" data-lb data-full="img/2216.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2216-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="تنسيق ورد على طاولة الطعام" loading="lazy" decoding="async"></div></figure>
-    <figure class="ph rv" data-lb data-full="img/2225.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2225-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="مغسلة وتفاصيل الحمّام" loading="lazy" decoding="async"></div></figure>
-    <figure class="ph rv" data-lb data-full="img/2312.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2312-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="قطعة فنية حجرية" loading="lazy" decoding="async"></div></figure>
-    <figure class="ph rv" data-lb data-full="img/2369.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2369-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="إضاءة جانبية بتصميم نحتي" loading="lazy" decoding="async"></div></figure>
-    <figure class="ph rv" data-lb data-full="img/2291.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2291-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure>
-    <figure class="ph rv" data-lb data-full="img/2396.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2396-m.jpg" sizes="(max-width:760px) 50vw, 16vw" width="800" height="1200" alt="مغسلة بخطوط منحنية" loading="lazy" decoding="async"></div></figure>
-  </div>
-
-  <div class="ed duo2">
-    <figure class="ph rv a" data-lb data-full="img/2105.jpg" data-cap="Light &amp; Reflection · الضوء والانعكاس">
-      <div class="fr"><img src="img/2105-m.jpg" srcset="img/2105-m.jpg 800w, img/2105.jpg 1600w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="مرآة بإضاءة خفية وتسريحة" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">VII · Light &amp; Reflection</span><span class="ar">الضوء والانعكاس</span></figcaption>
-    </figure>
-    <figure class="ph rv b" data-lb data-full="img/2159.jpg" data-cap="The Bedrooms · غرف النوم">
-      <div class="fr"><img src="img/2159-m.jpg" srcset="img/2159-m.jpg 800w, img/2159.jpg 1600w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="غرفة نوم" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">VIII · The Bedrooms</span><span class="ar">غرف النوم</span></figcaption>
-    </figure>
-  </div>
-
+<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2027.jpg" data-cap="The Arrival · المدخل"><div class="fr"><img src="img/2027-m.jpg" srcset="img/2027-m.jpg 800w, img/2027.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="المدخل" loading="lazy" decoding="async"></div><figcaption><span class="c">The Arrival</span><span class="ar">المدخل</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2435.jpg" data-cap="The Street · الواجهة"><div class="fr"><img src="img/2435-m.jpg" srcset="img/2435-m.jpg 800w, img/2435.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="الواجهة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Street</span><span class="ar">الواجهة</span></figcaption></figure></div>
+<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2006.jpg" data-cap="Night Entrance · المدخل ليلًا"><div class="fr"><img src="img/2006-m.jpg" srcset="img/2006-m.jpg 800w, img/2006.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="المدخل ليلًا" loading="lazy" decoding="async"></div><figcaption><span class="c">Night Entrance</span><span class="ar">المدخل ليلًا</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2012.jpg" data-cap="The Gate · البوابة"><div class="fr"><img src="img/2012-m.jpg" srcset="img/2012-m.jpg 800w, img/2012.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="البوابة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Gate</span><span class="ar">البوابة</span></figcaption></figure></div>
+<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2021.jpg" data-cap="The Front Garden · الحديقة الأمامية"><div class="fr"><img src="img/2021-m.jpg" srcset="img/2021-m.jpg 800w, img/2021.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الحديقة الأمامية" loading="lazy" decoding="async"></div><figcaption><span class="c">The Front Garden</span><span class="ar">الحديقة الأمامية</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2030.jpg" data-cap="Outdoor Seating · الجلسة الخارجية"><div class="fr"><img src="img/2030-m.jpg" srcset="img/2030-m.jpg 800w, img/2030.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="الجلسة الخارجية" loading="lazy" decoding="async"></div><figcaption><span class="c">Outdoor Seating</span><span class="ar">الجلسة الخارجية</span></figcaption></figure></div>
+<div class="ed sub"><div class="close-head rv"><span class="serif">Living Spaces</span><span class="sub-r"><span class="ar-s">المعيشة</span><span class="trk">II · Interior</span></span></div></div>
+<div class="ed solo"><figure class="ph rv" data-lb data-full="img/2072.jpg" data-cap="The Guest Lounge · مجلس الضيوف"><div class="fr"><img src="img/2072-m.jpg" srcset="img/2072-m.jpg 800w, img/2072.jpg 1467w" sizes="(max-width:760px) 100vw, 62vh" width="1600" height="2400" alt="مجلس الضيوف" loading="lazy" decoding="async"></div><figcaption><span class="c">The Guest Lounge</span><span class="ar">مجلس الضيوف</span></figcaption></figure></div>
+<div class="ed trio"><figure class="ph rv a" data-lb data-full="img/2417.jpg" data-cap="Dining · غرفة الطعام"><div class="fr"><img src="img/2417-m.jpg" srcset="img/2417-m.jpg 800w, img/2417.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="غرفة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">Dining</span><span class="ar">غرفة الطعام</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2063.jpg" data-cap="Living · الصالة"><div class="fr"><img src="img/2063-m.jpg" srcset="img/2063-m.jpg 800w, img/2063.jpg 1467w" sizes="(max-width:760px) 70vw, 32vw" width="1600" height="2400" alt="الصالة" loading="lazy" decoding="async"></div><figcaption><span class="c">Living</span><span class="ar">الصالة</span></figcaption></figure><figure class="ph rv c3" data-lb data-full="img/2195.jpg" data-cap="Upper Lounge · الجلسة العلوية"><div class="fr"><img src="img/2195-m.jpg" srcset="img/2195-m.jpg 800w, img/2195.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="الجلسة العلوية" loading="lazy" decoding="async"></div><figcaption><span class="c">Upper Lounge</span><span class="ar">الجلسة العلوية</span></figcaption></figure></div>
+<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2036.jpg" data-cap="Set for Gathering · سفرة الطعام"><div class="fr"><img src="img/2036-m.jpg" srcset="img/2036-m.jpg 800w, img/2036.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="سفرة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">Set for Gathering</span><span class="ar">سفرة الطعام</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2078.jpg" data-cap="The Dining Room · غرفة الطعام"><div class="fr"><img src="img/2078-m.jpg" srcset="img/2078-m.jpg 800w, img/2078.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="غرفة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">The Dining Room</span><span class="ar">غرفة الطعام</span></figcaption></figure></div>
+<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2198.jpg" data-cap="The Family Lounge · جلسة العائلة"><div class="fr"><img src="img/2198-m.jpg" srcset="img/2198-m.jpg 800w, img/2198.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="جلسة العائلة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Family Lounge</span><span class="ar">جلسة العائلة</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2192.jpg" data-cap="A Quiet Corner · ركن هادئ"><div class="fr"><img src="img/2192-m.jpg" srcset="img/2192-m.jpg 800w, img/2192.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="ركن هادئ" loading="lazy" decoding="async"></div><figcaption><span class="c">A Quiet Corner</span><span class="ar">ركن هادئ</span></figcaption></figure></div>
+<div class="ed trio"><figure class="ph rv a" data-lb data-full="img/2231.jpg" data-cap="Soft Textures · خامات ناعمة"><div class="fr"><img src="img/2231-m.jpg" srcset="img/2231-m.jpg 800w, img/2231.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="خامات ناعمة" loading="lazy" decoding="async"></div><figcaption><span class="c">Soft Textures</span><span class="ar">خامات ناعمة</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2258.jpg" data-cap="The Media Wall · جدار التلفاز"><div class="fr"><img src="img/2258-m.jpg" srcset="img/2258-m.jpg 800w, img/2258.jpg 1467w" sizes="(max-width:760px) 70vw, 32vw" width="1600" height="2400" alt="جدار التلفاز" loading="lazy" decoding="async"></div><figcaption><span class="c">The Media Wall</span><span class="ar">جدار التلفاز</span></figcaption></figure><figure class="ph rv c3" data-lb data-full="img/2261.jpg" data-cap="Evening Light · إضاءة المساء"><div class="fr"><img src="img/2261-m.jpg" srcset="img/2261-m.jpg 800w, img/2261.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="إضاءة المساء" loading="lazy" decoding="async"></div><figcaption><span class="c">Evening Light</span><span class="ar">إضاءة المساء</span></figcaption></figure></div>
+<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2252.jpg" data-cap="Art &amp; Light · الفن والضوء"><div class="fr"><img src="img/2252-m.jpg" srcset="img/2252-m.jpg 800w, img/2252.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="الفن والضوء" loading="lazy" decoding="async"></div><figcaption><span class="c">Art &amp; Light</span><span class="ar">الفن والضوء</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2249.jpg" data-cap="Indoor Greenery · خضرة داخلية"><div class="fr"><img src="img/2249-m.jpg" srcset="img/2249-m.jpg 800w, img/2249.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="خضرة داخلية" loading="lazy" decoding="async"></div><figcaption><span class="c">Indoor Greenery</span><span class="ar">خضرة داخلية</span></figcaption></figure></div>
+<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2285.jpg" data-cap="The Kitchen · المطبخ"><div class="fr"><img src="img/2285-m.jpg" srcset="img/2285-m.jpg 800w, img/2285.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="المطبخ" loading="lazy" decoding="async"></div><figcaption><span class="c">The Kitchen</span><span class="ar">المطبخ</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2306.jpg" data-cap="Warm Wood · لمسات خشبية"><div class="fr"><img src="img/2306-m.jpg" srcset="img/2306-m.jpg 800w, img/2306.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="لمسات خشبية" loading="lazy" decoding="async"></div><figcaption><span class="c">Warm Wood</span><span class="ar">لمسات خشبية</span></figcaption></figure></div>
+<div class="ed sub"><div class="close-head rv"><span class="serif">Private Quarters</span><span class="sub-r"><span class="ar-s">الخصوصية</span><span class="trk">III · Rooms</span></span></div></div>
+<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2105.jpg" data-cap="Light &amp; Reflection · الضوء والانعكاس"><div class="fr"><img src="img/2105-m.jpg" srcset="img/2105-m.jpg 800w, img/2105.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الضوء والانعكاس" loading="lazy" decoding="async"></div><figcaption><span class="c">Light &amp; Reflection</span><span class="ar">الضوء والانعكاس</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2159.jpg" data-cap="The Bedrooms · غرف النوم"><div class="fr"><img src="img/2159-m.jpg" srcset="img/2159-m.jpg 800w, img/2159.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="غرف النوم" loading="lazy" decoding="async"></div><figcaption><span class="c">The Bedrooms</span><span class="ar">غرف النوم</span></figcaption></figure></div>
+<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2096.jpg" data-cap="A Restful Bedroom · غرفة نوم"><div class="fr"><img src="img/2096-m.jpg" srcset="img/2096-m.jpg 800w, img/2096.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="غرفة نوم" loading="lazy" decoding="async"></div><figcaption><span class="c">A Restful Bedroom</span><span class="ar">غرفة نوم</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2099.jpg" data-cap="Calm Tones · ألوان هادئة"><div class="fr"><img src="img/2099-m.jpg" srcset="img/2099-m.jpg 800w, img/2099.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="ألوان هادئة" loading="lazy" decoding="async"></div><figcaption><span class="c">Calm Tones</span><span class="ar">ألوان هادئة</span></figcaption></figure></div>
+<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2132.jpg" data-cap="The Bathrooms · الحمّامات"><div class="fr"><img src="img/2132-m.jpg" srcset="img/2132-m.jpg 800w, img/2132.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الحمّامات" loading="lazy" decoding="async"></div><figcaption><span class="c">The Bathrooms</span><span class="ar">الحمّامات</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2177.jpg" data-cap="The Laundry · غرفة الغسيل"><div class="fr"><img src="img/2177-m.jpg" srcset="img/2177-m.jpg 800w, img/2177.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="غرفة الغسيل" loading="lazy" decoding="async"></div><figcaption><span class="c">The Laundry</span><span class="ar">غرفة الغسيل</span></figcaption></figure></div>
+<div class="ed sub"><div class="close-head rv"><span class="serif">In Close-up</span><span class="sub-r"><span class="ar-s">التفاصيل</span><span class="trk">IV · Details</span></span></div></div>
+<div class="mosaic"><figure class="ph rv" data-lb data-full="img/2216.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2216-m.jpg" srcset="img/2216-m.jpg 800w, img/2216.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2219.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2219-m.jpg" srcset="img/2219-m.jpg 800w, img/2219.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2222.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2222-m.jpg" srcset="img/2222-m.jpg 800w, img/2222.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2225.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2225-m.jpg" srcset="img/2225-m.jpg 800w, img/2225.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2228.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2228-m.jpg" srcset="img/2228-m.jpg 800w, img/2228.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2234.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2234-m.jpg" srcset="img/2234-m.jpg 800w, img/2234.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2237.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2237-m.jpg" srcset="img/2237-m.jpg 800w, img/2237.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2243.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2243-m.jpg" srcset="img/2243-m.jpg 800w, img/2243.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2246.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2246-m.jpg" srcset="img/2246-m.jpg 800w, img/2246.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2264.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2264-m.jpg" srcset="img/2264-m.jpg 800w, img/2264.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2267.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2267-m.jpg" srcset="img/2267-m.jpg 800w, img/2267.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2270.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2270-m.jpg" srcset="img/2270-m.jpg 800w, img/2270.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2279.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2279-m.jpg" srcset="img/2279-m.jpg 800w, img/2279.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2282.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2282-m.jpg" srcset="img/2282-m.jpg 800w, img/2282.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2291.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2291-m.jpg" srcset="img/2291-m.jpg 800w, img/2291.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2312.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2312-m.jpg" srcset="img/2312-m.jpg 800w, img/2312.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2369.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2369-m.jpg" srcset="img/2369-m.jpg 800w, img/2369.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2396.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2396-m.jpg" srcset="img/2396-m.jpg 800w, img/2396.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure></div>
   <div class="ed pause">
     <div class="tx rv">
       <p class="q">Under the<br>Madinah sky.</p>
       <p class="q2 t-ar">جلسة خارجية على السطح، ومكان للشواء، لليالي طيبة الجميلة.</p>
       <p class="q2 t-en serif" style="font-style:italic">An outdoor lounge on the roof, and a barbecue area for beautiful Taibah nights.</p>
-    </div>
-    <figure class="ph rv" data-lb data-full="img/2183.jpg" data-cap="The Rooftop · السطح">
-      <div class="fr"><img src="img/2183-m.jpg" srcset="img/2183-m.jpg 800w, img/2183.jpg 1600w" sizes="(max-width:760px) 100vw, 48vw" width="1600" height="2400" alt="الجلسة الخارجية على السطح ليلًا" loading="lazy" decoding="async"></div>
-      <figcaption><span class="c">IX · The Rooftop</span><span class="ar">السطح</span></figcaption>
-    </figure>
+    </div><figure class="ph rv" data-lb data-full="img/2183.jpg" data-cap="The Rooftop · السطح"><div class="fr"><img src="img/2183-m.jpg" srcset="img/2183-m.jpg 800w, img/2183.jpg 1467w" sizes="(max-width:760px) 100vw, 48vw" width="1600" height="2400" alt="السطح" loading="lazy" decoding="async"></div><figcaption><span class="c">The Rooftop</span><span class="ar">السطح</span></figcaption></figure>
   </div>
 </section>
 
@@ -488,11 +461,10 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
     <h2>Architectural Details</h2>
     <span class="lbl trk">Space · Light · Material</span>
   </div>
-
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2045.jpg" data-cap="The Inner Garden · الحديقة الداخلية"><div class="fr"><img src="img/2045-m.jpg" srcset="img/2045-m.jpg 800w, img/2045.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحديقة الداخلية والمرجيحة" loading="lazy" decoding="async"></div></figure>
-      <figure class="ph inset rv" data-lb data-full="img/2051.jpg" data-cap="Patterned Screens · السواتر المنقوشة"><div class="fr"><img src="img/2051-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="سواتر بنقوش هندسية وأحواض زهور" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2048.jpg" data-cap="The Inner Garden · الحديقة الداخلية"><div class="fr"><img src="img/2048-m.jpg" srcset="img/2048-m.jpg 800w, img/2048.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحديقة الداخلية" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-lb data-full="img/2051.jpg" data-cap="Patterned Screens · السواتر المنقوشة"><div class="fr"><img src="img/2051-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="السواتر المنقوشة" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">01</span>
@@ -503,10 +475,10 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
       <p class="t-en">A green oasis at the heart of the home: a swing to unwind, colourful flower beds, and patterned screens that keep its privacy.</p>
     </div>
   </article>
-
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2210.jpg" data-cap="Glass &amp; Light · الزجاج والضوء"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الممر العلوي بدرابزين زجاجي" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2210.jpg" data-cap="Glass &amp; Light · الزجاج والضوء"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الزجاج والضوء" loading="lazy" decoding="async"></div></figure>
+      
     </div>
     <div class="tx rv">
       <span class="no">02</span>
@@ -517,11 +489,10 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
       <p class="t-en">A glass-railed staircase, and an open view down to the ground floor that fills the home with space and light.</p>
     </div>
   </article>
-
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2135.jpg" data-cap="Quiet Bedrooms · غرف النوم"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="غرفة نوم هادئة" loading="lazy" decoding="async"></div></figure>
-      <figure class="ph inset rv" data-lb data-full="img/2120.jpg" data-cap="Glass-fronted Wardrobes · خزائن بواجهات زجاجية"><div class="fr"><img src="img/2120-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="خزانة بواجهة زجاجية وإضاءة داخلية" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2135.jpg" data-cap="Quiet Bedrooms · غرف النوم"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="غرف النوم" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-lb data-full="img/2120.jpg" data-cap="Glass-fronted Wardrobes · خزائن بواجهات زجاجية"><div class="fr"><img src="img/2120-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="خزائن بواجهات زجاجية" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">03</span>
@@ -532,10 +503,10 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
       <p class="t-en">Five spacious bedrooms, each designed to be calm and restful, with elegant glass-fronted wardrobes.</p>
     </div>
   </article>
-
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2129.jpg" data-cap="Backlit Mirrors · المرايا المضاءة"><div class="fr"><img src="img/2129-m.jpg" srcset="img/2129-m.jpg 800w, img/2129.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="حمّام بمرآة بإضاءة خلفية ودش زجاجي" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2126.jpg" data-cap="Backlit Mirrors · الحمّامات"><div class="fr"><img src="img/2126-m.jpg" srcset="img/2126-m.jpg 800w, img/2126.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحمّامات" loading="lazy" decoding="async"></div></figure>
+      
     </div>
     <div class="tx rv">
       <span class="no">04</span>
@@ -546,24 +517,24 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
       <p class="t-en">Eight bathrooms with luxury finishes: backlit mirrors, glass showers and marble vanities.</p>
     </div>
   </article>
-
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2306.jpg" data-cap="The Kitchen · المطبخ"><div class="fr"><img src="img/2306-m.jpg" srcset="img/2306-m.jpg 800w, img/2306.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="تفاصيل المطبخ والخشب الدافئ" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2294.jpg" data-cap="The Kitchen · المطبخ"><div class="fr"><img src="img/2294-m.jpg" srcset="img/2294-m.jpg 800w, img/2294.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المطبخ" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-lb data-full="img/2303.jpg" data-cap="Kitchen Detail · تفاصيل المطبخ"><div class="fr"><img src="img/2303-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">05</span>
       <h3 class="trk">The Kitchen</h3>
       <span class="hl"></span>
       <span class="ar-t t-ar">المطبخ</span>
-      <p class="t-ar">يجمع الأناقة والعملية: خزائن بلون أخضر هادئ، ولمسات خشبية دافئة، ومساحة تحضير واسعة.</p>
-      <p class="t-en">Elegance meets practicality: calm green cabinetry, warm wood accents and generous prep space.</p>
+      <p class="t-ar">يجمع الأناقة والعملية: خزائن بلون أخضر هادئ، ولمسات خشبية دافئة، وتفاصيل بألوان ناعمة تكمّل المكان.</p>
+      <p class="t-en">Elegance meets practicality: calm green cabinetry, warm wood accents, and soft-toned details that complete the space.</p>
     </div>
   </article>
-
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2318.jpg" data-cap="Private Elevator · المصعد الخاص"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1600w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="أزرار المصعد الخاص" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-lb data-full="img/2318.jpg" data-cap="Private Elevator · المصعد الخاص"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المصعد الخاص" loading="lazy" decoding="async"></div></figure>
+      
     </div>
     <div class="tx rv">
       <span class="no">06</span>
@@ -572,6 +543,20 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
       <span class="ar-t t-ar">المصعد الخاص</span>
       <p class="t-ar">مصعد خاص يربط جميع الأدوار بسهولة، من الدور الأرضي حتى السطح.</p>
       <p class="t-en">A private elevator connects every floor with ease, from the ground floor to the roof.</p>
+    </div>
+  </article>
+  <article class="det">
+    <div class="im rv">
+      <figure class="ph main rv" data-lb data-full="img/2201.jpg" data-cap="Private Gym · النادي الرياضي"><div class="fr"><img src="img/2201-m.jpg" srcset="img/2201-m.jpg 800w, img/2201.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="النادي الرياضي" loading="lazy" decoding="async"></div></figure>
+      
+    </div>
+    <div class="tx rv">
+      <span class="no">07</span>
+      <h3 class="trk">Private Gym</h3>
+      <span class="hl"></span>
+      <span class="ar-t t-ar">النادي الرياضي</span>
+      <p class="t-ar">نادٍ رياضي خاص داخل البيت، لبداية يوم نشيطة بدون الخروج من المنزل.</p>
+      <p class="t-en">A private gym, so you can start your day active without leaving home.</p>
     </div>
   </article>
 </section>
