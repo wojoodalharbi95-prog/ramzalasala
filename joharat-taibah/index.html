@@ -26,7 +26,7 @@
 <style>
 :root{
   --ink:#141414;--ink2:#191817;--ivory:#F5F2EC;--gold:#B9A078;--stone:#88847D;
-  --soft:#cdc7bc;--line:rgba(185,160,120,.38);--line-d:rgba(20,20,20,.14);
+  --soft:#cdc7bc;--mocha:#2a221c;--rule:rgba(245,242,236,.12);--line:rgba(185,160,120,.38);--line-d:rgba(20,20,20,.14);
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'IBM Plex Sans Arabic',-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;
   --ease:cubic-bezier(.2,.7,.1,1);--pad:clamp(20px,5.2vw,84px);
@@ -63,7 +63,7 @@ html[data-lang="en"] .t-ar{display:none!important}
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.ph .fr{overflow:hidden;position:relative;background:rgba(0,0,0,.06)}
+.ph .fr{overflow:hidden;position:relative;background:rgba(255,255,255,.035)}
 .ph .fr img{transform:scale(1.07);transition:transform 2.2s var(--ease),opacity 1.2s var(--ease);opacity:0}
 .ph.in .fr img{transform:scale(1);opacity:1}
 .ph{cursor:zoom-in}
@@ -161,9 +161,9 @@ html[data-lang="en"] .t-ar{display:none!important}
 .player:-webkit-full-screen video{object-fit:contain}
 
 /* ============ III. VISUAL STORYTELLING ============ */
-.story{background:var(--ivory);color:var(--ink);padding:clamp(110px,17vh,200px) 0 clamp(60px,10vh,120px)}
+.story{background:var(--mocha);color:var(--ivory);padding:clamp(110px,17vh,200px) 0 clamp(60px,10vh,120px)}
 .story .sh .lbl,.story figcaption,.story .muted{color:var(--stone)}
-.story .sh p{color:#5d5a55}
+.story .sh p{color:var(--soft)}
 .ed{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(14px,2vw,30px);padding:0 var(--pad);max-width:1480px;margin:0 auto clamp(80px,14vh,190px)}
 figure figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
 figure figcaption .ar{letter-spacing:0;text-transform:none;font-size:13px;font-family:var(--sans)}
@@ -178,8 +178,8 @@ figure figcaption .c{direction:ltr;unicode-bidi:isolate}
 .trio .a{grid-column:1/span 4}
 .trio .b{grid-column:5/span 4;margin-top:16vh}
 .trio .c3{grid-column:9/span 4;margin-top:6vh}
-.close-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line-d);padding-top:18px;margin-bottom:clamp(30px,5vh,60px);color:var(--stone)}
-.close-head .serif{font-size:clamp(26px,2.6vw,38px);color:var(--ink);font-style:italic}
+.close-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:18px;margin-bottom:clamp(30px,5vh,60px);color:var(--stone)}
+.close-head .serif{font-size:clamp(26px,2.6vw,38px);color:var(--ivory);font-style:italic}
 .closeups figure{grid-column:span 2}
 .closeups figure:nth-of-type(even){margin-top:9vh}
 .duo2 .a{grid-column:6/span 7}
@@ -188,7 +188,7 @@ figure figcaption .c{direction:ltr;unicode-bidi:isolate}
 .pause .tx{grid-column:1/span 5;padding-inline-end:6%}
 .pause figure{grid-column:7/span 6}
 .pause .q{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(34px,4.2vw,64px);line-height:1.08;direction:ltr;text-align:start}
-.pause .q2{margin-top:22px;font-size:clamp(16px,1.3vw,19px);color:#5d5a55}
+.pause .q2{margin-top:22px;font-size:clamp(16px,1.3vw,19px);color:var(--soft)}
 
 
 .pair .a{grid-column:1/span 6}
@@ -199,6 +199,48 @@ figure figcaption .c{direction:ltr;unicode-bidi:isolate}
 .ar-s{font-size:15px;color:var(--stone)}
 .mosaic{columns:3;column-gap:clamp(14px,2vw,28px);padding:0 var(--pad);max-width:1480px;margin:0 auto clamp(80px,14vh,190px)}
 .mosaic figure{break-inside:avoid;margin-bottom:clamp(14px,2vw,28px)}
+
+
+/* ============ CHAPTERS + VIEWER ============ */
+.chapter{max-width:1300px;margin:0 auto clamp(90px,15vh,180px);padding:0 var(--pad)}
+.ch-head{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:18px;margin-bottom:clamp(28px,4vh,46px)}
+.ch-head .serif{font-size:clamp(28px,2.8vw,42px);font-style:italic;color:var(--ivory)}
+.lead{display:flex;flex-direction:column;align-items:center}
+.lead .fr img{max-height:88vh;width:auto}
+.lead.land .fr img{max-height:none;width:100%}
+.lead.land{align-items:stretch}
+.lead figcaption{width:100%;max-width:min(100%,calc(88vh * .6667))}
+.lead.land figcaption{max-width:none}
+.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(8px,1vw,14px);margin:clamp(22px,3vh,34px) auto 0;max-width:900px}
+.th{position:relative;display:block;aspect-ratio:2/3;overflow:hidden;background:rgba(255,255,255,.04);cursor:pointer}
+.th img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),opacity .5s}
+@media (hover:hover){.th:hover img{transform:scale(1.06)}}
+.th .more{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,18,16,.62);color:var(--ivory);font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);letter-spacing:.04em;direction:ltr}
+.viewall{display:flex;align-items:center;justify-content:center;gap:16px;margin:clamp(20px,3vh,30px) auto 0;padding:16px 26px;border:1px solid var(--line);color:var(--ivory);font-size:14px;transition:background .5s,color .5s,border-color .5s}
+.viewall .lat{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase}
+.viewall svg{width:9px;height:14px;stroke:var(--gold);fill:none;stroke-width:1}
+@media (hover:hover){.viewall:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}.viewall:hover svg{stroke:var(--ink)}}
+html.gv-on,html.gv-on body{overflow:hidden}
+.gv{position:fixed;inset:0;z-index:100;background:#0e0d0c;opacity:0;transition:opacity .45s var(--ease);display:flex;flex-direction:column}
+.gv.on{opacity:1}
+.gv[hidden]{display:none}
+.gv-top{flex:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:calc(14px + var(--st)) var(--pad) 14px;border-bottom:1px solid rgba(245,242,236,.08);background:rgba(14,13,12,.92)}
+.gv-t{display:flex;align-items:baseline;gap:12px;min-width:0}
+.gv-t .serif{font-style:italic;font-size:20px;color:var(--ivory);white-space:nowrap}
+.gv-r{display:flex;align-items:center;gap:18px;color:var(--stone)}
+.gv-x{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%}
+.gv-x i{position:relative;width:14px;height:14px}
+.gv-x i::before,.gv-x i::after{content:"";position:absolute;left:0;top:50%;width:14px;height:1px;background:var(--ivory);transform:rotate(45deg)}
+.gv-x i::after{transform:rotate(-45deg)}
+.gv-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0 var(--pad) calc(60px + var(--sb))}
+.gv-h{display:flex;align-items:baseline;gap:14px;max-width:1300px;margin:44px auto 26px;padding-top:16px;border-top:1px solid rgba(245,242,236,.1)}
+.gv-h:first-child{margin-top:22px}
+.gv-h .serif{font-style:italic;font-size:clamp(26px,2.6vw,38px);color:var(--ivory)}
+.gv-h .trk{margin-inline-start:auto;color:var(--stone);font-size:9.5px}
+.gv-f{display:flex;flex-direction:column;align-items:center;margin:0 auto clamp(26px,5vh,56px)}
+.gv-f img{max-height:calc(100vh - 150px);width:auto;max-width:100%;height:auto;background:rgba(255,255,255,.03)}
+.gv-f figcaption{width:100%;max-width:min(100%,calc((100vh - 150px) * .6667));margin-top:12px}
+.gv-f#gv-2447 figcaption{max-width:min(100%,calc((100vh - 150px) * 1.5))}
 
 /* ============ IV. DETAILS ============ */
 .details{background:var(--ink2);padding:clamp(110px,17vh,200px) 0 clamp(40px,8vh,90px)}
@@ -220,15 +262,15 @@ figure figcaption .c{direction:ltr;unicode-bidi:isolate}
 .det p.t-en{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.55;color:var(--soft)}
 
 /* ============ V. PROCESS ============ */
-.process{background:var(--ivory);color:var(--ink);padding:clamp(110px,17vh,200px) var(--pad)}
-.process .sh .lbl{color:var(--stone)}.process .sh p{color:#5d5a55}
-.disc{list-style:none;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,6vw,110px);border-top:1px solid var(--line-d)}
-.disc li{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:22px;padding:clamp(26px,4vh,42px) 0;border-bottom:1px solid var(--line-d)}
+.process{background:var(--mocha);color:var(--ivory);padding:clamp(110px,17vh,200px) var(--pad)}
+.process .sh .lbl{color:var(--stone)}.process .sh p{color:var(--soft)}
+.disc{list-style:none;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,6vw,110px);border-top:1px solid var(--rule)}
+.disc li{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:22px;padding:clamp(26px,4vh,42px) 0;border-bottom:1px solid var(--rule)}
 .disc .rn{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:18px;min-width:34px;direction:ltr}
 .disc .en{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.7vw,40px);line-height:1.12;direction:ltr;text-align:start}
 .disc .ar{display:block;margin-top:8px;color:var(--stone);font-size:14px}
 .credit{margin:clamp(60px,10vh,110px) auto 0;text-align:center;color:var(--stone)}
-.credit .serif{display:block;font-style:italic;font-size:clamp(22px,2vw,28px);color:var(--ink);margin-top:10px}
+.credit .serif{display:block;font-style:italic;font-size:clamp(22px,2vw,28px);color:var(--gold);margin-top:10px}
 
 /* ============ VI. NOTE ============ */
 .note{background:var(--ink);padding:clamp(130px,20vh,230px) var(--pad);text-align:center;position:relative;overflow:hidden}
@@ -261,24 +303,6 @@ html[data-lang="en"] .quote .qe{font-size:clamp(26px,3.2vw,46px);color:#f3efe7;m
 @media (hover:hover){.s-contact a:hover{color:var(--gold);border-color:var(--gold)}}
 .s-foot{position:absolute;inset:auto var(--pad) calc(26px + var(--sb)) var(--pad);display:flex;justify-content:space-between;color:#5f5c57;font-size:9.5px;letter-spacing:.32em;direction:ltr}
 .s-foot a{color:var(--stone)}
-
-/* ============ LIGHTBOX ============ */
-.lb{position:fixed;inset:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s var(--ease);direction:ltr}
-.lb.on{opacity:1}
-.lb[hidden]{display:none}
-.lb figure{display:flex;flex-direction:column;align-items:center;max-width:92vw}
-.lb img{max-height:calc(100vh - 150px);max-height:calc(100svh - 150px - var(--st) - var(--sb));max-width:92vw;width:auto;height:auto;object-fit:contain;transition:opacity .45s}
-.lb img.fade{opacity:0}
-.lb figcaption{width:100%;color:var(--stone);margin-top:18px}
-.lb .x{position:absolute;top:calc(18px + var(--st));right:var(--pad);font-size:10px;letter-spacing:.36em;color:var(--soft);padding:10px 0;display:flex;gap:12px;align-items:center}
-.lb .x i{position:relative;width:16px;height:16px}
-.lb .x i::before,.lb .x i::after{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:currentColor;transform:rotate(45deg)}
-.lb .x i::after{transform:rotate(-45deg)}
-.lb .nav{position:absolute;top:50%;width:64px;height:64px;margin-top:-32px;display:grid;place-items:center;color:var(--soft)}
-.lb .nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1}
-.lb .prev{left:max(8px,calc(var(--pad) - 24px))}.lb .next{right:max(8px,calc(var(--pad) - 24px))}
-@media (hover:hover){.lb .nav:hover,.lb .x:hover{color:var(--gold)}}
-
 
 /* alignment for mixed-direction blocks */
 html[data-lang="ar"] .film-copy,html[data-lang="ar"] .det .tx,html[data-lang="ar"] .pause .tx,html[data-lang="ar"] .film-copy h2,html[data-lang="ar"] .pause .q,html[data-lang="ar"] .det .no,html[data-lang="ar"] .det h3{text-align:right}
@@ -321,6 +345,19 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   .mosaic{columns:2}
   .sub-r .trk{display:none}
   .duo2 .a{margin-top:0}
+
+  .chapter{padding:0 20px}
+  .lead .fr img{max-height:none;width:100%}
+  .lead figcaption{max-width:none}
+  .thumbs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .viewall{width:100%;flex-wrap:wrap;gap:8px 14px;padding:16px}
+  .gv-body{padding-left:0;padding-right:0}
+  .gv-h{padding-inline:20px;margin-top:34px}
+  .gv-f img{max-height:none;width:100%}
+  .gv-f figcaption{max-width:none;padding:0 20px}
+  .gv-t .ar-s{display:none}
+  .gv-t .serif{font-size:18px}
+  .pause figure,.pause .tx{width:100%}
   .closeups figure{grid-column:span 6;margin-top:0}
   .closeups figure:nth-of-type(even){margin-top:48px}
   .closeups figure{margin-bottom:8px}
@@ -338,8 +375,6 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   .s-roles{font-size:9px;letter-spacing:.3em;line-height:2.4}
   .s-name{letter-spacing:.12em;font-size:clamp(34px,10.4vw,60px)}
   .s-foot{flex-direction:column;align-items:center;gap:10px}
-  .lb .nav{top:auto;bottom:calc(14px + var(--sb));margin:0}
-  .lb img{max-height:calc(100svh - 190px - var(--st) - var(--sb))}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -421,36 +456,49 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
     <p class="t-ar">من الواجهات تحت ضوء الليل، إلى التفاصيل الصغيرة التي تصنع الإحساس بالمكان.</p>
     <p class="t-en">From the façades under the night light to the small details that give the place its feeling.</p>
   </div>
-<div class="ed sub"><div class="close-head rv"><span class="serif">The Arrival</span><span class="sub-r"><span class="ar-s">الوصول</span><span class="trk">I · Exterior</span></span></div></div>
-  <div class="bleed">
-    <figure class="ph rv" data-lb data-full="img/2447.jpg" data-cap="The Ensemble · الواجهات ليلًا">
-      <div class="fr"><img src="img/2447-m.jpg" srcset="img/2447-m.jpg 1200w, img/2447.jpg 2200w" sizes="100vw" width="2400" height="1600" alt="صف فلل دورك ليلًا" loading="lazy" decoding="async"></div>
+  <div class="chapter" id="ch-arrival">
+    <div class="ch-head rv"><span class="serif">The Arrival</span><span class="sub-r"><span class="ar-s">الوصول</span><span class="trk">I · Exterior</span></span></div>
+    <figure class="ph lead rv land" data-open="2447">
+      <div class="fr"><img src="img/2447-m.jpg" srcset="img/2447-m.jpg 1200w, img/2447.jpg 2200w" sizes="100vw" width="2200" height="1467" alt="الواجهات ليلًا" loading="lazy" decoding="async"></div>
       <figcaption><span class="c">The Ensemble</span><span class="ar">الواجهات ليلًا</span></figcaption>
     </figure>
+    <div class="thumbs rv"><button class="th" type="button" data-open="2027" aria-label="المدخل"><img src="img/2027-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2435" aria-label="الواجهة"><img src="img/2435-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2006" aria-label="المدخل ليلًا"><img src="img/2006-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2012" aria-label="البوابة"><img src="img/2012-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2021" aria-label="الحديقة الأمامية"><img src="img/2021-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2030" aria-label="الجلسة الخارجية"><img src="img/2030-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button></div>
+    <button class="viewall rv" type="button" data-open="g:arrival"><span class="t-ar">للتكملة اضغط هنا · عرض كل الصور (7)</span><span class="t-en lat">View all 7 photographs</span><svg viewBox="0 0 9 14" aria-hidden="true"><path d="M4.5 0v13M.5 9l4 4 4-4"/></svg></button>
   </div>
-<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2027.jpg" data-cap="The Arrival · المدخل"><div class="fr"><img src="img/2027-m.jpg" srcset="img/2027-m.jpg 800w, img/2027.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="المدخل" loading="lazy" decoding="async"></div><figcaption><span class="c">The Arrival</span><span class="ar">المدخل</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2435.jpg" data-cap="The Street · الواجهة"><div class="fr"><img src="img/2435-m.jpg" srcset="img/2435-m.jpg 800w, img/2435.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="الواجهة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Street</span><span class="ar">الواجهة</span></figcaption></figure></div>
-<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2006.jpg" data-cap="Night Entrance · المدخل ليلًا"><div class="fr"><img src="img/2006-m.jpg" srcset="img/2006-m.jpg 800w, img/2006.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="المدخل ليلًا" loading="lazy" decoding="async"></div><figcaption><span class="c">Night Entrance</span><span class="ar">المدخل ليلًا</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2012.jpg" data-cap="The Gate · البوابة"><div class="fr"><img src="img/2012-m.jpg" srcset="img/2012-m.jpg 800w, img/2012.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="البوابة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Gate</span><span class="ar">البوابة</span></figcaption></figure></div>
-<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2021.jpg" data-cap="The Front Garden · الحديقة الأمامية"><div class="fr"><img src="img/2021-m.jpg" srcset="img/2021-m.jpg 800w, img/2021.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الحديقة الأمامية" loading="lazy" decoding="async"></div><figcaption><span class="c">The Front Garden</span><span class="ar">الحديقة الأمامية</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2030.jpg" data-cap="Outdoor Seating · الجلسة الخارجية"><div class="fr"><img src="img/2030-m.jpg" srcset="img/2030-m.jpg 800w, img/2030.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="الجلسة الخارجية" loading="lazy" decoding="async"></div><figcaption><span class="c">Outdoor Seating</span><span class="ar">الجلسة الخارجية</span></figcaption></figure></div>
-<div class="ed sub"><div class="close-head rv"><span class="serif">Living Spaces</span><span class="sub-r"><span class="ar-s">المعيشة</span><span class="trk">II · Interior</span></span></div></div>
-<div class="ed solo"><figure class="ph rv" data-lb data-full="img/2072.jpg" data-cap="The Guest Lounge · مجلس الضيوف"><div class="fr"><img src="img/2072-m.jpg" srcset="img/2072-m.jpg 800w, img/2072.jpg 1467w" sizes="(max-width:760px) 100vw, 62vh" width="1600" height="2400" alt="مجلس الضيوف" loading="lazy" decoding="async"></div><figcaption><span class="c">The Guest Lounge</span><span class="ar">مجلس الضيوف</span></figcaption></figure></div>
-<div class="ed trio"><figure class="ph rv a" data-lb data-full="img/2417.jpg" data-cap="Dining · غرفة الطعام"><div class="fr"><img src="img/2417-m.jpg" srcset="img/2417-m.jpg 800w, img/2417.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="غرفة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">Dining</span><span class="ar">غرفة الطعام</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2063.jpg" data-cap="Living · الصالة"><div class="fr"><img src="img/2063-m.jpg" srcset="img/2063-m.jpg 800w, img/2063.jpg 1467w" sizes="(max-width:760px) 70vw, 32vw" width="1600" height="2400" alt="الصالة" loading="lazy" decoding="async"></div><figcaption><span class="c">Living</span><span class="ar">الصالة</span></figcaption></figure><figure class="ph rv c3" data-lb data-full="img/2195.jpg" data-cap="Upper Lounge · الجلسة العلوية"><div class="fr"><img src="img/2195-m.jpg" srcset="img/2195-m.jpg 800w, img/2195.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="الجلسة العلوية" loading="lazy" decoding="async"></div><figcaption><span class="c">Upper Lounge</span><span class="ar">الجلسة العلوية</span></figcaption></figure></div>
-<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2036.jpg" data-cap="Set for Gathering · سفرة الطعام"><div class="fr"><img src="img/2036-m.jpg" srcset="img/2036-m.jpg 800w, img/2036.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="سفرة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">Set for Gathering</span><span class="ar">سفرة الطعام</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2078.jpg" data-cap="The Dining Room · غرفة الطعام"><div class="fr"><img src="img/2078-m.jpg" srcset="img/2078-m.jpg 800w, img/2078.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="غرفة الطعام" loading="lazy" decoding="async"></div><figcaption><span class="c">The Dining Room</span><span class="ar">غرفة الطعام</span></figcaption></figure></div>
-<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2198.jpg" data-cap="The Family Lounge · جلسة العائلة"><div class="fr"><img src="img/2198-m.jpg" srcset="img/2198-m.jpg 800w, img/2198.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="جلسة العائلة" loading="lazy" decoding="async"></div><figcaption><span class="c">The Family Lounge</span><span class="ar">جلسة العائلة</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2192.jpg" data-cap="A Quiet Corner · ركن هادئ"><div class="fr"><img src="img/2192-m.jpg" srcset="img/2192-m.jpg 800w, img/2192.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="ركن هادئ" loading="lazy" decoding="async"></div><figcaption><span class="c">A Quiet Corner</span><span class="ar">ركن هادئ</span></figcaption></figure></div>
-<div class="ed trio"><figure class="ph rv a" data-lb data-full="img/2231.jpg" data-cap="Soft Textures · خامات ناعمة"><div class="fr"><img src="img/2231-m.jpg" srcset="img/2231-m.jpg 800w, img/2231.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="خامات ناعمة" loading="lazy" decoding="async"></div><figcaption><span class="c">Soft Textures</span><span class="ar">خامات ناعمة</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2258.jpg" data-cap="The Media Wall · جدار التلفاز"><div class="fr"><img src="img/2258-m.jpg" srcset="img/2258-m.jpg 800w, img/2258.jpg 1467w" sizes="(max-width:760px) 70vw, 32vw" width="1600" height="2400" alt="جدار التلفاز" loading="lazy" decoding="async"></div><figcaption><span class="c">The Media Wall</span><span class="ar">جدار التلفاز</span></figcaption></figure><figure class="ph rv c3" data-lb data-full="img/2261.jpg" data-cap="Evening Light · إضاءة المساء"><div class="fr"><img src="img/2261-m.jpg" srcset="img/2261-m.jpg 800w, img/2261.jpg 1467w" sizes="(max-width:760px) 86vw, 32vw" width="1600" height="2400" alt="إضاءة المساء" loading="lazy" decoding="async"></div><figcaption><span class="c">Evening Light</span><span class="ar">إضاءة المساء</span></figcaption></figure></div>
-<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2252.jpg" data-cap="Art &amp; Light · الفن والضوء"><div class="fr"><img src="img/2252-m.jpg" srcset="img/2252-m.jpg 800w, img/2252.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="الفن والضوء" loading="lazy" decoding="async"></div><figcaption><span class="c">Art &amp; Light</span><span class="ar">الفن والضوء</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2249.jpg" data-cap="Indoor Greenery · خضرة داخلية"><div class="fr"><img src="img/2249-m.jpg" srcset="img/2249-m.jpg 800w, img/2249.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="خضرة داخلية" loading="lazy" decoding="async"></div><figcaption><span class="c">Indoor Greenery</span><span class="ar">خضرة داخلية</span></figcaption></figure></div>
-<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2285.jpg" data-cap="The Kitchen · المطبخ"><div class="fr"><img src="img/2285-m.jpg" srcset="img/2285-m.jpg 800w, img/2285.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="المطبخ" loading="lazy" decoding="async"></div><figcaption><span class="c">The Kitchen</span><span class="ar">المطبخ</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2306.jpg" data-cap="Warm Wood · لمسات خشبية"><div class="fr"><img src="img/2306-m.jpg" srcset="img/2306-m.jpg 800w, img/2306.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="لمسات خشبية" loading="lazy" decoding="async"></div><figcaption><span class="c">Warm Wood</span><span class="ar">لمسات خشبية</span></figcaption></figure></div>
-<div class="ed sub"><div class="close-head rv"><span class="serif">Private Quarters</span><span class="sub-r"><span class="ar-s">الخصوصية</span><span class="trk">III · Rooms</span></span></div></div>
-<div class="ed duo2"><figure class="ph rv a" data-lb data-full="img/2105.jpg" data-cap="Light &amp; Reflection · الضوء والانعكاس"><div class="fr"><img src="img/2105-m.jpg" srcset="img/2105-m.jpg 800w, img/2105.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الضوء والانعكاس" loading="lazy" decoding="async"></div><figcaption><span class="c">Light &amp; Reflection</span><span class="ar">الضوء والانعكاس</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2159.jpg" data-cap="The Bedrooms · غرف النوم"><div class="fr"><img src="img/2159-m.jpg" srcset="img/2159-m.jpg 800w, img/2159.jpg 1467w" sizes="(max-width:760px) 64vw, 30vw" width="1600" height="2400" alt="غرف النوم" loading="lazy" decoding="async"></div><figcaption><span class="c">The Bedrooms</span><span class="ar">غرف النوم</span></figcaption></figure></div>
-<div class="ed pair"><figure class="ph rv a" data-lb data-full="img/2096.jpg" data-cap="A Restful Bedroom · غرفة نوم"><div class="fr"><img src="img/2096-m.jpg" srcset="img/2096-m.jpg 800w, img/2096.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="غرفة نوم" loading="lazy" decoding="async"></div><figcaption><span class="c">A Restful Bedroom</span><span class="ar">غرفة نوم</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2099.jpg" data-cap="Calm Tones · ألوان هادئة"><div class="fr"><img src="img/2099-m.jpg" srcset="img/2099-m.jpg 800w, img/2099.jpg 1467w" sizes="(max-width:760px) 100vw, 45vw" width="1600" height="2400" alt="ألوان هادئة" loading="lazy" decoding="async"></div><figcaption><span class="c">Calm Tones</span><span class="ar">ألوان هادئة</span></figcaption></figure></div>
-<div class="ed duo"><figure class="ph rv a" data-lb data-full="img/2132.jpg" data-cap="The Bathrooms · الحمّامات"><div class="fr"><img src="img/2132-m.jpg" srcset="img/2132-m.jpg 800w, img/2132.jpg 1467w" sizes="(max-width:760px) 100vw, 55vw" width="1600" height="2400" alt="الحمّامات" loading="lazy" decoding="async"></div><figcaption><span class="c">The Bathrooms</span><span class="ar">الحمّامات</span></figcaption></figure><figure class="ph rv b" data-lb data-full="img/2177.jpg" data-cap="The Laundry · غرفة الغسيل"><div class="fr"><img src="img/2177-m.jpg" srcset="img/2177-m.jpg 800w, img/2177.jpg 1467w" sizes="(max-width:760px) 62vw, 30vw" width="1600" height="2400" alt="غرفة الغسيل" loading="lazy" decoding="async"></div><figcaption><span class="c">The Laundry</span><span class="ar">غرفة الغسيل</span></figcaption></figure></div>
-<div class="ed sub"><div class="close-head rv"><span class="serif">In Close-up</span><span class="sub-r"><span class="ar-s">التفاصيل</span><span class="trk">IV · Details</span></span></div></div>
-<div class="mosaic"><figure class="ph rv" data-lb data-full="img/2216.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2216-m.jpg" srcset="img/2216-m.jpg 800w, img/2216.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2219.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2219-m.jpg" srcset="img/2219-m.jpg 800w, img/2219.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2222.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2222-m.jpg" srcset="img/2222-m.jpg 800w, img/2222.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2225.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2225-m.jpg" srcset="img/2225-m.jpg 800w, img/2225.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2228.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2228-m.jpg" srcset="img/2228-m.jpg 800w, img/2228.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2234.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2234-m.jpg" srcset="img/2234-m.jpg 800w, img/2234.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2237.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2237-m.jpg" srcset="img/2237-m.jpg 800w, img/2237.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2243.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2243-m.jpg" srcset="img/2243-m.jpg 800w, img/2243.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2246.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2246-m.jpg" srcset="img/2246-m.jpg 800w, img/2246.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2264.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2264-m.jpg" srcset="img/2264-m.jpg 800w, img/2264.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2267.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2267-m.jpg" srcset="img/2267-m.jpg 800w, img/2267.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2270.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2270-m.jpg" srcset="img/2270-m.jpg 800w, img/2270.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2279.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2279-m.jpg" srcset="img/2279-m.jpg 800w, img/2279.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2282.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2282-m.jpg" srcset="img/2282-m.jpg 800w, img/2282.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2291.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2291-m.jpg" srcset="img/2291-m.jpg 800w, img/2291.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2312.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2312-m.jpg" srcset="img/2312-m.jpg 800w, img/2312.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2369.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2369-m.jpg" srcset="img/2369-m.jpg 800w, img/2369.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure><figure class="ph rv" data-lb data-full="img/2396.jpg" data-cap="In Close-up · تفاصيل"><div class="fr"><img src="img/2396-m.jpg" srcset="img/2396-m.jpg 800w, img/2396.jpg 1467w" sizes="(max-width:760px) 50vw, 24vw" width="1600" height="2400" alt="تفصيل من داخل الفيلا" loading="lazy" decoding="async"></div></figure></div>
+  <div class="chapter" id="ch-living">
+    <div class="ch-head rv"><span class="serif">Living Spaces</span><span class="sub-r"><span class="ar-s">المعيشة</span><span class="trk">II · Interior</span></span></div>
+    <figure class="ph lead rv" data-open="2072">
+      <div class="fr"><img src="img/2072-m.jpg" srcset="img/2072-m.jpg 800w, img/2072.jpg 1467w" sizes="(max-width:760px) 100vw, 60vh" width="1467" height="2200" alt="مجلس الضيوف" loading="lazy" decoding="async"></div>
+      <figcaption><span class="c">The Guest Lounge</span><span class="ar">مجلس الضيوف</span></figcaption>
+    </figure>
+    <div class="thumbs rv"><button class="th" type="button" data-open="2417" aria-label="غرفة الطعام"><img src="img/2417-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2063" aria-label="الصالة"><img src="img/2063-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2195" aria-label="الجلسة العلوية"><img src="img/2195-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2036" aria-label="سفرة الطعام"><img src="img/2036-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2078" aria-label="غرفة الطعام"><img src="img/2078-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="g:living" aria-label="جلسة العائلة"><img src="img/2198-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"><span class="more">+10</span></button></div>
+    <button class="viewall rv" type="button" data-open="g:living"><span class="t-ar">للتكملة اضغط هنا · عرض كل الصور (16)</span><span class="t-en lat">View all 16 photographs</span><svg viewBox="0 0 9 14" aria-hidden="true"><path d="M4.5 0v13M.5 9l4 4 4-4"/></svg></button>
+  </div>
+  <div class="chapter" id="ch-private">
+    <div class="ch-head rv"><span class="serif">Private Quarters</span><span class="sub-r"><span class="ar-s">الخصوصية</span><span class="trk">III · Rooms</span></span></div>
+    <figure class="ph lead rv" data-open="2105">
+      <div class="fr"><img src="img/2105-m.jpg" srcset="img/2105-m.jpg 800w, img/2105.jpg 1467w" sizes="(max-width:760px) 100vw, 60vh" width="1467" height="2200" alt="الضوء والانعكاس" loading="lazy" decoding="async"></div>
+      <figcaption><span class="c">Light &amp; Reflection</span><span class="ar">الضوء والانعكاس</span></figcaption>
+    </figure>
+    <div class="thumbs rv"><button class="th" type="button" data-open="2159" aria-label="غرف النوم"><img src="img/2159-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2096" aria-label="غرفة نوم"><img src="img/2096-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2099" aria-label="ألوان هادئة"><img src="img/2099-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2132" aria-label="الحمّامات"><img src="img/2132-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2177" aria-label="غرفة الغسيل"><img src="img/2177-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button></div>
+    <button class="viewall rv" type="button" data-open="g:private"><span class="t-ar">للتكملة اضغط هنا · عرض كل الصور (6)</span><span class="t-en lat">View all 6 photographs</span><svg viewBox="0 0 9 14" aria-hidden="true"><path d="M4.5 0v13M.5 9l4 4 4-4"/></svg></button>
+  </div>
+  <div class="chapter" id="ch-closeup">
+    <div class="ch-head rv"><span class="serif">In Close-up</span><span class="sub-r"><span class="ar-s">التفاصيل</span><span class="trk">IV · Details</span></span></div>
+    <figure class="ph lead rv" data-open="2216">
+      <div class="fr"><img src="img/2216-m.jpg" srcset="img/2216-m.jpg 800w, img/2216.jpg 1467w" sizes="(max-width:760px) 100vw, 60vh" width="1467" height="2200" alt="تفاصيل" loading="lazy" decoding="async"></div>
+      <figcaption><span class="c">In Close-up</span><span class="ar">تفاصيل</span></figcaption>
+    </figure>
+    <div class="thumbs rv"><button class="th" type="button" data-open="2222" aria-label="تفاصيل"><img src="img/2222-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2219" aria-label="تفاصيل"><img src="img/2219-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2225" aria-label="تفاصيل"><img src="img/2225-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2228" aria-label="تفاصيل"><img src="img/2228-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="2234" aria-label="تفاصيل"><img src="img/2234-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"></button><button class="th" type="button" data-open="g:closeup" aria-label="تفاصيل"><img src="img/2237-m.jpg" width="800" height="1200" alt="" loading="lazy" decoding="async"><span class="more">+12</span></button></div>
+    <button class="viewall rv" type="button" data-open="g:closeup"><span class="t-ar">للتكملة اضغط هنا · عرض كل الصور (18)</span><span class="t-en lat">View all 18 photographs</span><svg viewBox="0 0 9 14" aria-hidden="true"><path d="M4.5 0v13M.5 9l4 4 4-4"/></svg></button>
+  </div>
   <div class="ed pause">
     <div class="tx rv">
       <p class="q">Under the<br>Madinah sky.</p>
       <p class="q2 t-ar">جلسة خارجية على السطح، ومكان للشواء، لليالي طيبة الجميلة.</p>
       <p class="q2 t-en serif" style="font-style:italic">An outdoor lounge on the roof, and a barbecue area for beautiful Taibah nights.</p>
-    </div><figure class="ph rv" data-lb data-full="img/2183.jpg" data-cap="The Rooftop · السطح"><div class="fr"><img src="img/2183-m.jpg" srcset="img/2183-m.jpg 800w, img/2183.jpg 1467w" sizes="(max-width:760px) 100vw, 48vw" width="1600" height="2400" alt="السطح" loading="lazy" decoding="async"></div><figcaption><span class="c">The Rooftop</span><span class="ar">السطح</span></figcaption></figure>
+    </div>
+    <figure class="ph rv" data-open="2183"><div class="fr"><img src="img/2183-m.jpg" srcset="img/2183-m.jpg 800w, img/2183.jpg 1467w" sizes="(max-width:760px) 100vw, 48vw" width="1467" height="2200" alt="السطح" loading="lazy" decoding="async"></div><figcaption><span class="c">The Rooftop</span><span class="ar">السطح</span></figcaption></figure>
   </div>
 </section>
 
@@ -463,8 +511,8 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </div>
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2048.jpg" data-cap="The Inner Garden · الحديقة الداخلية"><div class="fr"><img src="img/2048-m.jpg" srcset="img/2048-m.jpg 800w, img/2048.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحديقة الداخلية" loading="lazy" decoding="async"></div></figure>
-      <figure class="ph inset rv" data-lb data-full="img/2051.jpg" data-cap="Patterned Screens · السواتر المنقوشة"><div class="fr"><img src="img/2051-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="السواتر المنقوشة" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2048"><div class="fr"><img src="img/2048-m.jpg" srcset="img/2048-m.jpg 800w, img/2048.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحديقة الداخلية" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-open="2051"><div class="fr"><img src="img/2051-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="السواتر المنقوشة" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">01</span>
@@ -477,7 +525,7 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2210.jpg" data-cap="Glass &amp; Light · الزجاج والضوء"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الزجاج والضوء" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2210"><div class="fr"><img src="img/2210-m.jpg" srcset="img/2210-m.jpg 800w, img/2210.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الزجاج والضوء" loading="lazy" decoding="async"></div></figure>
       
     </div>
     <div class="tx rv">
@@ -491,8 +539,8 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2135.jpg" data-cap="Quiet Bedrooms · غرف النوم"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="غرف النوم" loading="lazy" decoding="async"></div></figure>
-      <figure class="ph inset rv" data-lb data-full="img/2120.jpg" data-cap="Glass-fronted Wardrobes · خزائن بواجهات زجاجية"><div class="fr"><img src="img/2120-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="خزائن بواجهات زجاجية" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2135"><div class="fr"><img src="img/2135-m.jpg" srcset="img/2135-m.jpg 800w, img/2135.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="غرف النوم" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-open="2120"><div class="fr"><img src="img/2120-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="خزائن بواجهات زجاجية" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">03</span>
@@ -505,7 +553,7 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2126.jpg" data-cap="Backlit Mirrors · الحمّامات"><div class="fr"><img src="img/2126-m.jpg" srcset="img/2126-m.jpg 800w, img/2126.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحمّامات" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2126"><div class="fr"><img src="img/2126-m.jpg" srcset="img/2126-m.jpg 800w, img/2126.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="الحمّامات" loading="lazy" decoding="async"></div></figure>
       
     </div>
     <div class="tx rv">
@@ -519,8 +567,8 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2294.jpg" data-cap="The Kitchen · المطبخ"><div class="fr"><img src="img/2294-m.jpg" srcset="img/2294-m.jpg 800w, img/2294.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المطبخ" loading="lazy" decoding="async"></div></figure>
-      <figure class="ph inset rv" data-lb data-full="img/2303.jpg" data-cap="Kitchen Detail · تفاصيل المطبخ"><div class="fr"><img src="img/2303-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2294"><div class="fr"><img src="img/2294-m.jpg" srcset="img/2294-m.jpg 800w, img/2294.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المطبخ" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph inset rv" data-open="2303"><div class="fr"><img src="img/2303-m.jpg" sizes="(max-width:760px) 40vw, 20vw" width="800" height="1200" alt="تفاصيل المطبخ" loading="lazy" decoding="async"></div></figure>
     </div>
     <div class="tx rv">
       <span class="no">05</span>
@@ -533,7 +581,7 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det rev">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2318.jpg" data-cap="Private Elevator · المصعد الخاص"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المصعد الخاص" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2318"><div class="fr"><img src="img/2318-m.jpg" srcset="img/2318-m.jpg 800w, img/2318.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="المصعد الخاص" loading="lazy" decoding="async"></div></figure>
       
     </div>
     <div class="tx rv">
@@ -547,7 +595,7 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   </article>
   <article class="det">
     <div class="im rv">
-      <figure class="ph main rv" data-lb data-full="img/2201.jpg" data-cap="Private Gym · النادي الرياضي"><div class="fr"><img src="img/2201-m.jpg" srcset="img/2201-m.jpg 800w, img/2201.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="النادي الرياضي" loading="lazy" decoding="async"></div></figure>
+      <figure class="ph main rv" data-open="2201"><div class="fr"><img src="img/2201-m.jpg" srcset="img/2201-m.jpg 800w, img/2201.jpg 1467w" sizes="(max-width:760px) 100vw, 58vh" width="1600" height="2400" alt="النادي الرياضي" loading="lazy" decoding="async"></div></figure>
       
     </div>
     <div class="tx rv">
@@ -611,14 +659,13 @@ html[data-lang="en"] .film-copy .versions{direction:rtl}
   <div class="s-foot trk"><span>Private Presentation · 2026</span><a href="#opening">Back to Top ↑</a></div>
 </footer>
 
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Gallery">
-  <button class="x" id="lbX" type="button" aria-label="Close"><span class="trk">Close</span><i></i></button>
-  <button class="nav prev" id="lbPrev" type="button" aria-label="Previous"><svg viewBox="0 0 22 22"><path d="M14 3L6 11l8 8"/></svg></button>
-  <figure><img id="lbImg" alt=""><figcaption class="trk"><span id="lbCap" style="display:flex;justify-content:space-between;width:100%"></span></figcaption></figure>
-  <button class="nav next" id="lbNext" type="button" aria-label="Next"><svg viewBox="0 0 22 22"><path d="M8 3l8 8-8 8"/></svg></button>
+<div class="gv" id="gv" hidden role="dialog" aria-modal="true" aria-label="Gallery">
+  <div class="gv-top"><span class="gv-t"><span class="serif" id="gvT">The Arrival</span><span class="ar-s" id="gvA">الوصول</span></span><span class="gv-r"><span class="trk" id="gvN">01 / 57</span><button class="gv-x" id="gvX" type="button" aria-label="Close"><i></i></button></span></div>
+  <div class="gv-body" id="gvB"></div>
 </div>
 
 <script>
+const GALLERY=[{"id": "arrival", "en": "The Arrival", "ar": "الوصول", "items": [[2447, "The Ensemble", "الواجهات ليلًا"], [2027, "The Arrival", "المدخل"], [2435, "The Street", "الواجهة"], [2006, "Night Entrance", "المدخل ليلًا"], [2012, "The Gate", "البوابة"], [2021, "The Front Garden", "الحديقة الأمامية"], [2030, "Outdoor Seating", "الجلسة الخارجية"]]}, {"id": "living", "en": "Living Spaces", "ar": "المعيشة", "items": [[2072, "The Guest Lounge", "مجلس الضيوف"], [2417, "Dining", "غرفة الطعام"], [2063, "Living", "الصالة"], [2195, "Upper Lounge", "الجلسة العلوية"], [2036, "Set for Gathering", "سفرة الطعام"], [2078, "The Dining Room", "غرفة الطعام"], [2198, "The Family Lounge", "جلسة العائلة"], [2192, "A Quiet Corner", "ركن هادئ"], [2231, "Soft Textures", "خامات ناعمة"], [2258, "The Media Wall", "جدار التلفاز"], [2261, "Evening Light", "إضاءة المساء"], [2252, "Art & Light", "الفن والضوء"], [2249, "Indoor Greenery", "خضرة داخلية"], [2285, "The Kitchen", "المطبخ"], [2306, "Warm Wood", "لمسات خشبية"], [2183, "The Rooftop", "السطح"]]}, {"id": "private", "en": "Private Quarters", "ar": "الخصوصية", "items": [[2105, "Light & Reflection", "الضوء والانعكاس"], [2159, "The Bedrooms", "غرف النوم"], [2096, "A Restful Bedroom", "غرفة نوم"], [2099, "Calm Tones", "ألوان هادئة"], [2132, "The Bathrooms", "الحمّامات"], [2177, "The Laundry", "غرفة الغسيل"]]}, {"id": "closeup", "en": "In Close-up", "ar": "التفاصيل", "items": [[2216, "In Close-up", "تفاصيل"], [2222, "In Close-up", "تفاصيل"], [2219, "In Close-up", "تفاصيل"], [2225, "In Close-up", "تفاصيل"], [2228, "In Close-up", "تفاصيل"], [2234, "In Close-up", "تفاصيل"], [2237, "In Close-up", "تفاصيل"], [2243, "In Close-up", "تفاصيل"], [2246, "In Close-up", "تفاصيل"], [2264, "In Close-up", "تفاصيل"], [2267, "In Close-up", "تفاصيل"], [2270, "In Close-up", "تفاصيل"], [2279, "In Close-up", "تفاصيل"], [2282, "In Close-up", "تفاصيل"], [2291, "In Close-up", "تفاصيل"], [2312, "In Close-up", "تفاصيل"], [2369, "In Close-up", "تفاصيل"], [2396, "In Close-up", "تفاصيل"]]}, {"id": "details", "en": "Architectural Details", "ar": "التفاصيل المعمارية", "items": [[2048, "The Inner Garden", "الحديقة الداخلية"], [2051, "Patterned Screens", "السواتر المنقوشة"], [2210, "Glass & Light", "الزجاج والضوء"], [2135, "Quiet Bedrooms", "غرف النوم"], [2120, "Glass-fronted Wardrobes", "خزائن بواجهات زجاجية"], [2126, "Backlit Mirrors", "الحمّامات"], [2294, "The Kitchen", "المطبخ"], [2303, "Kitchen Detail", "تفاصيل المطبخ"], [2318, "Private Elevator", "المصعد الخاص"], [2201, "Private Gym", "النادي الرياضي"]]}];
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const root=document.documentElement;
@@ -721,23 +768,27 @@ $$('.ver').forEach(b=>b.addEventListener('click',()=>{
   if(innerWidth<=1000){const r=P.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)P.scrollIntoView({behavior:'smooth',block:'center'})}
 }));
 
-/* ---------- lightbox ---------- */
-const figs=$$('[data-lb]'),LB=$('#lb'),LBI=$('#lbImg'),LBC=$('#lbCap');let idx=0,lbOpen=false;
-function show(i){idx=(i+figs.length)%figs.length;const f=figs[idx];LBI.classList.add('fade');
-  const im=new Image();im.onload=im.onerror=()=>{LBI.src=f.dataset.full;LBI.alt=f.querySelector('img').alt;LBI.classList.remove('fade')};im.src=f.dataset.full;
-  const [en,ar]=(f.dataset.cap||'').split(' · ');
-  LBC.innerHTML=`<span>${en||''}</span><span>${String(idx+1).padStart(2,'0')} / ${String(figs.length).padStart(2,'0')}</span>`;
-  [1,-1].forEach(k=>{const n=figs[(idx+k+figs.length)%figs.length];const p=new Image();p.src=n.dataset.full})}
-function openLb(i){lbOpen=true;LB.hidden=false;show(i);requestAnimationFrame(()=>LB.classList.add('on'));document.body.style.overflow='hidden';top.classList.add('hide');$('#lbX').focus({preventScroll:true})}
-function closeLb(){LB.classList.remove('on');lbOpen=false;document.body.style.overflow='';setTimeout(()=>{LB.hidden=true},450)}
-figs.forEach((f,i)=>{f.tabIndex=0;f.setAttribute('role','button');f.addEventListener('click',()=>openLb(i));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i)}})});
-$('#lbX').addEventListener('click',closeLb);
-$('#lbNext').addEventListener('click',e=>{e.stopPropagation();show(idx+1)});
-$('#lbPrev').addEventListener('click',e=>{e.stopPropagation();show(idx-1)});
-LB.addEventListener('click',e=>{if(e.target===LB)closeLb()});
-addEventListener('keydown',e=>{if(!lbOpen)return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')show(idx+1);if(e.key==='ArrowLeft')show(idx-1)});
-let sx=0,sy=0;LB.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
-LB.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))show(idx+(dx<0?1:-1));else if(dy>90)closeLb()},{passive:true});
+/* ---------- vertical gallery viewer ---------- */
+const GV=$('#gv'),GB=$('#gvB'),GT=$('#gvT'),GA=$('#gvA'),GN=$('#gvN');let lbOpen=false,built=false,total=0;
+function build(){if(built)return;built=true;let k=0;
+  GALLERY.forEach(g=>{const h=document.createElement('div');h.className='gv-h';h.dataset.g=g.id;h.innerHTML=`<span class="serif">${g.en}</span><span class="ar-s">${g.ar}</span><span class="trk">${g.items.length} PHOTOS</span>`;GB.appendChild(h);
+    g.items.forEach(([n,en,ar])=>{k++;const land=n===2447;const f=document.createElement('figure');f.className='gv-f';f.id='gv-'+n;f.dataset.g=g.id;f.dataset.i=k;
+      f.innerHTML=`<img src="img/${n}-m.jpg" srcset="img/${n}-m.jpg ${land?1200:800}w, img/${n}.jpg ${land?2200:1467}w" sizes="(max-width:760px) 100vw, ${land?'min(1300px,86vw)':'60vh'}" width="${land?2200:1467}" height="${land?1467:2200}" alt="${ar}" loading="lazy" decoding="async"><figcaption><span class="c">${en}</span><span class="ar">${ar}</span></figcaption>`;GB.appendChild(f)})});
+  total=k;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const f=e.target,g=GALLERY.find(x=>x.id===f.dataset.g);GT.textContent=g.en;GA.textContent=g.ar;GN.textContent=String(f.dataset.i).padStart(2,'0')+' / '+String(total).padStart(2,'0')}}),{root:GB,rootMargin:'-45% 0px -50% 0px'});
+  $$('.gv-f').forEach(f=>io.observe(f));
+}
+function openGv(target){build();GV.hidden=false;lbOpen=true;document.documentElement.classList.add('gv-on');top.classList.add('hide');
+  let el=null;if(String(target).startsWith('g:'))el=GB.querySelector(`.gv-h[data-g="${String(target).slice(2)}"]`);else el=$('#gv-'+target);
+  requestAnimationFrame(()=>{GV.classList.add('on');if(el){GB.scrollTop=el.offsetTop-(String(target).startsWith('g:')?0:64)}});
+  try{history.pushState({gv:1},'')}catch(e){}
+}
+function closeGv(fromPop){if(!lbOpen)return;GV.classList.remove('on');lbOpen=false;document.documentElement.classList.remove('gv-on');setTimeout(()=>{GV.hidden=true},400);if(!fromPop){try{if(history.state&&history.state.gv)history.back()}catch(e){}}}
+$$('[data-open]').forEach(el=>{if(el.tagName!=='BUTTON'){el.tabIndex=0;el.setAttribute('role','button')}
+  el.addEventListener('click',()=>openGv(el.dataset.open));el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();openGv(el.dataset.open)}})});
+$('#gvX').addEventListener('click',()=>closeGv(false));
+addEventListener('popstate',()=>{if(lbOpen)closeGv(true)});
+addEventListener('keydown',e=>{if(lbOpen&&e.key==='Escape')closeGv(false)});
 })();
 </script>
 </body>
