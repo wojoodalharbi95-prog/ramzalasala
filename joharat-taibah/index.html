@@ -431,6 +431,21 @@ html[data-lang="en"] .film-copy .versions{direction:ltr}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv,.ph .fr img,.intro>*{opacity:1!important;transform:none!important;filter:none!important}
 }
+
+/* ---------- official channels ---------- */
+.hr{display:flex;align-items:center;gap:clamp(14px,2vw,26px)}
+.hsoc{display:flex;align-items:center;gap:4px}
+.hsoc a{width:36px;height:36px;display:grid;place-items:center;color:var(--mut);transition:color .4s}
+.hsoc svg{width:14px;height:14px;fill:currentColor}
+.hsoc a:first-child svg{width:16px}
+@media (hover:hover){.hsoc a:hover{color:var(--acc)}}
+.s-social{list-style:none;display:flex;justify-content:center;gap:14px;margin-top:clamp(28px,4vh,40px);direction:ltr}
+.soc{display:inline-flex;align-items:center;gap:12px;height:46px;padding:0 20px 0 18px;border:1px solid var(--rule);border-radius:999px;color:var(--tx2);transition:color .45s var(--ease),border-color .45s var(--ease),background-color .45s var(--ease)}
+.soc svg{width:16px;height:16px;fill:currentColor;flex:none}
+.soc .trk{font-size:10px;letter-spacing:.28em}
+@media (hover:hover){.soc:hover{color:var(--espresso);background:var(--champagne);border-color:var(--champagne)}}
+.soc:focus-visible{outline-offset:3px}
+@media (max-width:760px){.hsoc{display:none}.soc{height:44px;padding:0 18px 0 16px}}
 </style>
 </head>
 <body>
@@ -441,7 +456,7 @@ html[data-lang="en"] .film-copy .versions{direction:ltr}
     <i aria-hidden="true"></i><span class="trk">Wojood Alharbi</span>
   </a>
   <span class="chap trk" id="chap">I — The Opening</span>
-  <button class="lang" id="langBtn" type="button" aria-label="Language / اللغة"><span data-l="ar" class="on">ع</span><i></i><span data-l="en">EN</span></button>
+  <div class="hr"><nav class="hsoc" aria-label="Official channels"><a href="https://www.youtube.com/@Ramzalasala" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://x.com/ramzalasala" target="_blank" rel="noopener" aria-label="X (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></nav><button class="lang" id="langBtn" type="button" aria-label="Language / اللغة"><span data-l="ar" class="on">ع</span><i></i><span data-l="en">EN</span></button></div>
 </header>
 
 <main>
@@ -633,6 +648,10 @@ html[data-lang="en"] .film-copy .versions{direction:ltr}
     <a href="https://ramzalasala.com" target="_blank" rel="noopener">RAMZALASALA.COM</a>
     <a href="https://wa.me/966567332138" target="_blank" rel="noopener">WHATSAPP · 0567 332 138</a>
   </div>
+  <ul class="s-social" aria-label="Official channels">
+    <li><a class="soc" href="https://www.youtube.com/@Ramzalasala" target="_blank" rel="noopener" aria-label="YouTube — official channel (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="trk">YouTube</span></a></li>
+    <li><a class="soc" href="https://x.com/ramzalasala" target="_blank" rel="noopener" aria-label="X — official account (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg><span class="trk">X</span></a></li>
+  </ul>
   <div class="s-brand">
     <svg class="arch" viewBox="0 0 120 140" aria-hidden="true"><path d="M12 136V62C12 36 31 17 60 6c29 11 48 30 48 56v74H12zM26 136V64c0-19 13-31 34-40 21 9 34 21 34 40v72H26z"/><path class="gem" d="M60 52l14 19-14 19-14-19z"/></svg>
     <p class="b">رمز الأصالة العقارية</p>
