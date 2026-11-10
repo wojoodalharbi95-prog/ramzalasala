@@ -696,7 +696,7 @@ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);tick
 
 /* ---------- film player ---------- */
 const P=$('#player'),V=$('#vid'),bar=$('#bar'),pl=$('#pl'),bf=$('#bf'),knob=$('#knob'),timeEl=$('#time');
-const SRC={ar:'video/ar/index.m3u8',en:'video/en/index.m3u8'},NAME={ar:'AR · Arabic Version',en:'EN · English Version'};
+const SRC={ar:'video/ar/index.m3u8',en:'video/en2/index.m3u8'},NAME={ar:'AR · Arabic Version',en:'EN · English Version'};
 const native=!!V.canPlayType('application/vnd.apple.mpegurl');
 let cur='ar',loaded=null,hls=null,hlsLib=null,hideT=null,DUR=406.9;
 const fmt=t=>{t=Math.max(0,Math.floor(t||0));return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
