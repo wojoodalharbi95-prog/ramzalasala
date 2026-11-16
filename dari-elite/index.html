@@ -258,6 +258,94 @@ section{position:relative}
 .am.big{grid-column:span 2;min-height:440px}.am.wide{grid-column:span 2}
 @media(min-width:960px){.bento{grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:330px 330px;gap:18px}.am.big{grid-column:auto;grid-row:span 2;min-height:0}.am.wide{grid-column:span 2}.am .in{padding:26px}}
 
+/* ---------- project spec sheet ---------- */
+.spec{max-width:980px;margin:0 auto clamp(50px,8vw,100px);border-top:1px solid var(--line)}
+.sr{display:grid;grid-template-columns:1fr;gap:4px;padding:18px 4px;border-bottom:1px solid var(--line2)}
+.sr dt{font-family:var(--fh);font-size:12px;color:var(--gold);letter-spacing:.02em}
+html[lang="en"] .sr dt{letter-spacing:.18em;text-transform:uppercase;font-size:10.5px}
+.sr dd{font-family:var(--fh);font-size:clamp(16px,4.2vw,20px);color:var(--ivory);line-height:1.6}
+.sr dd b{font-weight:800;color:var(--gold-lt)}
+@media(min-width:760px){.spec{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}.sr{grid-template-columns:120px 1fr;align-items:baseline;gap:18px;padding:22px 4px}}
+/* ---------- features ---------- */
+.ic{width:28px;height:28px;fill:none;stroke:var(--gold-lt);stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fgrid{display:grid;grid-template-columns:1fr;gap:12px;max-width:1180px;margin:0 auto}
+.ft{display:flex;gap:16px;align-items:flex-start;padding:22px 20px;border:1px solid var(--line2);background:linear-gradient(160deg,rgba(200,164,106,.07),rgba(200,164,106,0) 60%);transition:border-color .5s,transform .6s var(--ease)}
+.ft:hover{border-color:var(--line);transform:translateY(-3px)}
+.ft .ic{width:34px;height:34px;padding:7px;border:1px solid var(--line);border-radius:50%;box-sizing:content-box}
+.ft h4{font-family:var(--fh);font-weight:700;font-size:16.5px;line-height:1.6}
+.ft .trk{display:block;color:var(--mute);font-size:9px;margin-top:6px}
+@media(min-width:700px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.fgrid{grid-template-columns:repeat(3,1fr);gap:18px}.ft{padding:30px 26px}}
+/* ---------- warranty chart ---------- */
+.warr{background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(200,164,106,.07),transparent 70%)}
+.wchart{max-width:980px;margin:0 auto;display:grid;gap:0}
+.wr,.wscale{display:grid;grid-template-columns:1fr auto;grid-template-areas:"l v" "b b";column-gap:12px;align-items:center}
+.wr{padding:14px 0;border-bottom:1px solid var(--line2)}
+.wl{grid-area:l;font-family:var(--fh);font-size:15px}
+.wv{grid-area:v;font-family:var(--fh);font-size:13px;color:var(--gold-lt);white-space:nowrap}
+.wv b{font-weight:800;font-size:18px}
+.wbar{grid-area:b;position:relative;height:6px;margin-top:10px;background:rgba(244,236,223,.06);border-radius:4px;overflow:hidden}
+.wbar i{position:absolute;inset:0;background:var(--gold-grad);border-radius:4px;transform:scaleX(0);transform-origin:left center;transition:transform 1.6s var(--ease);transition-delay:calc(var(--i)*.09s + .2s)}
+html[dir="rtl"] .wbar i{transform-origin:right center}
+.wchart.in .wbar i{transform:scaleX(var(--v))}
+.wscale{display:none}
+@media(min-width:760px){
+ .wr,.wscale{grid-template-columns:230px 1fr 92px;grid-template-areas:"l b v";column-gap:22px}
+ .wr{padding:16px 0}.wbar{margin-top:0;height:8px}
+ .wscale{display:grid;padding-bottom:10px;border-bottom:1px solid var(--line)}
+ .wscale .wv{color:var(--mute);font-size:11px}
+ .wticks{grid-area:b;position:relative;height:16px}
+ .wticks span{position:absolute;inset-inline-start:var(--p);top:0;transform:translateX(-50%);font-family:var(--fh);font-size:11px;color:var(--mute)}
+ html[dir="rtl"] .wticks span{transform:translateX(50%)}
+ .wticks span:first-child,html[dir="rtl"] .wticks span:first-child{transform:none}
+ .wticks span:last-child{transform:translateX(-100%)}html[dir="rtl"] .wticks span:last-child{transform:translateX(100%)}
+}
+.wbadges{display:grid;gap:12px;max-width:980px;margin:34px auto 0}
+.wb{display:flex;gap:14px;align-items:center;padding:18px 20px;border:1px solid var(--line)}
+.wb h4{font-family:var(--fh);font-weight:700;font-size:16px}
+.wb p{color:var(--mute);font-size:13.5px;font-weight:300}
+@media(min-width:700px){.wbadges{grid-template-columns:1fr 1fr;gap:18px}}
+/* ---------- owners association ---------- */
+.hoa{position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;border:1px solid var(--line);background:linear-gradient(150deg,#1b150e,#0d0a07 55%);overflow:hidden;isolation:isolate}
+.hoa::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(235,213,166,.10) 50%,transparent 65%);background-size:250% 100%;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%{background-position:120% 0}55%,100%{background-position:-120% 0}}
+.fee{padding:34px 26px;text-align:center;border-bottom:1px solid var(--line)}
+.fee .trk{color:var(--gold-lt);font-size:9.5px}
+.amt{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px}
+.amt b{font-family:var(--fh);font-weight:800;font-size:clamp(56px,15vw,92px);line-height:1}
+.amt span{font-family:var(--fh);font-size:14px;color:var(--ivory);line-height:1.5;text-align:start}
+.incl{padding:28px 22px 30px}
+.incl h4{font-family:var(--fh);font-weight:700;font-size:15px;color:var(--gold-lt);margin-bottom:8px}
+.incl ul{list-style:none}
+.incl li{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line2);font-size:15px}
+.incl li:last-child{border-bottom:0}
+.extra{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.extra p{color:var(--mute);font-size:13.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;border:1px solid var(--line);border-radius:30px;font-family:var(--fh);font-size:12.5px}
+.chip .ic{width:18px;height:18px}
+@media(min-width:900px){.hoa{grid-template-columns:.85fr 1.15fr}.fee{border-bottom:0;border-inline-end:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;padding:50px 36px}.amt{flex-direction:column;gap:10px}.amt span{text-align:center}.incl{padding:42px 44px}}
+/* ---------- investment & pricing ---------- */
+.inv{display:grid;gap:16px;max-width:1180px;margin:0 auto}
+.ivc,.prc{position:relative;padding:34px 26px;border:1px solid var(--line);overflow:hidden}
+.ivc{background:linear-gradient(200deg,rgba(200,164,106,.10),rgba(10,8,6,0) 60%)}
+.ivc>.ic{width:40px;height:40px;margin-bottom:18px}
+.ivc .trk,.prc .trk{display:block;color:var(--gold-lt);font-size:9.5px}
+html[dir="rtl"] .ivc .trk{text-align:right}
+.ivc h3{font-family:var(--fh);font-weight:700;font-size:clamp(22px,5.4vw,30px);margin-top:10px;line-height:1.4}
+.ivc p{color:var(--mute);font-weight:300;font-size:15.5px;margin-top:12px;max-width:520px}
+.pills{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px}
+.pills .ic{width:22px;height:22px}
+.pills>span{padding:7px 16px;border:1px solid var(--line);border-radius:30px;font-family:var(--fh);font-size:13px}
+.prc{text-align:center;background:radial-gradient(ellipse 90% 70% at 50% 40%,rgba(200,164,106,.12),transparent 70%),var(--noir2)}
+.prc .from{font-family:var(--fh);color:var(--ivory);font-size:15px;margin-top:16px}
+.pv{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:6px}
+.pv b{font-family:var(--fh);font-weight:800;font-size:clamp(40px,11vw,64px);line-height:1.1}
+.pv span{font-family:var(--fh);font-size:14px;color:var(--mute)}
+.prc .to{display:block;font-style:normal;font-family:var(--fh);font-size:13px;color:var(--gold-lt);margin:8px auto 2px;width:max-content;padding:2px 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.prc small{display:block;margin-top:18px;color:var(--mute);font-size:12px;font-weight:300}
+@media(min-width:900px){.inv{grid-template-columns:1.1fr .9fr;gap:20px}.ivc,.prc{padding:48px 44px}.prc{display:flex;flex-direction:column;justify-content:center}}
+
 /* ---------- details ---------- */
 .mas{columns:2;column-gap:12px;max-width:1180px;margin:0 auto}
 .mas figure{break-inside:avoid;margin-bottom:12px;overflow:hidden;cursor:zoom-in;position:relative;background:var(--noir3)}
@@ -348,6 +436,27 @@ html[lang="en"] .h-lat{padding-left:.2em}
 </head>
 <body class="locked">
 <div class="grain" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M6 17v2M18 17v2"/><circle cx="7" cy="14" r=".9"/><circle cx="17" cy="14" r=".9"/></symbol>
+<symbol id="i-wash" viewBox="0 0 24 24"><path d="M5 13l1.4-3.6A2 2 0 0 1 8.3 8h7.4a2 2 0 0 1 1.9 1.4L19 13"/><rect x="3" y="13" width="18" height="5" rx="2"/><path d="M6 18v2M18 18v2M8 2.5v2M12 2v2.5M16 2.5v2"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9M7.5 5.2l9 4.6"/></symbol>
+<symbol id="i-door" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><circle cx="14.5" cy="12.5" r=".9"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10.5 11 5 20 4.5 20 13 14.5 19 6 19z"/><path d="M5 19l9-9M3 21l2-2"/></symbol>
+<symbol id="i-gym" viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M11 3l1.7 4.6L17.3 9.3 12.7 11 11 15.6 9.3 11 4.7 9.3 9.3 7.6z"/><path d="M18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+<symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8.5 3L3 6l2 4.2 2.5-1.2V21h9V9l2.5 1.2L21 6l-5.5-3a3.5 3.5 0 0 1-7 0z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.2-8 9-4.5-.8-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+<symbol id="i-dome" viewBox="0 0 24 24"><path d="M3 21h18M5.5 21v-5.5a6.5 6.5 0 0 1 13 0V21M12 9V5.5M10.5 4a1.8 1.8 0 1 0 2.6 2.3"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l2.5 2.5M14 9l2 2"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+</defs></svg>
+
 
 <div id="intro" aria-hidden="true">
   <span class="pn r"></span><span class="pn l"></span>
@@ -361,14 +470,14 @@ html[lang="en"] .h-lat{padding-left:.2em}
     <b><span class="i-ar">رمز الأصالة</span><span class="i-en">Ramz Al-Asala</span></b>
   </a>
   <nav class="nav" aria-label="أقسام العرض">
-    <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#project" data-s="project"><span class="i-ar">المشروع</span><span class="i-en">Project</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#details" data-s="details"><span class="i-ar">التفاصيل</span><span class="i-en">Details</span></a>
+    <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#project" data-s="project"><span class="i-ar">المشروع</span><span class="i-en">Project</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities" data-alt="features"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#warranty" data-s="warranty" data-alt="owners"><span class="i-ar">الضمانات</span><span class="i-en">Warranty</span></a><a href="#invest" data-s="invest"><span class="i-ar">الأسعار</span><span class="i-en">Pricing</span></a>
   </nav>
   <div class="bar-end"><span class="trk de">Dari Elite</span><button class="lng" id="lng" type="button" aria-label="Switch language / تغيير اللغة"><span class="i-ar">EN</span><span class="i-en">ع</span></button></div>
   <span class="prog" id="prog"></span>
 </header>
 
 <nav class="dock" id="dock" aria-label="تنقل سريع">
-  <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#details" data-s="details"><span class="i-ar">التفاصيل</span><span class="i-en">Details</span></a>
+  <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities" data-alt="features warranty owners"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#invest" data-s="invest"><span class="i-ar">الأسعار</span><span class="i-en">Pricing</span></a>
 </nav>
 
 <main>
@@ -394,7 +503,7 @@ html[lang="en"] .h-lat{padding-left:.2em}
 <!-- NUMBERS -->
 <div class="numbers" id="numbers">
   <div class="n rv"><b class="gold-t" data-count="3">0</b><span><span class="i-ar">نماذج سكنية</span><span class="i-en">Residences</span></span><em class="trk"><span class="i-ar">Residences</span><span class="i-en arsub">نماذج سكنية</span></em></div>
-  <div class="n rv d1"><b class="gold-t" data-count="4">0</b><span><span class="i-ar">مرافق مشتركة</span><span class="i-en">Amenities</span></span><em class="trk"><span class="i-ar">Amenities</span><span class="i-en arsub">مرافق مشتركة</span></em></div>
+  <div class="n rv d1"><b class="gold-t" data-count="62">0</b><span><span class="i-ar">شقة سكنية</span><span class="i-en">Apartments</span></span><em class="trk"><span class="i-ar">Apartments</span><span class="i-en arsub">شقة سكنية</span></em></div>
   <div class="n rv d2"><b class="gold-t" data-count="97">0</b><span><span class="i-ar">صورة مختارة</span><span class="i-en">Curated Frames</span></span><em class="trk"><span class="i-ar">Curated Frames</span><span class="i-en arsub">صورة مختارة</span></em></div>
   <div class="n rv d3"><b class="gold-t">4K</b><span><span class="i-ar">تصوير سينمائي</span><span class="i-en">Cinematic Capture</span></span><em class="trk"><span class="i-ar">Cinematic Capture</span><span class="i-en arsub">تصوير سينمائي</span></em></div>
 </div>
@@ -441,14 +550,15 @@ html[lang="en"] .h-lat{padding-left:.2em}
 
 <!-- PROJECT -->
 <section class="sec" id="project">
-  <div class="sh rv"><span class="num">03</span><h2><span class="i-ar">المشروع</span><span class="i-en">The Project</span></h2><span class="trk"><span class="i-ar">The Project</span><span class="i-en arsub">المشروع</span></span><p><span class="i-ar">مشروع سكني من داري للتطوير العقاري، بواجهة معاصرة تتوهّج ليلًا، يضم شققًا بثلاثة نماذج، ومرافق مشتركة تكمّل تجربة السكن.</span><span class="i-en">A residential project by Dari Real Estate Development, with a contemporary façade that glows at night, apartments in three layouts, and shared amenities that complete the living experience.</span></p></div>
+  <div class="sh rv"><span class="num">03</span><h2><span class="i-ar">المشروع</span><span class="i-en">The Project</span></h2><span class="trk"><span class="i-ar">The Project</span><span class="i-en arsub">المشروع</span></span><p><span class="i-ar">سكني أو استثماري؟ داري إيليت يجمع الخيارين: 62 شقة بواجهة معاصرة تتوهّج ليلًا، في مشروع مكتمل الخدمات بالمدينة المنورة.</span><span class="i-en">To live in, or to invest? Dari Elite offers both: 62 apartments behind a contemporary façade that glows at night, in a fully serviced project in Madinah.</span></p></div>
+  <dl class="spec"><div class="sr rv"><dt><span class="i-ar">المطوّر</span><span class="i-en">Developer</span></dt><dd><span class="i-ar">داري للتطوير العقاري</span><span class="i-en">Dari Real Estate Development</span></dd></div><div class="sr rv d1"><dt><span class="i-ar">الوحدات</span><span class="i-en">Units</span></dt><dd><span class="i-ar"><b class="lat">62</b> شقة سكنية</span><span class="i-en"><b class="lat">62</b> apartments</span></dd></div><div class="sr rv"><dt><span class="i-ar">النماذج</span><span class="i-en">Layouts</span></dt><dd><span class="i-ar">غرفتان · ثلاث غرف · أربع غرف</span><span class="i-en">2, 3 &amp; 4 bedrooms</span></dd></div><div class="sr rv d1"><dt><span class="i-ar">الموقع</span><span class="i-en">Location</span></dt><dd><span class="i-ar">المدينة المنورة، على مقربة من المسجد النبوي الشريف ومسجد قباء</span><span class="i-en">Madinah, close to the Prophet’s Mosque and Quba Mosque</span></dd></div><div class="sr rv"><dt><span class="i-ar">الخدمات</span><span class="i-en">Services</span></dt><dd><span class="i-ar">مشروع مكتمل الخدمات، بمرافق مشتركة في الطابق السفلي</span><span class="i-en">Fully serviced, with shared amenities on the lower level</span></dd></div><div class="sr rv d1"><dt><span class="i-ar">في مسيرة داري</span><span class="i-en">In Dari’s journey</span></dt><dd><span class="i-ar">المشروع رقم <b class="lat">73</b></span><span class="i-en">Project No. <b class="lat">73</b></span></dd></div></dl>
   <div class="proj" id="projGrid"></div>
   <p class="quote rv"><span class="i-ar">«حين تكون التفاصيل <em class="gold-t">مدروسة</em>، تصبح الصورة امتدادًا للتصميم.»</span><span class="i-en">“When every detail is <em class="gold-t">considered</em>, the image becomes an extension of the design.”</span></p>
 </section>
 
 <!-- RESIDENCES -->
 <section id="residences">
-  <div class="sec" style="padding-bottom:clamp(40px,6vw,70px)"><div class="sh rv" style="margin-bottom:0"><span class="num">04</span><h2><span class="i-ar">النماذج</span><span class="i-en">The Residences</span></h2><span class="trk"><span class="i-ar">The Residences</span><span class="i-en arsub">النماذج</span></span><p><span class="i-ar">ثلاثة نماذج سكنية، لكل نموذج طابعه وشخصيته.</span><span class="i-en">Three residences, each with its own character.</span></p><span class="rule"></span></div></div>
+  <div class="sec" style="padding-bottom:clamp(40px,6vw,70px)"><div class="sh rv" style="margin-bottom:0"><span class="num">04</span><h2><span class="i-ar">النماذج</span><span class="i-en">The Residences</span></h2><span class="trk"><span class="i-ar">The Residences</span><span class="i-en arsub">النماذج</span></span><p><span class="i-ar">ثلاثة نماذج سكنية: غرفتان، وثلاث غرف، وأربع غرف، ولكل نموذج طابعه وشخصيته.</span><span class="i-en">Three layouts, with two, three and four bedrooms, each with its own character.</span></p><span class="rule"></span></div></div>
   <div id="resList"></div>
 </section>
 
@@ -458,15 +568,73 @@ html[lang="en"] .h-lat{padding-left:.2em}
   <div class="bento" id="bento"></div>
 </section>
 
+
+<!-- FEATURES -->
+<section class="sec feats" id="features">
+  <div class="sh rv"><span class="num">06</span><h2><span class="i-ar">مزايا كل شقة</span><span class="i-en">Apartment Features</span></h2><span class="trk"><span class="i-ar">Apartment Features</span><span class="i-en arsub">مزايا كل شقة</span></span><p><span class="i-ar">تفاصيل عملية تصنع راحة السكن اليومية، وتمنح كل مالك استقلاليته.</span><span class="i-en">Practical details that make daily living easy and give every owner full independence.</span></p></div>
+  <div class="fgrid"><div class="ft rv d0"><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg><div><h4><span class="i-ar">موقف خاص لكل شقة</span><span class="i-en">A private parking bay for every apartment</span></h4><span class="trk"><span class="i-ar">Private Parking</span></span></div></div><div class="ft rv d1"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><div><h4><span class="i-ar">عداد كهرباء مستقل لكل شقة</span><span class="i-en">An independent electricity meter per apartment</span></h4><span class="trk"><span class="i-ar">Own Power Meter</span></span></div></div><div class="ft rv d2"><svg class="ic" aria-hidden="true"><use href="#i-drop"/></svg><div><h4><span class="i-ar">عداد مياه مستقل لكل شقة</span><span class="i-en">An independent water meter per apartment</span></h4><span class="trk"><span class="i-ar">Own Water Meter</span></span></div></div><div class="ft rv d0"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><div><h4><span class="i-ar">صندوق استلام خاص لكل شقة في نقطة الاستلام (Drop Point)</span><span class="i-en">A private parcel box for every apartment at the drop point</span></h4><span class="trk"><span class="i-ar">Drop Point</span></span></div></div><div class="ft rv d1"><svg class="ic" aria-hidden="true"><use href="#i-door"/></svg><div><h4><span class="i-ar">مدخلان في نموذج الأربع غرف، أحدهما مدخل للرجال</span><span class="i-en">Two entrances in the four-bedroom layout, one of them a men’s entrance</span></h4><span class="trk"><span class="i-ar">Two Entrances</span></span></div></div><div class="ft rv d2"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg><div><h4><span class="i-ar">حوش خاص لبعض شقق الطابق السفلي، تصل معه المساحة إلى نحو 198 م²</span><span class="i-en">A private courtyard for select lower-level apartments, reaching about 198 m² in total</span></h4><span class="trk"><span class="i-ar">Private Courtyard</span></span></div></div></div>
+</section>
+
+<!-- WARRANTY -->
+<section class="sec warr" id="warranty">
+  <div class="sh rv"><span class="num">07</span><h2><span class="i-ar">ضمانات المشروع</span><span class="i-en">Project Warranties</span></h2><span class="trk"><span class="i-ar">Project Warranties</span><span class="i-en arsub">ضمانات المشروع</span></span><p><span class="i-ar">التزام بالجودة من البداية إلى التسليم، بضمانات تمتد حتى خمسٍ وعشرين سنة.</span><span class="i-en">A commitment to quality from groundwork to handover, with warranties of up to twenty-five years.</span></p></div>
+  <div class="wchart rv" id="wchart">
+    <div class="wscale" aria-hidden="true"><span class="wl"></span><span class="wticks"><span style="--p:0%">0</span><span style="--p:20%">5</span><span style="--p:40%">10</span><span style="--p:60%">15</span><span style="--p:80%">20</span><span style="--p:100%">25</span></span><span class="wv"><span class="i-ar">سنة</span><span class="i-en">yrs</span></span></div>
+    <div class="wr" style="--v:1.000;--i:0"><span class="wl"><span class="i-ar">السباكة</span><span class="i-en">Plumbing</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="25">0</b> سنة</span><span class="i-en"><b class="lat" data-count="25">0</b> years</span></span></div><div class="wr" style="--v:1.000;--i:1"><span class="wl"><span class="i-ar">الكهرباء</span><span class="i-en">Electrical</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="25">0</b> سنة</span><span class="i-en"><b class="lat" data-count="25">0</b> years</span></span></div><div class="wr" style="--v:0.400;--i:2"><span class="wl"><span class="i-ar">الهيكل الإنشائي</span><span class="i-en">Structure</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="10">0</b> سنوات</span><span class="i-en"><b class="lat" data-count="10">0</b> years</span></span></div><div class="wr" style="--v:0.400;--i:3"><span class="wl"><span class="i-ar">العزل للأسطح الخارجية</span><span class="i-en">External roof insulation</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="10">0</b> سنوات</span><span class="i-en"><b class="lat" data-count="10">0</b> years</span></span></div><div class="wr" style="--v:0.400;--i:4"><span class="wl"><span class="i-ar">الدهانات</span><span class="i-en">Paintwork</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="10">0</b> سنوات</span><span class="i-en"><b class="lat" data-count="10">0</b> years</span></span></div><div class="wr" style="--v:0.400;--i:5"><span class="wl"><span class="i-ar">الأبواب</span><span class="i-en">Doors</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="10">0</b> سنوات</span><span class="i-en"><b class="lat" data-count="10">0</b> years</span></span></div><div class="wr" style="--v:0.200;--i:6"><span class="wl"><span class="i-ar">عزل دورات المياه</span><span class="i-en">Bathroom waterproofing</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar"><b class="lat" data-count="5">0</b> سنوات</span><span class="i-en"><b class="lat" data-count="5">0</b> years</span></span></div><div class="wr" style="--v:0.080;--i:7"><span class="wl"><span class="i-ar">ضمان شامل</span><span class="i-en">Comprehensive warranty</span></span><span class="wbar"><i></i></span><span class="wv"><span class="i-ar">سنتان</span><span class="i-en"><b class="lat" data-count="2">0</b> years</span></span></div>
+  </div>
+  <div class="wbadges">
+    <div class="wb rv"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><div><h4><span class="i-ar">اختبار التربة</span><span class="i-en">Soil testing</span></h4><p><span class="i-ar">قبل البناء</span><span class="i-en">Before construction</span></p></div></div>
+    <div class="wb rv d1"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><div><h4><span class="i-ar">إشراف هندسي كامل</span><span class="i-en">Full engineering supervision</span></h4><p><span class="i-ar">في جميع مراحل البناء</span><span class="i-en">Through every construction stage</span></p></div></div>
+  </div>
+</section>
+
+<!-- OWNERS ASSOCIATION -->
+<section class="sec hoa-s" id="owners">
+  <div class="sh rv"><span class="num">08</span><h2><span class="i-ar">اتحاد الملاك</span><span class="i-en">Owners’ Association</span></h2><span class="trk"><span class="i-ar">Owners’ Association</span><span class="i-en arsub">اتحاد الملاك</span></span><p><span class="i-ar">رسوم سنوية واضحة تشمل خدمات المبنى ومرافقه، حتى يبقى كل شيء كما يوم الافتتاح.</span><span class="i-en">One clear annual fee that covers the building’s services and amenities, so everything stays as it was on opening day.</span></p></div>
+  <div class="hoa rv">
+    <div class="fee">
+      <span class="trk"><span class="i-ar">Annual Fee</span><span class="i-en arsub">الرسوم السنوية</span></span>
+      <div class="amt"><b class="gold-t lat" data-count="2000" data-fmt>0</b><span><span class="i-ar">ريال سنويًا<br>لكل شقة</span><span class="i-en">SAR a year<br>per apartment</span></span></div>
+    </div>
+    <div class="incl">
+      <h4><span class="i-ar">تشمل الرسوم</span><span class="i-en">The fee covers</span></h4>
+      <ul><li><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span><span class="i-ar">سداد فاتورة عداد كهرباء الخدمات المشتركة وفواتير المياه</span><span class="i-en">Shared-services electricity and water bills</span></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg><span><span class="i-ar">صيانة الإنارة الداخلية والخارجية في المبنى</span><span class="i-en">Upkeep of interior and exterior building lighting</span></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-gym"/></svg><span><span class="i-ar">العناية بالناديين الرياضيين الرجالي والنسائي وصيانتهما</span><span class="i-en">Care and maintenance of the men’s and women’s gyms</span></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-sofa"/></svg><span><span class="i-ar">العناية بالمجلس والمواقف</span><span class="i-en">Care of the majlis and the parking</span></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg><span><span class="i-ar">تنظيف المبنى يوميًا عدا يوم الجمعة</span><span class="i-en">Daily building cleaning, except Fridays</span></span></li></ul>
+      <div class="extra"><p><span class="i-ar">خدمات إضافية برسوم رمزية عبر اتحاد الملاك</span><span class="i-en">Optional extras at a nominal fee through the association</span></p><div class="chips"><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-wash"/></svg><span class="i-ar">غسيل السيارات</span><span class="i-en">Car wash</span></span><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-shirt"/></svg><span class="i-ar">غسيل الملابس</span><span class="i-en">Laundry</span></span><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="i-ar">مندوب توصيل على مدار الساعة</span><span class="i-en">24/7 delivery runner</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="sec inv-s" id="invest">
+  <div class="sh rv"><span class="num">09</span><h2><span class="i-ar">الاستثمار والأسعار</span><span class="i-en">Investment &amp; Pricing</span></h2><span class="trk"><span class="i-ar">Investment &amp; Pricing</span><span class="i-en arsub">الاستثمار والأسعار</span></span><p><span class="i-ar">تملّك شقتك للسكن، أو اجعلها استثمارًا تُدار عنك بالكامل.</span><span class="i-en">Own your home, or make it an investment that is fully managed for you.</span></p></div>
+  <div class="inv">
+    <div class="ivc rv">
+      <svg class="ic" aria-hidden="true"><use href="#i-key"/></svg>
+      <span class="trk"><span class="i-ar">Investor Building</span><span class="i-en arsub">مبنى المستثمرين</span></span>
+      <h3><span class="i-ar">مبنى كامل مخصص للمستثمرين</span><span class="i-en">A whole building for investors</span></h3>
+      <p><span class="i-ar">في النموذج C، المبنى بالكامل للمستثمرين: تشتري شقتك، وتتولى داري تشغيلها باتفاقية بينكما، بلا أي إزعاج.</span><span class="i-en">In Building C, every apartment is for investors: you buy, and Dari runs it for you under a mutual agreement, with no hassle.</span></p>
+      <div class="pills"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span><span class="i-ar">إيجار يومي</span><span class="i-en">Daily</span></span><span><span class="i-ar">شهري</span><span class="i-en">Monthly</span></span><span><span class="i-ar">سنوي</span><span class="i-en">Yearly</span></span></div>
+    </div>
+    <div class="prc rv d1">
+      <span class="trk"><span class="i-ar">Price Range</span><span class="i-en arsub">نطاق الأسعار</span></span>
+      <p class="from"><span class="i-ar">تبدأ الأسعار من</span><span class="i-en">Prices start from</span></p>
+      <div class="pv"><b class="gold-t lat" data-count="378000" data-fmt>0</b><span><span class="i-ar">ريال</span><span class="i-en">SAR</span></span></div>
+      <i class="to"><span class="i-ar">إلى</span><span class="i-en">to</span></i>
+      <div class="pv"><b class="gold-t lat" data-count="772000" data-fmt>0</b><span><span class="i-ar">ريال</span><span class="i-en">SAR</span></span></div>
+      <small><span class="i-ar">الأسعار المعلنة عند الافتتاح</span><span class="i-en">Prices as announced at the opening</span></small>
+    </div>
+  </div>
+</section>
+
 <!-- DETAILS -->
 <section class="sec" id="details">
-  <div class="sh rv"><span class="num">06</span><h2><span class="i-ar">التفاصيل</span><span class="i-en">The Details</span></h2><span class="trk"><span class="i-ar">The Details</span><span class="i-en arsub">التفاصيل</span></span><p><span class="i-ar">في التفاصيل الصغيرة تظهر عناية التصميم: خامات، وإضاءة، ولمسات فنية.</span><span class="i-en">Craft shows in the small things: materials, light and artistic touches.</span></p></div>
+  <div class="sh rv"><span class="num">10</span><h2><span class="i-ar">التفاصيل</span><span class="i-en">The Details</span></h2><span class="trk"><span class="i-ar">The Details</span><span class="i-en arsub">التفاصيل</span></span><p><span class="i-ar">في التفاصيل الصغيرة تظهر عناية التصميم: خامات، وإضاءة، ولمسات فنية.</span><span class="i-en">Craft shows in the small things: materials, light and artistic touches.</span></p></div>
   <div class="mas" id="mas"></div>
 </section>
 
 <!-- CRAFT -->
 <section class="craft sec" id="craft">
-  <div class="sh rv"><span class="num">07</span><h2><span class="i-ar">خلف العدسة</span><span class="i-en">Behind the Lens</span></h2><span class="trk"><span class="i-ar">Behind the Lens</span><span class="i-en arsub">خلف العدسة</span></span><p><span class="i-ar">كيف أعددنا هذه التغطية.</span><span class="i-en">How we created this coverage.</span></p></div>
+  <div class="sh rv"><span class="num">11</span><h2><span class="i-ar">خلف العدسة</span><span class="i-en">Behind the Lens</span></h2><span class="trk"><span class="i-ar">Behind the Lens</span><span class="i-en arsub">خلف العدسة</span></span><p><span class="i-ar">كيف أعددنا هذه التغطية.</span><span class="i-en">How we created this coverage.</span></p></div>
   <div class="steps">
     <div class="st rv"><b class="gold-t">01</b><div><h5><span class="i-ar">التخطيط</span><span class="i-en">Plan</span> <span class="trk"><span class="i-ar">Plan</span><span class="i-en arsub">التخطيط</span></span></h5><p><span class="i-ar">دراسة المساحات وزوايا الإضاءة قبل بدء التصوير.</span><span class="i-en">Studying the spaces and light angles before the shoot.</span></p></div></div>
     <div class="st rv d1"><b class="gold-t">02</b><div><h5><span class="i-ar">التصوير</span><span class="i-en">Capture</span> <span class="trk"><span class="i-ar">Capture</span><span class="i-en arsub">التصوير</span></span></h5><p><span class="i-ar">كل صورة التُقطت بثلاث درجات تعريض، وكل مقطع صُوّر بدقة 4K.</span><span class="i-en">Every photo taken at three exposures; every clip filmed in 4K.</span></p></div></div>
@@ -599,19 +767,20 @@ $$('.rv').forEach(el=>io.observe(el));
 
 /* ---------- counters ---------- */
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,to=+el.dataset.count,t0=performance.now(),D=1600;
-  const f=t=>{const p=Math.min(1,(t-t0)/D),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v;if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
-$$('[data-count]').forEach(el=>RM?el.textContent=el.dataset.count:cio.observe(el));
+  const fm=el.dataset.fmt!==undefined?(v=>v.toLocaleString('en-US')):(v=>v);
+  const f=t=>{const p=Math.min(1,(t-t0)/D),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=fm(v);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+$$('[data-count]').forEach(el=>RM?el.textContent=(el.dataset.fmt!==undefined?(+el.dataset.count).toLocaleString('en-US'):el.dataset.count):cio.observe(el));
 
 /* ---------- scroll: bar, progress, dock, parallax ---------- */
 const bar=$('#bar'),prog=$('#prog'),dock=$('#dock'),heroH=()=>innerHeight*.8;
-const secs=['teaser','film','project','residences','amenities','details'].map(id=>document.getElementById(id));
+const secs=['teaser','film','project','residences','amenities','features','warranty','owners','invest','details'].map(id=>document.getElementById(id));
 const phs=$$('.res-hero .ph');let lastY=0,tick=false;
 function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
   prog.style.width=(y/h*100)+'%';bar.classList.toggle('solid',y>60);
   bar.classList.toggle('hide',y>lastY&&y>heroH()&&!$('#lb').classList.contains('open'));
   {const ds=y>heroH()&&y<h-innerHeight*.6;dock.classList.toggle('show',ds);document.body.classList.toggle('dockon',ds&&innerWidth<960)}
   let cur='';secs.forEach(s=>{if(s&&s.getBoundingClientRect().top<innerHeight*.45)cur=s.id});
-  $$('.nav a,.dock a').forEach(a=>a.classList.toggle('on',a.dataset.s===cur));
+  $$('.nav a,.dock a').forEach(a=>a.classList.toggle('on',a.dataset.s===cur||(a.dataset.alt||'').split(' ').includes(cur)));
   if(!RM)phs.forEach(p=>{const r=p.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const k=(r.top+r.height/2-innerHeight/2)/innerHeight;p.style.transform=`translate3d(0,${k*-9}%,0) scale(1.04)`});
   lastY=y;tick=false}
 addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(onScroll);tick=true}},{passive:true});onScroll();
