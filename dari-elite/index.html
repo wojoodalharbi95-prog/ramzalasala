@@ -74,7 +74,7 @@ a{color:inherit;text-decoration:none}
 .nav a{font-family:var(--fh);font-size:13px;color:var(--mute);transition:color .3s;position:relative}
 .nav a.on,.nav a:hover{color:var(--ivory)}
 .nav a.on::after{content:"";position:absolute;bottom:-6px;right:0;left:0;height:1px;background:var(--gold)}
-.prog{position:absolute;bottom:0;right:0;height:1px;width:0;background:var(--gold-grad)}
+.prog{position:absolute;bottom:0;inset-inline-start:0;height:1px;width:0;background:var(--gold-grad)}
 @media(min-width:960px){.nav{display:flex}}
 
 /* ---------- dock (mobile nav) ---------- */
@@ -107,7 +107,7 @@ a{color:inherit;text-decoration:none}
   .hero .poster{filter:blur(38px) brightness(.45) saturate(1.2);transform:scale(1.2)}
   .hero .shade{background:radial-gradient(ellipse at 70% 50%,rgba(10,8,6,.2),rgba(10,8,6,.92) 70%)}
   .hero .wrap{width:100%;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:6vw;padding:110px var(--pad) 80px}
-  .hero .copy{padding:0;text-align:right}
+  .hero .copy{padding:0;text-align:start}
   .hero .kick{margin-bottom:26px}
   .h-cred{justify-content:flex-start}
   .h-lat{padding-left:0}
@@ -134,20 +134,20 @@ section{position:relative}
 
 /* ---------- numbers ---------- */
 .numbers{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
-.numbers .n{padding:34px 12px;text-align:center;border-left:1px solid var(--line2)}
-.numbers .n:nth-child(2n){border-left:0}
+.numbers .n{padding:34px 12px;text-align:center;border-inline-end:1px solid var(--line2)}
+.numbers .n:nth-child(2n){border-inline-end:0}
 .numbers .n:nth-child(-n+2){border-bottom:1px solid var(--line2)}
 .numbers b{display:block;font-family:var(--fh);font-weight:800;font-size:clamp(38px,9vw,64px);line-height:1;direction:ltr}
 .numbers span{display:block;margin-top:10px;font-size:14px;color:var(--ivory)}
 .numbers em{font-style:normal;display:block;color:var(--mute);margin-top:4px}
-@media(min-width:960px){.numbers{grid-template-columns:repeat(4,1fr)}.numbers .n{border-bottom:0!important;border-left:1px solid var(--line2)!important}.numbers .n:last-child{border-left:0!important}}
+@media(min-width:960px){.numbers{grid-template-columns:repeat(4,1fr)}.numbers .n{border-bottom:0!important;border-inline-end:1px solid var(--line2)!important}.numbers .n:last-child{border-inline-end:0!important}}
 
 /* ---------- films ---------- */
 .films{background:radial-gradient(ellipse at 50% 0%,rgba(200,164,106,.10),transparent 60%),var(--noir2)}
 .film-row{display:grid;gap:56px;max-width:1180px;margin:0 auto;align-items:center}
 @media(min-width:960px){.film-row{grid-template-columns:1fr 1fr;gap:6vw}.film-row.flip .vp-wrap{order:2}}
 .film-copy{text-align:center}
-@media(min-width:960px){.film-copy{text-align:right}.film-copy .sh{text-align:right;margin:0}.film-copy .sh .rule{margin-right:0}}
+@media(min-width:960px){.film-copy{text-align:start}.film-copy .sh{text-align:start;margin:0}.film-copy .sh .rule{margin-inline-start:0;margin-inline-end:auto}}
 .vers{display:flex;gap:10px;justify-content:center;margin-top:30px;flex-wrap:wrap}
 @media(min-width:960px){.vers{justify-content:flex-start}}
 .ver{border:1px solid var(--line);padding:12px 22px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:140px;transition:background .35s,border-color .35s,color .35s}
@@ -193,7 +193,7 @@ section{position:relative}
 .proj .p1{grid-row:span 2}
 .proj .p1 img{aspect-ratio:auto}
 .proj figure:not(.p1) img{aspect-ratio:3/4}
-.proj figcaption{position:absolute;bottom:0;right:0;left:0;padding:30px 14px 12px;font-family:var(--fh);font-size:12px;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.proj figcaption{position:absolute;bottom:0;inset-inline:0;padding:30px 14px 12px;font-family:var(--fh);font-size:12px;background:linear-gradient(transparent,rgba(0,0,0,.7))}
 @media(min-width:960px){.proj{grid-template-columns:1.2fr 1fr 1fr;gap:18px}.proj .p1{grid-row:span 2}}
 .quote{max-width:820px;margin:clamp(60px,9vw,110px) auto 0;text-align:center;font-family:var(--fh);font-weight:300;font-size:clamp(20px,4.6vw,34px);line-height:1.7}
 .quote em{font-style:normal}
@@ -214,7 +214,7 @@ section{position:relative}
 .btn:hover{background:var(--gold);color:var(--noir)}
 .btn small{font-family:var(--fh);color:var(--gold-lt);font-size:12px;direction:ltr}
 .btn:hover small{color:var(--noir)}
-@media(min-width:960px){.res-hero .rc{text-align:right;max-width:760px;margin-right:0}.res-hero p{margin-right:0}.res-hero .rn{left:5vw;transform:translateY(-50%);top:50%;font-size:min(36vw,560px)}}
+@media(min-width:960px){.res-hero .rc{text-align:start;max-width:760px;margin-inline-start:0}.res-hero p{margin-inline-start:0}.res-hero .rn{left:auto;inset-inline-end:5vw;transform:translateY(-50%);top:50%;font-size:min(36vw,560px)}}
 .reel-wrap{position:relative;padding:34px 0 10px}
 .reel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 20px;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
 .reel::-webkit-scrollbar{display:none}
@@ -226,7 +226,7 @@ section{position:relative}
 .reel .cd span em{font-style:normal;color:var(--gold-lt);font-size:10px;letter-spacing:.2em;direction:ltr}
 .reel-ui{display:flex;align-items:center;gap:18px;padding:0 var(--pad)}
 .reel-ui .track{flex:1;height:1px;background:var(--line2);position:relative}
-.reel-ui .track i{position:absolute;top:0;right:0;height:1px;width:20%;background:var(--gold)}
+.reel-ui .track i{position:absolute;top:0;inset-inline-start:0;height:1px;width:20%;background:var(--gold)}
 .reel-ui button{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .3s,border-color .3s}
 .reel-ui button:hover{background:var(--gold);border-color:var(--gold)}
 .reel-ui button:hover svg{stroke:var(--noir)}
@@ -263,9 +263,9 @@ section{position:relative}
 .st{padding:30px 6px;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:baseline}
 .st b{font-family:var(--fh);font-weight:800;font-size:34px;direction:ltr}
 .st h5{font-family:var(--fh);font-weight:700;font-size:19px}
-.st h5 .trk{font-size:9px;color:var(--gold-lt);margin-right:10px}
+.st h5 .trk{font-size:9px;color:var(--gold-lt);margin-inline-start:10px}
 .st p{color:var(--mute);font-size:15px;font-weight:300;margin-top:6px}
-@media(min-width:960px){.steps{grid-template-columns:repeat(4,1fr);border-top:0}.st{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--gold);padding:30px 0 0;margin-left:26px}.st:last-child{margin-left:0}.st b{font-size:46px}}
+@media(min-width:960px){.steps{grid-template-columns:repeat(4,1fr);border-top:0}.st{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--gold);padding:30px 0 0;margin-inline-end:26px}.st:last-child{margin-inline-end:0}.st b{font-size:46px}}
 
 /* ---------- signature ---------- */
 .sig{text-align:center;padding:clamp(90px,14vw,170px) var(--pad) calc(110px + env(safe-area-inset-bottom));background:radial-gradient(ellipse at 50% 100%,rgba(200,164,106,.14),transparent 60%)}
@@ -292,7 +292,7 @@ section{position:relative}
 #lb.open{opacity:1;visibility:visible}
 #lb .top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top))}
 #lb .ttl{font-family:var(--fh);font-size:14px}
-#lb .ttl small{display:block;color:var(--gold-lt);font-size:9px;letter-spacing:.3em;direction:ltr;text-align:right}
+#lb .ttl small{display:block;color:var(--gold-lt);font-size:9px;letter-spacing:.3em;text-align:start}
 #lb .cnt{font-family:var(--fh);font-size:12px;color:var(--mute);direction:ltr}
 #lb .x{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
 #lb .x svg{width:14px;height:14px;stroke:var(--ivory);stroke-width:1.5}
@@ -300,16 +300,16 @@ section{position:relative}
 #lb .stage img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;object-fit:contain;transition:transform .45s var(--ease),opacity .45s;user-select:none;-webkit-user-drag:none}
 #lb .nv{position:absolute;top:50%;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:1px solid var(--line);display:none;place-items:center;background:rgba(10,8,6,.5);z-index:2}
 #lb .nv svg{width:16px;height:16px;fill:none;stroke:var(--ivory);stroke-width:1.4}
-#lb .nv.p{right:18px}#lb .nv.n{left:18px}
+#lb .nv.p{inset-inline-start:18px}#lb .nv.n{inset-inline-end:18px}
 @media(hover:hover) and (min-width:700px){#lb .nv{display:grid}}
 #lb .cap{text-align:center;padding:14px 16px calc(18px + env(safe-area-inset-bottom));font-family:var(--fh);font-size:14px}
 #lb .cap small{display:block;color:var(--gold-lt);font-size:9px;letter-spacing:.3em;direction:ltr;margin-top:4px}
 #lb .bar2{height:1px;background:var(--line2);margin:0 16px;position:relative}
-#lb .bar2 i{position:absolute;top:0;right:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
+#lb .bar2 i{position:absolute;top:0;inset-inline-start:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
 
 
 /* ---------- sound toggle ---------- */
-.snd{position:fixed;z-index:61;left:max(16px,env(safe-area-inset-left));bottom:calc(82px + env(safe-area-inset-bottom));display:none;align-items:center;gap:9px;padding:9px 14px 9px 12px;border:1px solid var(--line);border-radius:30px;background:rgba(17,13,9,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-family:var(--fh);font-size:11px;color:var(--mute);transition:opacity .5s,border-color .3s}
+.snd{position:fixed;z-index:61;inset-inline-end:16px;bottom:calc(82px + env(safe-area-inset-bottom));display:none;align-items:center;gap:9px;padding:9px 14px 9px 12px;border:1px solid var(--line);border-radius:30px;background:rgba(17,13,9,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-family:var(--fh);font-size:11px;color:var(--mute);transition:opacity .5s,border-color .3s}
 .snd.ready{display:flex}
 .snd .eq{display:flex;align-items:flex-end;gap:2px;height:13px;direction:ltr}
 .snd .eq i{width:2px;height:3px;background:var(--gold);border-radius:1px}
@@ -317,8 +317,17 @@ section{position:relative}
 .snd.on .eq i{animation:eq 1.1s ease-in-out infinite}
 .snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.45s}.snd.on .eq i:nth-child(4){animation-delay:.1s}
 @keyframes eq{0%,100%{height:3px}50%{height:13px}}
-@media(min-width:960px){.snd{bottom:28px;left:28px}}
+@media(min-width:960px){.snd{bottom:28px;inset-inline-end:28px}}
 #intro .t3{font-family:var(--fh);font-size:11px;color:var(--gold-lt);letter-spacing:.2em;margin-top:26px;opacity:0;animation:fade .9s 1.6s forwards}
+
+html[lang="ar"] .i-en,html[lang="en"] .i-ar{display:none!important}
+.arsub{letter-spacing:0!important;text-transform:none!important;font-family:var(--fb)!important;font-size:12.5px!important;direction:rtl;unicode-bidi:isolate}
+.bar-end{display:flex;align-items:center;gap:14px}
+.lng{min-width:38px;height:30px;padding:0 10px;border:1px solid var(--line);border-radius:30px;font-family:var(--fh);font-size:12px;color:var(--gold-lt);transition:background .3s,color .3s}
+.lng:hover{background:var(--gold);color:var(--noir)}
+html[dir="ltr"] .reel-ui svg,html[dir="ltr"] #lb .nv svg{transform:scaleX(-1)}
+html[lang="en"] body{line-height:1.65}
+html[lang="en"] .h-lat{padding-left:.2em}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#intro{display:none}}
 </style>
 </head>
@@ -327,23 +336,23 @@ section{position:relative}
 
 <div id="intro" aria-hidden="true">
   <span class="pn r"></span><span class="pn l"></span>
-  <div class="ic"><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2">داري إيليت · عرض بصري خاص</div><div class="t3" id="introHint" hidden>اضغط للدخول ♪</div></div>
+  <div class="ic"><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2"><span class="i-ar">داري إيليت · عرض بصري خاص</span><span class="i-en">Dari Elite · A Private Presentation</span></div><div class="t3" id="introHint" hidden><span class="i-ar">اضغط للدخول ♪</span><span class="i-en">Tap to enter ♪</span></div></div>
 </div>
 
 <header class="bar" id="bar">
   <a class="brand" href="#top" aria-label="رمز الأصالة العقارية">
     <svg viewBox="0 0 120 140" aria-hidden="true"><path d="M12 136V62C12 36 31 17 60 6c29 11 48 30 48 56v74H12zM26 136V64c0-19 13-31 34-40 21 9 34 21 34 40v72H26z"/><path class="gem" d="M60 52l14 19-14 19-14-19z"/></svg>
-    <b>رمز الأصالة</b>
+    <b><span class="i-ar">رمز الأصالة</span><span class="i-en">Ramz Al-Asala</span></b>
   </a>
   <nav class="nav" aria-label="أقسام العرض">
-    <a href="#teaser" data-s="teaser">الإعلان</a><a href="#film" data-s="film">الفيلم</a><a href="#project" data-s="project">المشروع</a><a href="#residences" data-s="residences">النماذج</a><a href="#amenities" data-s="amenities">المرافق</a><a href="#details" data-s="details">التفاصيل</a>
+    <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#project" data-s="project"><span class="i-ar">المشروع</span><span class="i-en">Project</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#details" data-s="details"><span class="i-ar">التفاصيل</span><span class="i-en">Details</span></a>
   </nav>
-  <span class="trk de">Dari Elite</span>
+  <div class="bar-end"><span class="trk de">Dari Elite</span><button class="lng" id="lng" type="button" aria-label="Switch language / تغيير اللغة"><span class="i-ar">EN</span><span class="i-en">ع</span></button></div>
   <span class="prog" id="prog"></span>
 </header>
 
 <nav class="dock" id="dock" aria-label="تنقل سريع">
-  <a href="#teaser" data-s="teaser">الإعلان</a><a href="#film" data-s="film">الفيلم</a><a href="#residences" data-s="residences">النماذج</a><a href="#amenities" data-s="amenities">المرافق</a><a href="#details" data-s="details">التفاصيل</a>
+  <a href="#teaser" data-s="teaser"><span class="i-ar">الإعلان</span><span class="i-en">Teaser</span></a><a href="#film" data-s="film"><span class="i-ar">الفيلم</span><span class="i-en">Film</span></a><a href="#residences" data-s="residences"><span class="i-ar">النماذج</span><span class="i-en">Residences</span></a><a href="#amenities" data-s="amenities"><span class="i-ar">المرافق</span><span class="i-en">Amenities</span></a><a href="#details" data-s="details"><span class="i-ar">التفاصيل</span><span class="i-en">Details</span></a>
 </nav>
 
 <main>
@@ -358,8 +367,8 @@ section{position:relative}
     <div class="copy">
       <div class="kick rv"><i></i><span class="trk">Private Presentation</span><i></i></div>
       <h1 class="rv d1"><span class="h-lat gold-t" style="display:block">DARI ELITE</span><span class="h-ar" style="display:block">داري إيليت</span></h1>
-      <p class="h-sub rv d2">تغطية بصرية لافتتاح مشروع داري إيليت<br>داري للتطوير العقاري</p>
-      <div class="h-cred rv d3"><span>تصوير وإنتاج</span> رمز الأصالة العقارية</div>
+      <p class="h-sub rv d2"><span class="i-ar">تغطية بصرية لافتتاح مشروع داري إيليت<br>داري للتطوير العقاري</span><span class="i-en">Visual coverage of the Dari Elite opening<br>Dari Real Estate Development</span></p>
+      <div class="h-cred rv d3"><span class="i-ar"><span>تصوير وإنتاج</span> رمز الأصالة العقارية</span><span class="i-en"><span>Photographed &amp; produced by</span> Ramz Al-Asala Real Estate</span></div>
     </div>
     <div class="frame rv d2"><video id="heroV2" muted loop playsinline preload="none" poster="media/facade-t.jpg"><source src="media/hero.mp4" type="video/mp4"></video><div class="corners"><i></i><i></i><i></i><i></i></div></div>
   </div>
@@ -368,17 +377,17 @@ section{position:relative}
 
 <!-- NUMBERS -->
 <div class="numbers" id="numbers">
-  <div class="n rv"><b class="gold-t" data-count="3">0</b><span>نماذج سكنية</span><em class="trk">Residences</em></div>
-  <div class="n rv d1"><b class="gold-t" data-count="4">0</b><span>مرافق مشتركة</span><em class="trk">Amenities</em></div>
-  <div class="n rv d2"><b class="gold-t" data-count="111">0</b><span>صورة مختارة</span><em class="trk">Curated Frames</em></div>
-  <div class="n rv d3"><b class="gold-t">4K</b><span>تصوير سينمائي</span><em class="trk">Cinematic Capture</em></div>
+  <div class="n rv"><b class="gold-t" data-count="3">0</b><span><span class="i-ar">نماذج سكنية</span><span class="i-en">Residences</span></span><em class="trk"><span class="i-ar">Residences</span><span class="i-en arsub">نماذج سكنية</span></em></div>
+  <div class="n rv d1"><b class="gold-t" data-count="4">0</b><span><span class="i-ar">مرافق مشتركة</span><span class="i-en">Amenities</span></span><em class="trk"><span class="i-ar">Amenities</span><span class="i-en arsub">مرافق مشتركة</span></em></div>
+  <div class="n rv d2"><b class="gold-t" data-count="111">0</b><span><span class="i-ar">صورة مختارة</span><span class="i-en">Curated Frames</span></span><em class="trk"><span class="i-ar">Curated Frames</span><span class="i-en arsub">صورة مختارة</span></em></div>
+  <div class="n rv d3"><b class="gold-t">4K</b><span><span class="i-ar">تصوير سينمائي</span><span class="i-en">Cinematic Capture</span></span><em class="trk"><span class="i-ar">Cinematic Capture</span><span class="i-en arsub">تصوير سينمائي</span></em></div>
 </div>
 
 <!-- TEASER + FILM -->
 <section class="films sec" id="teaser">
   <div class="film-row">
     <div class="film-copy">
-      <div class="sh rv"><span class="num">01</span><h2>الإعلان التشويقي</h2><span class="trk">The Teaser</span><p>لمحة أولى عن داري إيليت، بإيقاع سريع يفتح الشهية لما هو قادم.</p><span class="rule"></span></div>
+      <div class="sh rv"><span class="num">01</span><h2><span class="i-ar">الإعلان التشويقي</span><span class="i-en">The Teaser</span></h2><span class="trk"><span class="i-ar">The Teaser</span><span class="i-en arsub">الإعلان التشويقي</span></span><p><span class="i-ar">لمحة أولى عن داري إيليت، بإيقاع سريع يفتح الشهية لما هو قادم.</span><span class="i-en">A first glimpse of Dari Elite, a fast-paced cut that sets the stage for what is to come.</span></p><span class="rule"></span></div>
     </div>
     <div class="vp-wrap rv d1">
       <div class="vp" data-player="teaser" data-state="idle">
@@ -395,7 +404,7 @@ section{position:relative}
 <section class="films sec" id="film" style="padding-top:0">
   <div class="film-row flip">
     <div class="film-copy">
-      <div class="sh rv"><span class="num">02</span><h2>فيلم التغطية</h2><span class="trk">The Coverage Film</span><p>جولة سينمائية في المشروع: من الواجهة الليلية، إلى النماذج الثلاثة، وحتى المرافق في الطابق السفلي. متوفر بنسختين، العربية والإنجليزية.</p></div>
+      <div class="sh rv"><span class="num">02</span><h2><span class="i-ar">فيلم التغطية</span><span class="i-en">The Coverage Film</span></h2><span class="trk"><span class="i-ar">The Coverage Film</span><span class="i-en arsub">فيلم التغطية</span></span><p><span class="i-ar">جولة سينمائية في المشروع: من الواجهة الليلية، إلى النماذج الثلاثة، وحتى المرافق في الطابق السفلي. متوفر بنسختين، العربية والإنجليزية.</span><span class="i-en">A cinematic tour of the project: from the night façade, through the three residences, to the shared amenities on the lower level. Available in Arabic and English.</span></p></div>
       <div class="vers rv d1" role="group" aria-label="نسخة الفيلم">
         <button class="ver" data-v="ar" aria-pressed="true"><b>العربية</b><span class="trk">Arabic</span></button>
         <button class="ver" data-v="en" aria-pressed="false"><b class="lat">English</b><span class="trk">English</span></button>
@@ -416,51 +425,51 @@ section{position:relative}
 
 <!-- PROJECT -->
 <section class="sec" id="project">
-  <div class="sh rv"><span class="num">03</span><h2>المشروع</h2><span class="trk">The Project</span><p>مشروع سكني من داري للتطوير العقاري، بواجهة معاصرة تتوهّج ليلًا، يضم شققًا بثلاثة نماذج، ومرافق مشتركة تكمّل تجربة السكن.</p></div>
+  <div class="sh rv"><span class="num">03</span><h2><span class="i-ar">المشروع</span><span class="i-en">The Project</span></h2><span class="trk"><span class="i-ar">The Project</span><span class="i-en arsub">المشروع</span></span><p><span class="i-ar">مشروع سكني من داري للتطوير العقاري، بواجهة معاصرة تتوهّج ليلًا، يضم شققًا بثلاثة نماذج، ومرافق مشتركة تكمّل تجربة السكن.</span><span class="i-en">A residential project by Dari Real Estate Development, with a contemporary façade that glows at night, apartments in three layouts, and shared amenities that complete the living experience.</span></p></div>
   <div class="proj" id="projGrid"></div>
-  <p class="quote rv">«حين تكون التفاصيل <em class="gold-t">مدروسة</em>، تصبح الصورة امتدادًا للتصميم.»</p>
+  <p class="quote rv"><span class="i-ar">«حين تكون التفاصيل <em class="gold-t">مدروسة</em>، تصبح الصورة امتدادًا للتصميم.»</span><span class="i-en">“When every detail is <em class="gold-t">considered</em>, the image becomes an extension of the design.”</span></p>
 </section>
 
 <!-- RESIDENCES -->
 <section id="residences">
-  <div class="sec" style="padding-bottom:clamp(40px,6vw,70px)"><div class="sh rv" style="margin-bottom:0"><span class="num">04</span><h2>النماذج</h2><span class="trk">The Residences</span><p>ثلاثة نماذج سكنية، لكل نموذج طابعه وشخصيته.</p><span class="rule"></span></div></div>
+  <div class="sec" style="padding-bottom:clamp(40px,6vw,70px)"><div class="sh rv" style="margin-bottom:0"><span class="num">04</span><h2><span class="i-ar">النماذج</span><span class="i-en">The Residences</span></h2><span class="trk"><span class="i-ar">The Residences</span><span class="i-en arsub">النماذج</span></span><p><span class="i-ar">ثلاثة نماذج سكنية، لكل نموذج طابعه وشخصيته.</span><span class="i-en">Three residences, each with its own character.</span></p><span class="rule"></span></div></div>
   <div id="resList"></div>
 </section>
 
 <!-- AMENITIES -->
 <section class="amen sec" id="amenities">
-  <div class="sh rv"><span class="num">05</span><h2>المرافق</h2><span class="trk">The Amenities</span><p>في الطابق السفلي، مرافق مشتركة صُممت لتكمّل الحياة اليومية لسكان داري إيليت.</p></div>
+  <div class="sh rv"><span class="num">05</span><h2><span class="i-ar">المرافق</span><span class="i-en">The Amenities</span></h2><span class="trk"><span class="i-ar">The Amenities</span><span class="i-en arsub">المرافق</span></span><p><span class="i-ar">في الطابق السفلي، مرافق مشتركة صُممت لتكمّل الحياة اليومية لسكان داري إيليت.</span><span class="i-en">On the lower level, shared amenities designed to complete daily life for Dari Elite residents.</span></p></div>
   <div class="bento" id="bento"></div>
 </section>
 
 <!-- DETAILS -->
 <section class="sec" id="details">
-  <div class="sh rv"><span class="num">06</span><h2>التفاصيل</h2><span class="trk">The Details</span><p>في التفاصيل الصغيرة تظهر عناية التصميم: خامات، وإضاءة، ولمسات فنية.</p></div>
+  <div class="sh rv"><span class="num">06</span><h2><span class="i-ar">التفاصيل</span><span class="i-en">The Details</span></h2><span class="trk"><span class="i-ar">The Details</span><span class="i-en arsub">التفاصيل</span></span><p><span class="i-ar">في التفاصيل الصغيرة تظهر عناية التصميم: خامات، وإضاءة، ولمسات فنية.</span><span class="i-en">Craft shows in the small things: materials, light and artistic touches.</span></p></div>
   <div class="mas" id="mas"></div>
 </section>
 
 <!-- CRAFT -->
 <section class="craft sec" id="craft">
-  <div class="sh rv"><span class="num">07</span><h2>خلف العدسة</h2><span class="trk">Behind the Lens</span><p>كيف أعددنا هذه التغطية.</p></div>
+  <div class="sh rv"><span class="num">07</span><h2><span class="i-ar">خلف العدسة</span><span class="i-en">Behind the Lens</span></h2><span class="trk"><span class="i-ar">Behind the Lens</span><span class="i-en arsub">خلف العدسة</span></span><p><span class="i-ar">كيف أعددنا هذه التغطية.</span><span class="i-en">How we created this coverage.</span></p></div>
   <div class="steps">
-    <div class="st rv"><b class="gold-t">01</b><div><h5>التخطيط <span class="trk">Plan</span></h5><p>دراسة المساحات وزوايا الإضاءة قبل بدء التصوير.</p></div></div>
-    <div class="st rv d1"><b class="gold-t">02</b><div><h5>التصوير <span class="trk">Capture</span></h5><p>كل صورة التُقطت بثلاث درجات تعريض، وكل مقطع صُوّر بدقة 4K.</p></div></div>
-    <div class="st rv d2"><b class="gold-t">03</b><div><h5>المعالجة <span class="trk">Craft</span></h5><p>دمج التعريضات وموازنة الإضاءة، مع الحفاظ على ألوان المكان الحقيقية.</p></div></div>
-    <div class="st rv d3"><b class="gold-t">04</b><div><h5>التسليم <span class="trk">Deliver</span></h5><p>فيلم بلغتين، وإعلان تشويقي، وصور بالدقة الكاملة، في عرض واحد.</p></div></div>
+    <div class="st rv"><b class="gold-t">01</b><div><h5><span class="i-ar">التخطيط</span><span class="i-en">Plan</span> <span class="trk"><span class="i-ar">Plan</span><span class="i-en arsub">التخطيط</span></span></h5><p><span class="i-ar">دراسة المساحات وزوايا الإضاءة قبل بدء التصوير.</span><span class="i-en">Studying the spaces and light angles before the shoot.</span></p></div></div>
+    <div class="st rv d1"><b class="gold-t">02</b><div><h5><span class="i-ar">التصوير</span><span class="i-en">Capture</span> <span class="trk"><span class="i-ar">Capture</span><span class="i-en arsub">التصوير</span></span></h5><p><span class="i-ar">كل صورة التُقطت بثلاث درجات تعريض، وكل مقطع صُوّر بدقة 4K.</span><span class="i-en">Every photo taken at three exposures; every clip filmed in 4K.</span></p></div></div>
+    <div class="st rv d2"><b class="gold-t">03</b><div><h5><span class="i-ar">المعالجة</span><span class="i-en">Craft</span> <span class="trk"><span class="i-ar">Craft</span><span class="i-en arsub">المعالجة</span></span></h5><p><span class="i-ar">دمج التعريضات وموازنة الإضاءة، مع الحفاظ على ألوان المكان الحقيقية.</span><span class="i-en">Merging exposures and balancing light while keeping the true colours of the space.</span></p></div></div>
+    <div class="st rv d3"><b class="gold-t">04</b><div><h5><span class="i-ar">التسليم</span><span class="i-en">Deliver</span> <span class="trk"><span class="i-ar">Deliver</span><span class="i-en arsub">التسليم</span></span></h5><p><span class="i-ar">فيلم بلغتين، وإعلان تشويقي، وصور بالدقة الكاملة، في عرض واحد.</span><span class="i-en">A film in two languages, a teaser and full-resolution photos, in one presentation.</span></p></div></div>
   </div>
 </section>
 </main>
 
 <!-- SIGNATURE -->
 <footer class="sig" id="signature">
-  <p class="for rv">أُعدّ هذا العرض خصيصًا لـ <b>داري للتطوير العقاري</b></p>
+  <p class="for rv"><span class="i-ar">أُعدّ هذا العرض خصيصًا لـ <b>داري للتطوير العقاري</b></span><span class="i-en">Prepared exclusively for <b>Dari Real Estate Development</b></span></p>
   <svg class="arch rv" viewBox="0 0 120 140" aria-hidden="true"><path d="M12 136V62C12 36 31 17 60 6c29 11 48 30 48 56v74H12zM26 136V64c0-19 13-31 34-40 21 9 34 21 34 40v72H26z"/><path class="gem" d="M60 52l14 19-14 19-14-19z"/></svg>
-  <h2 class="rv">رمز الأصالة العقارية</h2>
+  <h2 class="rv"><span class="i-ar">رمز الأصالة العقارية</span><span class="i-en">Ramz Al-Asala Real Estate</span></h2>
   <p class="trk roles rv">Photography · Videography · Creative Production</p>
-  <p class="dir rv"><span>إخراج وتصوير:</span> وجود الحربي</p>
+  <p class="dir rv"><span class="i-ar"><span>إخراج وتصوير:</span> وجود الحربي</span><span class="i-en"><span>Directed &amp; photographed by</span> Wojood Alharbi</span></p>
   <div class="ct rv">
     <a href="https://ramzalasala.com" target="_blank" rel="noopener" class="lat">RAMZALASALA.COM</a>
-    <a href="https://wa.me/966567332138" target="_blank" rel="noopener">واتساب · <span class="lat">0567 332 138</span></a>
+    <a href="https://wa.me/966567332138" target="_blank" rel="noopener"><span class="i-ar">واتساب</span><span class="i-en">WhatsApp</span> · <span class="lat">0567 332 138</span></a>
   </div>
   <div class="soc rv">
     <a href="https://www.tiktok.com/@bywojood" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
@@ -481,7 +490,7 @@ section{position:relative}
 </div>
 
 <script>
-const DATA={"cap":{"living":["الصالة","Living"],"dining":["غرفة الطعام","Dining"],"kitchen":["المطبخ","Kitchen"],"bed":["غرفة النوم","Bedroom"],"bath":["دورة المياه","Bathroom"],"coffee":["ركن القهوة","Coffee Corner"],"detail":["تفاصيل","Detail"],"light":["الإضاءة","Lighting"],"outdoor":["الجلسة الخارجية","Outdoor Lounge"],"majlis":["المجلس","The Majlis"],"wgym":["نادي السيدات","Women’s Club"],"mgym":["نادي الرجال","Men’s Club"],"gym":["النادي الرياضي","Fitness Club"],"park":["المواقف","Parking"],"brand":["هوية داري","Dari Identity"],"facade":["الواجهة الليلية","Night Façade"],"lobby":["المدخل","The Lobby"]},"sets":{"project":{"ar":"المشروع","en":"The Project","items":[["m:facade3","facade"],["m:sign","brand"],["02486","brand"],["02480","brand"],["02591","brand"],["m:lobby","lobby"],["m:facade2","facade"]]},"r1":{"ar":"النموذج الأول","en":"Residence I","items":[["02600","living"],["02594","living"],["02603","light"],["02507","living"],["02513","dining"],["02531","dining"],["02585","dining"],["02516","kitchen"],["02519","kitchen"],["02522","kitchen"],["02525","kitchen"],["02528","kitchen"],["02492","coffee"],["02495","coffee"],["02498","coffee"],["02501","coffee"],["02573","coffee"],["02579","coffee"],["02534","bed"],["02546","bed"],["02540","detail"],["02570","bath"],["02609","bath"],["02462","light"],["02459","light"],["02456","detail"],["02468","detail"],["02474","detail"],["02555","detail"],["02558","detail"],["02576","detail"]]},"r2":{"ar":"النموذج الثاني","en":"Residence II","items":[["02741","dining"],["02738","dining"],["02744","dining"],["02747","dining"],["02660","living"],["02657","living"],["02687","living"],["02690","living"],["02693","living"],["02696","living"],["02726","living"],["02729","living"],["02732","living"],["02621","living"],["02642","living"],["02645","living"],["02627","living"],["02639","light"],["02648","kitchen"],["02651","kitchen"],["02654","kitchen"],["02666","bed"],["02672","bed"],["02675","bed"],["02678","bed"],["02663","bath"],["02684","bath"],["02681","detail"],["02714","detail"],["02750","detail"],["02735","detail"],["02630","detail"],["02633","detail"],["02636","detail"],["02612","detail"]]},"r3":{"ar":"النموذج الثالث","en":"Residence III","items":[["02831","living"],["02828","living"],["02834","living"],["02843","living"],["02870","living"],["02876","living"],["02879","living"],["02882","living"],["02867","dining"],["02921","dining"],["02924","dining"],["02897","kitchen"],["02852","kitchen"],["02888","coffee"],["02903","outdoor"],["02909","outdoor"],["02900","outdoor"],["02915","outdoor"],["02918","outdoor"],["02849","detail"],["02861","detail"],["02864","detail"],["02885","detail"],["02894","detail"]]},"majlis":{"ar":"المجلس","en":"The Majlis","items":[["02774","majlis"],["02768","majlis"],["02777","majlis"],["02780","majlis"],["02753","majlis"],["02756","majlis"],["02759","majlis"],["02822","majlis"]]},"wgym":{"ar":"نادي السيدات","en":"Women’s Club","items":[["02795","wgym"],["02789","gym"],["02792","gym"],["02783","gym"],["02786","gym"]]},"mgym":{"ar":"نادي الرجال","en":"Men’s Club","items":[["02816","mgym"],["02804","gym"],["02801","gym"],["02813","mgym"]]},"park":{"ar":"المواقف","en":"Parking","items":[["m:parking","park"],["02798","park"]]},"details":{"ar":"التفاصيل","en":"The Details","items":[["02462","light"],["02468","detail"],["02456","detail"],["02546","detail"],["02639","light"],["02885","detail"],["02516","detail"],["02750","detail"],["02474","detail"],["02852","detail"],["02609","detail"],["02801","detail"],["02630","detail"],["02861","detail"]]}},"res":[{"key":"r1","num":"I","ar":"النموذج الأول","hero":"02600","mood":"دفء الخشب ونقاء الرخام","text":"خشب طبيعي، ورخام فاتح، وإضاءة مخفية ترسم خطوط المكان. صالة رحبة، ومطبخ متكامل، وركن قهوة أنيق."},{"key":"r2","num":"II","ar":"النموذج الثاني","hero":"02741","mood":"هدوء الرمادي الأزرق","text":"مقاعد بالرمادي الأزرق، ولوحات فنية ناعمة، وثريا كريستالية فوق طاولة الطعام. تصميم يجمع الراحة بالأناقة."},{"key":"r3","num":"III","ar":"النموذج الثالث","hero":"02831","mood":"مساحة مفتوحة وجلسة خضراء","text":"صالة مفتوحة على المطبخ وغرفة الطعام، بلمسات برتقالية دافئة وإنارة من الخيزران، وجلسة خارجية خضراء."}],"amen":[{"key":"majlis","ar":"المجلس","en":"The Majlis","hero":"02774","cls":"big","text":"مجلس واسع لمناسبات السكان الكبيرة."},{"key":"wgym","ar":"نادي السيدات","en":"Women’s Club","hero":"02789","text":"نادٍ رياضي خاص بالسيدات، بأجهزة متكاملة."},{"key":"mgym","ar":"نادي الرجال","en":"Men’s Club","hero":"02804","text":"نادٍ رياضي مجهّز للرجال."},{"key":"park","ar":"المواقف","en":"Parking","hero":"m:parking","cls":"wide","text":"مواقف للسيارات في الطابق السفلي."}]};
+const DATA={"cap":{"living":["الصالة","Living"],"dining":["غرفة الطعام","Dining"],"kitchen":["المطبخ","Kitchen"],"bed":["غرفة النوم","Bedroom"],"bath":["دورة المياه","Bathroom"],"coffee":["ركن القهوة","Coffee Corner"],"detail":["تفاصيل","Detail"],"light":["الإضاءة","Lighting"],"outdoor":["الجلسة الخارجية","Outdoor Lounge"],"majlis":["المجلس","The Majlis"],"wgym":["نادي السيدات","Women’s Club"],"mgym":["نادي الرجال","Men’s Club"],"gym":["النادي الرياضي","Fitness Club"],"park":["المواقف","Parking"],"brand":["هوية داري","Dari Identity"],"facade":["الواجهة الليلية","Night Façade"],"lobby":["المدخل","The Lobby"]},"sets":{"project":{"ar":"المشروع","en":"The Project","items":[["m:facade3","facade"],["m:sign","brand"],["02486","brand"],["02480","brand"],["02591","brand"],["m:lobby","lobby"],["m:facade2","facade"]]},"r1":{"ar":"النموذج الأول","en":"Residence I","items":[["02600","living"],["02594","living"],["02603","light"],["02507","living"],["02513","dining"],["02531","dining"],["02585","dining"],["02516","kitchen"],["02519","kitchen"],["02522","kitchen"],["02525","kitchen"],["02528","kitchen"],["02492","coffee"],["02495","coffee"],["02498","coffee"],["02501","coffee"],["02573","coffee"],["02579","coffee"],["02534","bed"],["02546","bed"],["02540","detail"],["02570","bath"],["02609","bath"],["02462","light"],["02459","light"],["02456","detail"],["02468","detail"],["02474","detail"],["02555","detail"],["02558","detail"],["02576","detail"]]},"r2":{"ar":"النموذج الثاني","en":"Residence II","items":[["02741","dining"],["02738","dining"],["02744","dining"],["02747","dining"],["02660","living"],["02657","living"],["02687","living"],["02690","living"],["02693","living"],["02696","living"],["02726","living"],["02729","living"],["02732","living"],["02621","living"],["02642","living"],["02645","living"],["02627","living"],["02639","light"],["02648","kitchen"],["02651","kitchen"],["02654","kitchen"],["02666","bed"],["02672","bed"],["02675","bed"],["02678","bed"],["02663","bath"],["02684","bath"],["02681","detail"],["02714","detail"],["02750","detail"],["02735","detail"],["02630","detail"],["02633","detail"],["02636","detail"],["02612","detail"]]},"r3":{"ar":"النموذج الثالث","en":"Residence III","items":[["02831","living"],["02828","living"],["02834","living"],["02843","living"],["02870","living"],["02876","living"],["02879","living"],["02882","living"],["02867","dining"],["02921","dining"],["02924","dining"],["02897","kitchen"],["02852","kitchen"],["02888","coffee"],["02903","outdoor"],["02909","outdoor"],["02900","outdoor"],["02915","outdoor"],["02918","outdoor"],["02849","detail"],["02861","detail"],["02864","detail"],["02885","detail"],["02894","detail"]]},"majlis":{"ar":"المجلس","en":"The Majlis","items":[["02774","majlis"],["02768","majlis"],["02777","majlis"],["02780","majlis"],["02753","majlis"],["02756","majlis"],["02759","majlis"],["02822","majlis"]]},"wgym":{"ar":"نادي السيدات","en":"Women’s Club","items":[["02795","wgym"],["02789","gym"],["02792","gym"],["02783","gym"],["02786","gym"]]},"mgym":{"ar":"نادي الرجال","en":"Men’s Club","items":[["02816","mgym"],["02804","gym"],["02801","gym"],["02813","mgym"]]},"park":{"ar":"المواقف","en":"Parking","items":[["m:parking","park"],["02798","park"]]},"details":{"ar":"التفاصيل","en":"The Details","items":[["02462","light"],["02468","detail"],["02456","detail"],["02546","detail"],["02639","light"],["02885","detail"],["02516","detail"],["02750","detail"],["02474","detail"],["02852","detail"],["02609","detail"],["02801","detail"],["02630","detail"],["02861","detail"]]}},"res":[{"key":"r1","num":"I","ar":"النموذج الأول","hero":"02600","mood":"دفء الخشب ونقاء الرخام","mood_en":"Warm Oak, Pure Marble","text_en":"Natural wood, light marble and concealed lighting that traces every line. A generous living room, a fully fitted kitchen and an elegant coffee corner.","text":"خشب طبيعي، ورخام فاتح، وإضاءة مخفية ترسم خطوط المكان. صالة رحبة، ومطبخ متكامل، وركن قهوة أنيق."},{"key":"r2","num":"II","ar":"النموذج الثاني","hero":"02741","mood":"هدوء الرمادي الأزرق","mood_en":"Calm Blue-Grey","text_en":"Blue-grey armchairs, soft artworks and a crystal chandelier above the dining table. Comfort and elegance in one design.","text":"مقاعد بالرمادي الأزرق، ولوحات فنية ناعمة، وثريا كريستالية فوق طاولة الطعام. تصميم يجمع الراحة بالأناقة."},{"key":"r3","num":"III","ar":"النموذج الثالث","hero":"02831","mood":"مساحة مفتوحة وجلسة خضراء","mood_en":"Open Living, Green Retreat","text_en":"An open living room flowing into the kitchen and dining area, with warm orange accents, rattan lighting and a green outdoor lounge.","text":"صالة مفتوحة على المطبخ وغرفة الطعام، بلمسات برتقالية دافئة وإنارة من الخيزران، وجلسة خارجية خضراء."}],"amen":[{"key":"majlis","ar":"المجلس","en":"The Majlis","hero":"02774","cls":"big","text":"مجلس واسع لمناسبات السكان الكبيرة.","text_en":"A spacious majlis for residents’ larger gatherings."},{"key":"wgym","ar":"نادي السيدات","en":"Women’s Club","hero":"02789","text":"نادٍ رياضي خاص بالسيدات، بأجهزة متكاملة.","text_en":"A private, fully equipped fitness club for women."},{"key":"mgym","ar":"نادي الرجال","en":"Men’s Club","hero":"02804","text":"نادٍ رياضي مجهّز للرجال.","text_en":"A fully equipped fitness club for men."},{"key":"park","ar":"المواقف","en":"Parking","hero":"m:parking","cls":"wide","text":"مواقف للسيارات في الطابق السفلي.","text_en":"Car parking on the lower level."}]};
 /* FILMS: fill when ready. type: 'mp4' or 'hls' */
 const FILMS={"teaser": {"type": "hls", "src": "video/teaser-b/master.m3u8", "poster": "video/teaser-b/poster.jpg", "dur": "01:03"}, "ar": null, "en": null};
 const MUSIC=null;
@@ -492,11 +501,14 @@ const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelecto
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const src=(id,t)=>id.startsWith('m:')?`media/${id.slice(2)}${t?'-t':''}.jpg`:`img/${id}${t?'-t':''}.jpg`;
 const CAP=DATA.cap;
+const T=(a,e)=>`<span class="i-ar">${a}</span><span class="i-en">${e}</span>`;
+const L=()=>document.documentElement.lang==='en'?1:0;
+const capT=k=>T(CAP[k][0],CAP[k][1]);
 
 /* ---------- build: project ---------- */
 const pg=$('#projGrid');
 DATA.sets.project.items.forEach((it,i)=>{if(i>4)return;const f=document.createElement('figure');f.className='rv'+(i===0?' p1':'')+(i%3?' d'+(i%3):'');
-  f.innerHTML=`<img loading="lazy" src="${src(it[0],1)}" alt="${CAP[it[1]][0]}"><figcaption>${CAP[it[1]][0]}</figcaption>`;f.onclick=()=>LB.open('project',i);pg.appendChild(f)});
+  f.innerHTML=`<img loading="lazy" src="${src(it[0],1)}" alt="${CAP[it[1]][0]}"><figcaption>${capT(it[1])}</figcaption>`;f.onclick=()=>LB.open('project',i);pg.appendChild(f)});
 
 /* ---------- build: residences ---------- */
 const arrow='<svg viewBox="0 0 16 16"><path d="M6 2l6 6-6 6"/></svg>',arrowL='<svg viewBox="0 0 16 16"><path d="M10 2L4 8l6 6"/></svg>';
@@ -505,9 +517,9 @@ DATA.res.forEach((r,ri)=>{
   const set=DATA.sets[r.key],n=set.items.length;
   const el=document.createElement('article');el.className='res';el.id='res-'+(ri+1);
   el.innerHTML=`<div class="res-hero" data-set="${r.key}"><div class="ph"><img loading="lazy" src="${src(r.hero)}" alt="${r.ar}"></div><span class="rn">${r.num}</span>
-   <div class="rc"><span class="trk rv">Residence ${r.num}</span><h3 class="rv d1">${r.ar}</h3><div class="mood rv d1">${r.mood}</div><p class="rv d2">${r.text}</p>
-   <button class="btn rv d3" data-open="${r.key}">شاهد الألبوم <small>${n} PHOTOS</small></button></div></div>
-   <div class="reel-wrap"><div class="reel" data-set="${r.key}">${set.items.map((it,i)=>`<a class="cd" href="${src(it[0])}" data-i="${i}"><img loading="lazy" src="${src(it[0],1)}" alt="${CAP[it[1]][0]}"><span>${CAP[it[1]][0]}<em>${String(i+1).padStart(2,'0')}</em></span></a>`).join('')}</div>
+   <div class="rc"><span class="trk rv"><span class="i-ar">Residence ${r.num}</span><span class="i-en arsub">${r.ar}</span></span><h3 class="rv d1">${T(r.ar,'Residence '+r.num)}</h3><div class="mood rv d1">${T(r.mood,r.mood_en)}</div><p class="rv d2">${T(r.text,r.text_en)}</p>
+   <button class="btn rv d3" data-open="${r.key}">${T('شاهد الألبوم','View Album')} <small>${n} PHOTOS</small></button></div></div>
+   <div class="reel-wrap"><div class="reel" data-set="${r.key}">${set.items.map((it,i)=>`<a class="cd" href="${src(it[0])}" data-i="${i}"><img loading="lazy" src="${src(it[0],1)}" alt="${CAP[it[1]][0]}"><span>${capT(it[1])}<em>${String(i+1).padStart(2,'0')}</em></span></a>`).join('')}</div>
    <div class="reel-ui"><button class="pv" aria-label="السابق">${arrow}</button><div class="track"><i></i></div><span class="cnt">01 / ${String(n).padStart(2,'0')}</span><button class="nx" aria-label="التالي">${arrowL}</button></div></div>
    <div class="res-sep"></div>`;
   RL.appendChild(el);
@@ -521,7 +533,7 @@ const icons={
  park:'<svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M13 23V10h5a4 4 0 010 8h-5"/></svg>'};
 const B=$('#bento');
 DATA.amen.forEach((a,i)=>{const set=DATA.sets[a.key];const el=document.createElement('div');el.className='am rv '+(a.cls||'')+(i?' d'+Math.min(i,3):'');el.tabIndex=0;el.setAttribute('role','button');
-  el.innerHTML=`<img loading="lazy" src="${src(a.hero,1)}" alt="${a.ar}"><div class="in">${icons[a.key]||''}<h4>${a.ar}</h4><span class="trk">${a.en}</span><p>${a.text}</p></div>`;
+  el.innerHTML=`<img loading="lazy" src="${src(a.hero,1)}" alt="${a.ar}"><div class="in">${icons[a.key]||''}<h4>${T(a.ar,a.en)}</h4><span class="trk"><span class="i-ar">${a.en}</span><span class="i-en arsub">${a.ar}</span></span><p>${T(a.text,a.text_en)}</p></div>`;
   el.onclick=()=>LB.open(a.key,0);el.onkeydown=e=>{if(e.key==='Enter')LB.open(a.key,0)};B.appendChild(el)});
 
 /* ---------- build: details ---------- */
@@ -532,17 +544,17 @@ DATA.sets.details.items.forEach((it,i)=>{const f=document.createElement('figure'
 const LB=(()=>{const lb=$('#lb'),img=$('img',lb),cap=$('.cap',lb),cnt=$('.cnt',lb),ttl=$('.ttl',lb),bar=$('.bar2 i',lb);let set=null,i=0,lastFocus=null;
   const show=(dir)=>{const it=set.items[i];img.style.opacity=0;img.style.transform=`translateX(${dir*40}px)`;
     const n=new Image();n.onload=()=>{img.src=n.src;img.style.transition='none';img.style.transform=`translateX(${-dir*40}px)`;requestAnimationFrame(()=>{img.style.transition='';img.style.opacity=1;img.style.transform='none'})};n.src=src(it[0]);
-    img.alt=CAP[it[1]][0];cap.innerHTML=`${CAP[it[1]][0]}<small>${CAP[it[1]][1]}</small>`;cnt.textContent=`${String(i+1).padStart(2,'0')} / ${String(set.items.length).padStart(2,'0')}`;bar.style.width=((i+1)/set.items.length*100)+'%';
+    const l=L();img.alt=CAP[it[1]][l];cap.innerHTML=`${CAP[it[1]][l]}<small${l?' class="arsub" style="display:block;margin-top:4px"':''}>${CAP[it[1]][1-l]}</small>`;cnt.textContent=`${String(i+1).padStart(2,'0')} / ${String(set.items.length).padStart(2,'0')}`;bar.style.width=((i+1)/set.items.length*100)+'%';
     [i+1,i-1].forEach(k=>{const t=set.items[(k+set.items.length)%set.items.length];if(t){const p=new Image();p.src=src(t[0])}})};
   const go=d=>{i=(i+d+set.items.length)%set.items.length;show(d)};
-  function open(key,k){set=DATA.sets[key];i=k||0;ttl.innerHTML=`${set.ar}<small>${set.en}</small>`;lastFocus=document.activeElement;lb.classList.add('open');document.body.classList.add('locked');show(0);$('.x',lb).focus()}
+  function open(key,k){set=DATA.sets[key];i=k||0;{const l=L();ttl.innerHTML=l?`${set.en}<small class="arsub" style="display:block">${set.ar}</small>`:`${set.ar}<small>${set.en}</small>`}lastFocus=document.activeElement;lb.classList.add('open');document.body.classList.add('locked');show(0);$('.x',lb).focus()}
   function close(){lb.classList.remove('open');document.body.classList.remove('locked');lastFocus&&lastFocus.focus&&lastFocus.focus()}
   $('.x',lb).onclick=close;$('.nv.n',lb).onclick=()=>go(1);$('.nv.p',lb).onclick=()=>go(-1);
-  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')go(1);if(e.key==='ArrowRight')go(-1)});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();const r=document.documentElement.dir!=='ltr';if(e.key==='ArrowLeft')go(r?1:-1);if(e.key==='ArrowRight')go(r?-1:1)});
   let sx=0,sy=0,dx=0,tr=false;const st=$('.stage',lb);
   st.addEventListener('pointerdown',e=>{if(e.target.closest('.nv'))return;tr=true;sx=e.clientX;sy=e.clientY;dx=0});
   st.addEventListener('pointermove',e=>{if(!tr)return;dx=e.clientX-sx;img.style.transition='none';img.style.transform=`translateX(${dx}px)`});
-  const end=e=>{if(!tr)return;tr=false;img.style.transition='';if(Math.abs(dx)>50){go(dx>0?1:-1)}else{img.style.transform='none';if(Math.abs(dx)<5&&e.type==='pointerup'&&e.target===st)close()}};
+  const end=e=>{if(!tr)return;tr=false;img.style.transition='';if(Math.abs(dx)>50){const r=document.documentElement.dir!=='ltr';go((dx>0)===r?1:-1)}else{img.style.transform='none';if(Math.abs(dx)<5&&e.type==='pointerup'&&e.target===st)close()}};
   st.addEventListener('pointerup',end);st.addEventListener('pointercancel',end);
   return{open,close}})();
 $$('[data-open]').forEach(b=>b.onclick=e=>{e.stopPropagation();LB.open(b.dataset.open,0)});
@@ -552,12 +564,12 @@ $$('.res-hero').forEach(h=>h.addEventListener('click',e=>{if(e.target.closest('.
 $$('.reel').forEach(rl=>{
   const wrap=rl.parentElement,ui=$('.reel-ui',wrap),bar=$('.track i',ui),cnt=$('.cnt',ui),n=rl.children.length,key=rl.dataset.set;
   const step=()=>rl.children[0].getBoundingClientRect().width+12;
-  const upd=()=>{const max=rl.scrollWidth-rl.clientWidth;const p=max>0?Math.abs(rl.scrollLeft)/max:0;const vis=rl.clientWidth/rl.scrollWidth;bar.style.width=Math.max(8,vis*100)+'%';bar.style.right=(p*(100-Math.max(8,vis*100)))+'%';
+  const upd=()=>{const max=rl.scrollWidth-rl.clientWidth;const p=max>0?Math.abs(rl.scrollLeft)/max:0;const vis=rl.clientWidth/rl.scrollWidth;bar.style.width=Math.max(8,vis*100)+'%';bar.style.insetInlineStart=(p*(100-Math.max(8,vis*100)))+'%';
     const k=Math.min(n,Math.round(Math.abs(rl.scrollLeft)/step())+1);cnt.textContent=`${String(k).padStart(2,'0')} / ${String(n).padStart(2,'0')}`};
   rl.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});upd();addEventListener('resize',upd);
-  const rtl=getComputedStyle(rl).direction==='rtl';
-  $('.nx',ui).onclick=()=>rl.scrollBy({left:(rtl?-1:1)*step()*2,behavior:'smooth'});
-  $('.pv',ui).onclick=()=>rl.scrollBy({left:(rtl?1:-1)*step()*2,behavior:'smooth'});
+  const rtl=()=>getComputedStyle(rl).direction==='rtl';rl._upd=upd;
+  $('.nx',ui).onclick=()=>rl.scrollBy({left:(rtl()?-1:1)*step()*2,behavior:'smooth'});
+  $('.pv',ui).onclick=()=>rl.scrollBy({left:(rtl()?1:-1)*step()*2,behavior:'smooth'});
   let down=false,sx=0,sl=0,moved=0;
   rl.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=0;sx=e.clientX;sl=rl.scrollLeft;rl.classList.add('drag')});
   addEventListener('pointermove',e=>{if(!down)return;const d=e.clientX-sx;moved=Math.max(moved,Math.abs(d));rl.scrollLeft=sl-d});
@@ -601,7 +613,7 @@ $$('.vp').forEach(P=>{
   let cur=name==='film'?'ar':'main',loaded=null,hls=null,hideT=null;
   const conf=v=>name==='film'?(FILMS[v]||null):FILMS.teaser;
   const avail=()=>!!conf(cur);
-  const setOv=()=>{if(!avail()){ov.innerHTML='<span class="soon">يُعرض قريبًا</span><span class="trk">Coming Soon</span>';ov.style.cursor='default'}else if(!ov.querySelector('.ring')){ov.innerHTML=`<span class="ring"><svg viewBox="0 0 18 20"><path d="M0 0l18 10L0 20z"/></svg></span><span class="trk lbl">${name==='film'?'Play Film':'Play Teaser'}</span>`}};
+  const setOv=()=>{if(!avail()){ov.innerHTML='<span class="soon">'+T('يُعرض قريبًا','Coming Soon')+'</span><span class="trk">'+'<span class="i-ar">Coming Soon</span><span class="i-en arsub">يُعرض قريبًا</span>'+'</span>';ov.style.cursor='default'}else if(!ov.querySelector('.ring')){ov.innerHTML=`<span class="ring"><svg viewBox="0 0 18 20"><path d="M0 0l18 10L0 20z"/></svg></span><span class="trk lbl">${name==='film'?'Play Film':'Play Teaser'}</span>`}};
   setOv();
   const state=s=>P.dataset.state=s;
   function load(t,auto){const c=conf(cur);if(!c)return;loaded=cur;P.classList.add('loading');if(hls){hls.destroy();hls=null}
@@ -637,13 +649,22 @@ $$('.vp').forEach(P=>{
 });
 
 
+
+/* ---------- language ---------- */
+const TITLES={ar:'DARI ELITE — داري إيليت | عرض بصري خاص من رمز الأصالة العقارية',en:'DARI ELITE — A Private Visual Presentation by Ramz Al-Asala Real Estate'};
+function setLang(l,save){const h=document.documentElement;h.lang=l;h.dir=l==='ar'?'rtl':'ltr';document.title=TITLES[l];
+  if(save){try{localStorage.setItem('de-lang',l)}catch(e){}}
+  $$('.reel').forEach(r=>{r.scrollLeft=0;r._upd&&r._upd()});onScroll()}
+$('#lng').addEventListener('click',()=>setLang(document.documentElement.lang==='ar'?'en':'ar',true));
+{let l=null;const q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='ar')l=q;else{try{l=localStorage.getItem('de-lang')}catch(e){}}if(l&&l!=='ar')setLang(l,false)}
+
 /* ---------- background music ---------- */
 const BGM=(()=>{const btn=$('#snd');if(!MUSIC||!MUSIC.src)return{duck(){},unduck(){}};
   btn.classList.add('ready');$('#introHint')&&($('#introHint').hidden=false);
   const A=new Audio();A.src=MUSIC.src;A.loop=true;A.preload='auto';A.crossOrigin='anonymous';
   let want=true;try{const s=sessionStorage.getItem('de-music');if(s==='0')want=false}catch(e){}
   let ctx=null,gain=null,ducked=0,raf=0;const VOL=MUSIC.vol||.35;
-  const setUI=()=>{const on=want&&!A.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',String(want));$('.lb',btn).textContent=want?'الموسيقى':'بدون موسيقى'};
+  const setUI=()=>{const on=want&&!A.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',String(want));$('.lb',btn).innerHTML=want?T('الموسيقى','Music'):T('بدون موسيقى','Music off')};
   function ensure(){if(ctx)return;try{const AC=window.AudioContext||window.webkitAudioContext;ctx=new AC();const src=ctx.createMediaElementSource(A);gain=ctx.createGain();gain.gain.value=0;src.connect(gain);gain.connect(ctx.destination)}catch(e){ctx=null}}
   function fade(to,ms,done){if(gain&&ctx){const g=gain.gain,now=ctx.currentTime;g.cancelScheduledValues(now);g.setValueAtTime(g.value,now);g.linearRampToValueAtTime(to,now+ms/1000);clearTimeout(raf);raf=setTimeout(()=>done&&done(),ms+30)}else{A.volume=to;done&&done()}}
   function start(){if(!want||ducked||document.hidden)return;ensure();if(ctx&&ctx.state==='suspended')ctx.resume();const p=A.play();if(p&&p.catch)p.catch(()=>{});fade(VOL,1800);setTimeout(setUI,60)}
