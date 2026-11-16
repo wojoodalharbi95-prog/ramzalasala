@@ -319,6 +319,11 @@ section{position:relative}
 @keyframes eq{0%,100%{height:3px}50%{height:13px}}
 @media(min-width:960px){.snd{bottom:28px;left:28px}}
 #intro .t3{font-family:var(--fh);font-size:11px;color:var(--gold-lt);letter-spacing:.2em;margin-top:26px;opacity:0;animation:fade .9s 1.6s forwards}
+#intro .t3 .i-ar{letter-spacing:0}
+#intro.gate{cursor:pointer}
+#intro.gate .t3{display:inline-block;margin-top:30px;padding:11px 24px;border:1px solid rgba(200,164,106,.5);border-radius:40px;font-size:12px;background:rgba(200,164,106,.06);animation:fade .9s 1.1s forwards,breathe 2.6s 2.2s ease-in-out infinite}
+#intro.gate:focus{outline:none}#intro.gate:focus-visible .t3{border-color:var(--gold-lt)}
+@keyframes breathe{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(200,164,106,0)}50%{opacity:.62;box-shadow:0 0 22px 0 rgba(200,164,106,.18)}}
 
 html[lang="ar"] .i-en,html[lang="en"] .i-ar{display:none!important}
 .arsub{letter-spacing:0!important;text-transform:none!important;font-family:var(--fb)!important;font-size:12.5px!important;direction:rtl;unicode-bidi:isolate}
@@ -659,32 +664,56 @@ $('#lng').addEventListener('click',()=>setLang(document.documentElement.lang==='
 {let l=null;const q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='ar')l=q;else{try{l=localStorage.getItem('de-lang')}catch(e){}}if(l&&l!=='ar')setLang(l,false)}
 
 /* ---------- background music ---------- */
-const BGM=(()=>{const btn=$('#snd');if(!MUSIC||!MUSIC.src)return{duck(){},unduck(){}};
-  btn.classList.add('ready');$('#introHint')&&($('#introHint').hidden=false);
+const BGM=(()=>{const btn=$('#snd');const NIL={duck(){},unduck(){},probe:()=>Promise.resolve(false),auto(){},wants:()=>false};if(!MUSIC||!MUSIC.src)return NIL;
+  btn.classList.add('ready');
   const A=new Audio();A.src=MUSIC.src;A.loop=true;A.preload='auto';A.crossOrigin='anonymous';
-  let want=true;try{const s=sessionStorage.getItem('de-music');if(s==='0')want=false}catch(e){}
-  let ctx=null,gain=null,ducked=0,raf=0;const VOL=MUSIC.vol||.35;
+  let want=true;try{if(sessionStorage.getItem('de-music')==='0')want=false}catch(e){}
+  let ctx=null,gain=null,mode='',ducked=0,tm=0,iv=0;const VOL=MUSIC.vol||.35;
   const setUI=()=>{const on=want&&!A.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',String(want));$('.lb',btn).innerHTML=want?T('الموسيقى','Music'):T('بدون موسيقى','Music off')};
-  function ensure(){if(ctx)return;try{const AC=window.AudioContext||window.webkitAudioContext;ctx=new AC();const src=ctx.createMediaElementSource(A);gain=ctx.createGain();gain.gain.value=0;src.connect(gain);gain.connect(ctx.destination)}catch(e){ctx=null}}
-  function fade(to,ms,done){if(gain&&ctx){const g=gain.gain,now=ctx.currentTime;g.cancelScheduledValues(now);g.setValueAtTime(g.value,now);g.linearRampToValueAtTime(to,now+ms/1000);clearTimeout(raf);raf=setTimeout(()=>done&&done(),ms+30)}else{A.volume=to;done&&done()}}
-  function start(){if(!want||ducked||document.hidden)return;ensure();if(ctx&&ctx.state==='suspended')ctx.resume();const p=A.play();if(p&&p.catch)p.catch(()=>{});fade(VOL,1800);setTimeout(setUI,60)}
+  function wire(c){ctx=c;const src=ctx.createMediaElementSource(A);gain=ctx.createGain();gain.gain.value=0;src.connect(gain);gain.connect(ctx.destination);mode='ctx'}
+  function ensure(){if(mode)return;try{const AC=window.AudioContext||window.webkitAudioContext;wire(new AC())}catch(e){ctx=null;gain=null;mode='el'}}
+  function fade(to,ms,done){clearTimeout(tm);clearInterval(iv);
+    if(gain&&ctx){const g=gain.gain,now=ctx.currentTime;g.cancelScheduledValues(now);g.setValueAtTime(g.value,now);g.linearRampToValueAtTime(to,now+ms/1000);tm=setTimeout(()=>done&&done(),ms+30)}
+    else{const v0=A.volume,t0=Date.now();iv=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);try{A.volume=v0+(to-v0)*k}catch(e){}if(k>=1){clearInterval(iv);done&&done()}},40)}}
+  function start(){if(!want||ducked||document.hidden)return;ensure();if(ctx&&ctx.state==='suspended')ctx.resume().catch(()=>{});if(mode==='el'&&A.paused){try{A.volume=0}catch(e){}}const p=A.play();if(p&&p.catch)p.catch(()=>{});fade(VOL,1800);setTimeout(setUI,60)}
   function stop(){fade(0,700,()=>{A.pause();setUI()})}
   A.addEventListener('play',setUI);A.addEventListener('pause',setUI);
-  const first=()=>{start();['pointerdown','keydown','touchend'].forEach(ev=>removeEventListener(ev,first,true))};
-  ['pointerdown','keydown','touchend'].forEach(ev=>addEventListener(ev,first,true));
+  /* first real gesture starts it (kept until playback actually begins) */
+  const EV=['pointerdown','pointerup','touchend','click','keydown'];
+  const kick=e=>{const tg=e&&e.target;if(tg&&tg.closest&&tg.closest('#snd,.vp'))return;if(want&&A.paused&&!ducked)start()};
+  EV.forEach(ev=>addEventListener(ev,kick,true));
+  A.addEventListener('playing',()=>EV.forEach(ev=>removeEventListener(ev,kick,true)),{once:true});
   btn.addEventListener('click',e=>{e.stopPropagation();want=!want;try{sessionStorage.setItem('de-music',want?'1':'0')}catch(_){}want?start():stop();setUI()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(!A.paused)fade(0,300,()=>A.pause())}else start()});
   setUI();
-  return{duck(){ducked++;if(!A.paused)stop()},unduck(){ducked=Math.max(0,ducked-1);if(!ducked)setTimeout(start,400)}};
+  /* can this browser play sound right now, without a tap? */
+  function probe(){if(!want)return Promise.resolve(false);return new Promise(res=>{let d=false;const fin=v=>{if(!d){d=true;res(v)}};
+    try{const s=new Audio('data:audio/wav;base64,UklGRkQDAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YSADAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==');const p=s.play();if(p&&p.then)p.then(()=>{s.pause();fin(true)},()=>fin(false));else fin(!s.paused)}catch(e){fin(false)}setTimeout(()=>fin(false),450)})}
+  function auto(){if(!mode){try{const AC=window.AudioContext||window.webkitAudioContext;const c=new AC();if(c.state==='running')wire(c);else{c.close&&c.close();mode='el'}}catch(e){mode='el'}}start()}
+  return{duck(){ducked++;if(!A.paused)stop()},unduck(){ducked=Math.max(0,ducked-1);if(!ducked)setTimeout(start,400)},probe,auto,wants:()=>want};
 })();
 $$('.vp video').forEach(v=>{let on=false;v.addEventListener('play',()=>{if(!on){on=true;BGM.duck()}});const off=()=>{if(on){on=false;BGM.unduck()}};v.addEventListener('pause',off);v.addEventListener('ended',off)});
 
-/* ---------- intro ---------- */
-const intro=$('#intro');
-const finish=()=>{intro.classList.add('go');document.body.classList.remove('locked');setTimeout(()=>intro.classList.add('done'),1400);$$('.hero .rv').forEach(el=>el.classList.add('in'))};
-let seen=false;try{seen=!!sessionStorage.getItem('de-intro')}catch(e){}
-if(RM||seen){intro.classList.add('done');document.body.classList.remove('locked');$$('.hero .rv').forEach(el=>el.classList.add('in'))}
-else{try{sessionStorage.setItem('de-intro','1')}catch(e){}const t=setTimeout(finish,2500);intro.addEventListener('click',()=>{clearTimeout(t);finish()},{once:true})}
+/* ---------- intro (music starts with the opening) ---------- */
+const intro=$('#intro');let seen=false;try{seen=!!sessionStorage.getItem('de-intro')}catch(e){}
+try{sessionStorage.setItem('de-intro','1')}catch(e){}
+let gone=false,it=0;
+const reveal=()=>{document.body.classList.remove('locked');$$('.hero .rv').forEach(el=>el.classList.add('in'))};
+const finish=()=>{if(gone)return;gone=true;clearTimeout(it);intro.classList.add('go');reveal();setTimeout(()=>intro.classList.add('done'),1400)};
+const skip=()=>{gone=true;intro.classList.add('done');reveal()};
+if(RM){skip();BGM.probe().then(ok=>{if(ok)BGM.auto()})}
+else{
+  intro.addEventListener('click',finish);
+  intro.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();finish()}});
+  BGM.probe().then(ok=>{
+    if(ok){BGM.auto();if(seen)finish();else it=setTimeout(finish,2400)}
+    else if(BGM.wants()){/* browser needs one tap for sound: hold the curtain as an entrance */
+      intro.classList.add('gate');const h=$('#introHint');h&&(h.hidden=false);
+      intro.removeAttribute('aria-hidden');intro.setAttribute('role','button');intro.tabIndex=0;intro.setAttribute('aria-label',T('اضغط للدخول','Tap to enter'));
+      try{intro.focus({preventScroll:true})}catch(e){}}
+    else{if(seen)skip();else it=setTimeout(finish,2400)}
+  });
+}
 })();
 </script>
 </body>
