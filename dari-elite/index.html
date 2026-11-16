@@ -307,6 +307,18 @@ section{position:relative}
 #lb .bar2{height:1px;background:var(--line2);margin:0 16px;position:relative}
 #lb .bar2 i{position:absolute;top:0;right:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
 
+
+/* ---------- sound toggle ---------- */
+.snd{position:fixed;z-index:61;left:max(16px,env(safe-area-inset-left));bottom:calc(82px + env(safe-area-inset-bottom));display:none;align-items:center;gap:9px;padding:9px 14px 9px 12px;border:1px solid var(--line);border-radius:30px;background:rgba(17,13,9,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-family:var(--fh);font-size:11px;color:var(--mute);transition:opacity .5s,border-color .3s}
+.snd.ready{display:flex}
+.snd .eq{display:flex;align-items:flex-end;gap:2px;height:13px;direction:ltr}
+.snd .eq i{width:2px;height:3px;background:var(--gold);border-radius:1px}
+.snd.on{border-color:rgba(200,164,106,.6);color:var(--gold-lt)}
+.snd.on .eq i{animation:eq 1.1s ease-in-out infinite}
+.snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.45s}.snd.on .eq i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:3px}50%{height:13px}}
+@media(min-width:960px){.snd{bottom:28px;left:28px}}
+#intro .t3{font-family:var(--fh);font-size:11px;color:var(--gold-lt);letter-spacing:.2em;margin-top:26px;opacity:0;animation:fade .9s 1.6s forwards}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#intro{display:none}}
 </style>
 </head>
@@ -315,7 +327,7 @@ section{position:relative}
 
 <div id="intro" aria-hidden="true">
   <span class="pn r"></span><span class="pn l"></span>
-  <div class="ic"><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2">داري إيليت · عرض بصري خاص</div></div>
+  <div class="ic"><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2">داري إيليت · عرض بصري خاص</div><div class="t3" id="introHint" hidden>اضغط للدخول ♪</div></div>
 </div>
 
 <header class="bar" id="bar">
@@ -459,6 +471,8 @@ section{position:relative}
   <div class="foot trk"><span>Private Presentation · 2026</span><a href="#top">Back to Top ↑</a></div>
 </footer>
 
+<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="تشغيل / إيقاف الموسيقى"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="lb">الموسيقى</span></button>
+
 <!-- LIGHTBOX -->
 <div id="lb" role="dialog" aria-modal="true" aria-label="معرض الصور">
   <div class="top"><button class="x" aria-label="إغلاق"><svg viewBox="0 0 14 14"><path d="M1 1l12 12M13 1L1 13"/></svg></button><div class="cnt"></div><div class="ttl"></div></div>
@@ -470,6 +484,7 @@ section{position:relative}
 const DATA={"cap":{"living":["الصالة","Living"],"dining":["غرفة الطعام","Dining"],"kitchen":["المطبخ","Kitchen"],"bed":["غرفة النوم","Bedroom"],"bath":["دورة المياه","Bathroom"],"coffee":["ركن القهوة","Coffee Corner"],"detail":["تفاصيل","Detail"],"light":["الإضاءة","Lighting"],"outdoor":["الجلسة الخارجية","Outdoor Lounge"],"majlis":["المجلس","The Majlis"],"wgym":["نادي السيدات","Women’s Club"],"mgym":["نادي الرجال","Men’s Club"],"gym":["النادي الرياضي","Fitness Club"],"park":["المواقف","Parking"],"brand":["هوية داري","Dari Identity"],"facade":["الواجهة الليلية","Night Façade"],"lobby":["المدخل","The Lobby"]},"sets":{"project":{"ar":"المشروع","en":"The Project","items":[["m:facade3","facade"],["m:sign","brand"],["02486","brand"],["02480","brand"],["02591","brand"],["m:lobby","lobby"],["m:facade2","facade"]]},"r1":{"ar":"النموذج الأول","en":"Residence I","items":[["02600","living"],["02594","living"],["02603","light"],["02507","living"],["02513","dining"],["02531","dining"],["02585","dining"],["02516","kitchen"],["02519","kitchen"],["02522","kitchen"],["02525","kitchen"],["02528","kitchen"],["02492","coffee"],["02495","coffee"],["02498","coffee"],["02501","coffee"],["02573","coffee"],["02579","coffee"],["02534","bed"],["02546","bed"],["02540","detail"],["02570","bath"],["02609","bath"],["02462","light"],["02459","light"],["02456","detail"],["02468","detail"],["02474","detail"],["02555","detail"],["02558","detail"],["02576","detail"]]},"r2":{"ar":"النموذج الثاني","en":"Residence II","items":[["02741","dining"],["02738","dining"],["02744","dining"],["02747","dining"],["02660","living"],["02657","living"],["02687","living"],["02690","living"],["02693","living"],["02696","living"],["02726","living"],["02729","living"],["02732","living"],["02621","living"],["02642","living"],["02645","living"],["02627","living"],["02639","light"],["02648","kitchen"],["02651","kitchen"],["02654","kitchen"],["02666","bed"],["02672","bed"],["02675","bed"],["02678","bed"],["02663","bath"],["02684","bath"],["02681","detail"],["02714","detail"],["02750","detail"],["02735","detail"],["02630","detail"],["02633","detail"],["02636","detail"],["02612","detail"]]},"r3":{"ar":"النموذج الثالث","en":"Residence III","items":[["02831","living"],["02828","living"],["02834","living"],["02843","living"],["02870","living"],["02876","living"],["02879","living"],["02882","living"],["02867","dining"],["02921","dining"],["02924","dining"],["02897","kitchen"],["02852","kitchen"],["02888","coffee"],["02903","outdoor"],["02909","outdoor"],["02900","outdoor"],["02915","outdoor"],["02918","outdoor"],["02849","detail"],["02861","detail"],["02864","detail"],["02885","detail"],["02894","detail"]]},"majlis":{"ar":"المجلس","en":"The Majlis","items":[["02774","majlis"],["02768","majlis"],["02777","majlis"],["02780","majlis"],["02753","majlis"],["02756","majlis"],["02759","majlis"],["02822","majlis"]]},"wgym":{"ar":"نادي السيدات","en":"Women’s Club","items":[["02795","wgym"],["02789","gym"],["02792","gym"],["02783","gym"],["02786","gym"]]},"mgym":{"ar":"نادي الرجال","en":"Men’s Club","items":[["02816","mgym"],["02804","gym"],["02801","gym"],["02813","mgym"]]},"park":{"ar":"المواقف","en":"Parking","items":[["m:parking","park"],["02798","park"]]},"details":{"ar":"التفاصيل","en":"The Details","items":[["02462","light"],["02468","detail"],["02456","detail"],["02546","detail"],["02639","light"],["02885","detail"],["02516","detail"],["02750","detail"],["02474","detail"],["02852","detail"],["02609","detail"],["02801","detail"],["02630","detail"],["02861","detail"]]}},"res":[{"key":"r1","num":"I","ar":"النموذج الأول","hero":"02600","mood":"دفء الخشب ونقاء الرخام","text":"خشب طبيعي، ورخام فاتح، وإضاءة مخفية ترسم خطوط المكان. صالة رحبة، ومطبخ متكامل، وركن قهوة أنيق."},{"key":"r2","num":"II","ar":"النموذج الثاني","hero":"02741","mood":"هدوء الرمادي الأزرق","text":"مقاعد بالرمادي الأزرق، ولوحات فنية ناعمة، وثريا كريستالية فوق طاولة الطعام. تصميم يجمع الراحة بالأناقة."},{"key":"r3","num":"III","ar":"النموذج الثالث","hero":"02831","mood":"مساحة مفتوحة وجلسة خضراء","text":"صالة مفتوحة على المطبخ وغرفة الطعام، بلمسات برتقالية دافئة وإنارة من الخيزران، وجلسة خارجية خضراء."}],"amen":[{"key":"majlis","ar":"المجلس","en":"The Majlis","hero":"02774","cls":"big","text":"مجلس واسع لمناسبات السكان الكبيرة."},{"key":"wgym","ar":"نادي السيدات","en":"Women’s Club","hero":"02789","text":"نادٍ رياضي خاص بالسيدات، بأجهزة متكاملة."},{"key":"mgym","ar":"نادي الرجال","en":"Men’s Club","hero":"02804","text":"نادٍ رياضي مجهّز للرجال."},{"key":"park","ar":"المواقف","en":"Parking","hero":"m:parking","cls":"wide","text":"مواقف للسيارات في الطابق السفلي."}]};
 /* FILMS: fill when ready. type: 'mp4' or 'hls' */
 const FILMS={"teaser": {"type": "hls", "src": "video/teaser-b/master.m3u8", "poster": "video/teaser-b/poster.jpg", "dur": "01:03"}, "ar": null, "en": null};
+const MUSIC=null;
 </script>
 <script>
 (()=>{
@@ -620,6 +635,28 @@ $$('.vp').forEach(P=>{
       if(!avail()){V.pause();state('idle');ov.classList.remove('hid');return}
       if(loaded)load(t,was)}))}
 });
+
+
+/* ---------- background music ---------- */
+const BGM=(()=>{const btn=$('#snd');if(!MUSIC||!MUSIC.src)return{duck(){},unduck(){}};
+  btn.classList.add('ready');$('#introHint')&&($('#introHint').hidden=false);
+  const A=new Audio();A.src=MUSIC.src;A.loop=true;A.preload='auto';A.crossOrigin='anonymous';
+  let want=true;try{const s=sessionStorage.getItem('de-music');if(s==='0')want=false}catch(e){}
+  let ctx=null,gain=null,ducked=0,raf=0;const VOL=MUSIC.vol||.35;
+  const setUI=()=>{const on=want&&!A.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',String(want));$('.lb',btn).textContent=want?'الموسيقى':'بدون موسيقى'};
+  function ensure(){if(ctx)return;try{const AC=window.AudioContext||window.webkitAudioContext;ctx=new AC();const src=ctx.createMediaElementSource(A);gain=ctx.createGain();gain.gain.value=0;src.connect(gain);gain.connect(ctx.destination)}catch(e){ctx=null}}
+  function fade(to,ms,done){if(gain&&ctx){const g=gain.gain,now=ctx.currentTime;g.cancelScheduledValues(now);g.setValueAtTime(g.value,now);g.linearRampToValueAtTime(to,now+ms/1000);clearTimeout(raf);raf=setTimeout(()=>done&&done(),ms+30)}else{A.volume=to;done&&done()}}
+  function start(){if(!want||ducked||document.hidden)return;ensure();if(ctx&&ctx.state==='suspended')ctx.resume();const p=A.play();if(p&&p.catch)p.catch(()=>{});fade(VOL,1800);setTimeout(setUI,60)}
+  function stop(){fade(0,700,()=>{A.pause();setUI()})}
+  A.addEventListener('play',setUI);A.addEventListener('pause',setUI);
+  const first=()=>{start();['pointerdown','keydown','touchend'].forEach(ev=>removeEventListener(ev,first,true))};
+  ['pointerdown','keydown','touchend'].forEach(ev=>addEventListener(ev,first,true));
+  btn.addEventListener('click',e=>{e.stopPropagation();want=!want;try{sessionStorage.setItem('de-music',want?'1':'0')}catch(_){}want?start():stop();setUI()});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(!A.paused)fade(0,300,()=>A.pause())}else start()});
+  setUI();
+  return{duck(){ducked++;if(!A.paused)stop()},unduck(){ducked=Math.max(0,ducked-1);if(!ducked)setTimeout(start,400)}};
+})();
+$$('.vp video').forEach(v=>{let on=false;v.addEventListener('play',()=>{if(!on){on=true;BGM.duck()}});const off=()=>{if(on){on=false;BGM.unduck()}};v.addEventListener('pause',off);v.addEventListener('ended',off)});
 
 /* ---------- intro ---------- */
 const intro=$('#intro');
