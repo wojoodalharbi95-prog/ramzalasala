@@ -50,6 +50,15 @@ a{color:inherit;text-decoration:none}
 #intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;pointer-events:auto}
 #intro .pn{position:absolute;top:0;bottom:0;width:50.5%;background:var(--noir);transition:transform 1.3s var(--ease)}
 #intro .pn.r{right:0}#intro .pn.l{left:0}
+#intro .pn{overflow:hidden}
+#intro .pn::before{content:"";position:absolute;top:0;bottom:0;width:100vw;background:radial-gradient(ellipse 70% 42% at 50% 47%,rgba(200,164,106,.16),rgba(200,164,106,.05) 48%,transparent 78%)}
+#intro .pn.l::before{left:0}#intro .pn.r::before{right:0}
+#intro .fr{position:absolute;inset:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));border:1px solid rgba(200,164,106,.2);opacity:0;animation:fade 1.4s .3s forwards;transition:opacity .5s;pointer-events:none}
+#intro .fr::before,#intro .fr::after{content:"";position:absolute;width:26px;height:26px;border:1px solid rgba(235,213,166,.65)}
+#intro .fr::before{top:-1px;left:-1px;border-right:0;border-bottom:0}#intro .fr::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+#intro.go .fr{opacity:0!important;animation:none}
+#intro .dm{display:block;width:clamp(66px,18vw,92px);height:auto;margin:0 auto 26px;opacity:0;filter:drop-shadow(0 0 18px rgba(200,164,106,.28));animation:mk 1.5s .1s var(--ease) forwards}
+@keyframes mk{from{opacity:0;transform:translateY(10px) scale(.94);filter:blur(6px) drop-shadow(0 0 0 rgba(200,164,106,0))}to{opacity:1;transform:none;filter:blur(0) drop-shadow(0 0 18px rgba(200,164,106,.28))}}
 #intro .ic{position:relative;text-align:center;transition:opacity .6s ease,transform 1.2s var(--ease)}
 #intro .ln{display:block;height:1px;width:0;margin:0 auto 26px;background:var(--gold-grad);animation:ln 1.1s .2s var(--ease) forwards}
 @keyframes ln{to{width:min(240px,50vw)}}
@@ -78,7 +87,7 @@ a{color:inherit;text-decoration:none}
 @media(min-width:960px){.nav{display:flex}}
 
 /* ---------- dock (mobile nav) ---------- */
-.dock{position:fixed;z-index:60;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 54px);left:50%;transform:translate(-50%,160%);display:flex;gap:2px;padding:6px;border:1px solid var(--line);border-radius:40px;background:rgba(17,13,9,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .7s var(--ease);max-width:calc(100vw - 24px)}
+.dock{position:fixed;z-index:60;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translate(-50%,160%);display:flex;gap:2px;padding:6px;border:1px solid var(--line);border-radius:40px;background:rgba(17,13,9,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .7s var(--ease);max-width:calc(100vw - 24px)}
 .dock.show{transform:translate(-50%,0)}
 .dock a{font-family:var(--fh);font-size:12px;padding:8px 12px;border-radius:30px;color:var(--mute);white-space:nowrap;transition:background .35s,color .35s}
 .dock a.on{background:var(--gold);color:var(--noir);font-weight:700}
@@ -317,6 +326,7 @@ section{position:relative}
 .snd.on .eq i{animation:eq 1.1s ease-in-out infinite}
 .snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.45s}.snd.on .eq i:nth-child(4){animation-delay:.1s}
 @keyframes eq{0%,100%{height:3px}50%{height:13px}}
+@media(max-width:959px){.snd{width:44px;height:44px;padding:0;justify-content:center;border-radius:50%;transition:bottom .7s var(--ease),opacity .5s,border-color .3s}.snd .lb{display:none}body.dockon .snd{bottom:calc(max(12px,env(safe-area-inset-bottom)) + 64px)}}
 @media(min-width:960px){.snd{bottom:28px;left:28px}}
 #intro .t3{font-family:var(--fh);font-size:11px;color:var(--gold-lt);letter-spacing:.2em;margin-top:26px;opacity:0;animation:fade .9s 1.6s forwards}
 #intro .t3 .i-ar{letter-spacing:0}
@@ -341,7 +351,8 @@ html[lang="en"] .h-lat{padding-left:.2em}
 
 <div id="intro" aria-hidden="true">
   <span class="pn r"></span><span class="pn l"></span>
-  <div class="ic"><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2"><span class="i-ar">داري إيليت · عرض بصري خاص</span><span class="i-en">Dari Elite · A Private Presentation</span></div><div class="t3" id="introHint" hidden><span class="i-ar">اضغط للدخول ♪</span><span class="i-en">Tap to enter ♪</span></div></div>
+  <span class="fr" aria-hidden="true"></span>
+  <div class="ic"><svg class="dm" viewBox="0 0 836 1000" role="img" aria-label="داري للتطوير العقاري"><defs><linearGradient id="dg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="836" y2="1000"><stop offset="0" stop-color="#9a7745"/><stop offset=".42" stop-color="#f0dcae"/><stop offset=".62" stop-color="#cfae74"/><stop offset="1" stop-color="#8a693a"/></linearGradient></defs><g fill="url(#dg)"><path fill-rule="evenodd" d="M0,0H336A500,500 0 0 1 336,1000H0Z M75,75H336A425,425 0 0 1 336,925H75Z"/><path d="M87,70V477.5A37.5,37.5 0 0 0 162,477.5V70Z"/><path d="M174,70V324.5A37.5,37.5 0 0 0 249,324.5V70Z"/><rect x="261" y="70" width="75" height="860"/><circle cx="592" cy="490" r="37.5"/></g><path d="M70,736H392A200,200 0 0 0 592,536V490" fill="none" stroke="url(#dg)" stroke-width="75"/></svg><span class="ln"></span><div class="t1 gold-t">DARI ELITE</div><div class="t2"><span class="i-ar">داري للتطوير العقاري · عرض بصري خاص</span><span class="i-en">Dari Elite · A Private Presentation</span></div><div class="t3" id="introHint" hidden><span class="i-ar">اضغط للدخول ♪</span><span class="i-en">Tap to enter ♪</span></div></div>
 </div>
 
 <header class="bar" id="bar">
@@ -598,7 +609,7 @@ const phs=$$('.res-hero .ph');let lastY=0,tick=false;
 function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
   prog.style.width=(y/h*100)+'%';bar.classList.toggle('solid',y>60);
   bar.classList.toggle('hide',y>lastY&&y>heroH()&&!$('#lb').classList.contains('open'));
-  dock.classList.toggle('show',y>heroH()&&y<h-innerHeight*.6);
+  {const ds=y>heroH()&&y<h-innerHeight*.6;dock.classList.toggle('show',ds);document.body.classList.toggle('dockon',ds&&innerWidth<960)}
   let cur='';secs.forEach(s=>{if(s&&s.getBoundingClientRect().top<innerHeight*.45)cur=s.id});
   $$('.nav a,.dock a').forEach(a=>a.classList.toggle('on',a.dataset.s===cur));
   if(!RM)phs.forEach(p=>{const r=p.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const k=(r.top+r.height/2-innerHeight/2)/innerHeight;p.style.transform=`translate3d(0,${k*-9}%,0) scale(1.04)`});
@@ -669,20 +680,28 @@ const BGM=(()=>{const btn=$('#snd');const NIL={duck(){},unduck(){},probe:()=>Pro
   const A=new Audio();A.src=MUSIC.src;A.loop=true;A.preload='auto';A.crossOrigin='anonymous';
   let want=true;try{if(sessionStorage.getItem('de-music')==='0')want=false}catch(e){}
   let ctx=null,gain=null,mode='',ducked=0,tm=0,iv=0;const VOL=MUSIC.vol||.35;
+  const IOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const VRO=(()=>{try{const x=new Audio();x.volume=.5;return Math.abs(x.volume-.5)>.01}catch(e){return true}})();
+  if(IOS)mode='el';
   const setUI=()=>{const on=want&&!A.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',String(want));$('.lb',btn).innerHTML=want?T('الموسيقى','Music'):T('بدون موسيقى','Music off')};
   function wire(c){ctx=c;const src=ctx.createMediaElementSource(A);gain=ctx.createGain();gain.gain.value=0;src.connect(gain);gain.connect(ctx.destination);mode='ctx'}
   function ensure(){if(mode)return;try{const AC=window.AudioContext||window.webkitAudioContext;wire(new AC())}catch(e){ctx=null;gain=null;mode='el'}}
   function fade(to,ms,done){clearTimeout(tm);clearInterval(iv);
     if(gain&&ctx){const g=gain.gain,now=ctx.currentTime;g.cancelScheduledValues(now);g.setValueAtTime(g.value,now);g.linearRampToValueAtTime(to,now+ms/1000);tm=setTimeout(()=>done&&done(),ms+30)}
+    else if(VRO){done&&done()}
     else{const v0=A.volume,t0=Date.now();iv=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);try{A.volume=v0+(to-v0)*k}catch(e){}if(k>=1){clearInterval(iv);done&&done()}},40)}}
   function start(){if(!want||ducked||document.hidden)return;ensure();if(ctx&&ctx.state==='suspended')ctx.resume().catch(()=>{});if(mode==='el'&&A.paused){try{A.volume=0}catch(e){}}const p=A.play();if(p&&p.catch)p.catch(()=>{});fade(VOL,1800);setTimeout(setUI,60)}
   function stop(){fade(0,700,()=>{A.pause();setUI()})}
   A.addEventListener('play',setUI);A.addEventListener('pause',setUI);
   /* first real gesture starts it (kept until playback actually begins) */
   const EV=['pointerdown','pointerup','touchend','click','keydown'];
-  const kick=e=>{const tg=e&&e.target;if(tg&&tg.closest&&tg.closest('#snd,.vp'))return;if(want&&A.paused&&!ducked)start()};
+  const live=()=>!A.paused&&(mode==='el'||(ctx&&ctx.state==='running'));
+  const unkick=()=>EV.forEach(ev=>removeEventListener(ev,kick,true));
+  const kick=e=>{const tg=e&&e.target;if(tg&&tg.closest&&tg.closest('#snd,.vp'))return;if(!want||ducked)return;
+    if(ctx&&ctx.state!=='running')ctx.resume().catch(()=>{});
+    if(A.paused)start();if(live())unkick()};
   EV.forEach(ev=>addEventListener(ev,kick,true));
-  A.addEventListener('playing',()=>EV.forEach(ev=>removeEventListener(ev,kick,true)),{once:true});
+  A.addEventListener('playing',()=>{if(live())unkick()});
   btn.addEventListener('click',e=>{e.stopPropagation();want=!want;try{sessionStorage.setItem('de-music',want?'1':'0')}catch(_){}want?start():stop();setUI()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(!A.paused)fade(0,300,()=>A.pause())}else start()});
   setUI();
